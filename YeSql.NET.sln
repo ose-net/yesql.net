@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YeSql.Net.Console", "sample
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YeSql.Net.AspNetCore", "samples\YeSql.Net.AspNetCore\YeSql.Net.AspNetCore.csproj", "{0A6D1D79-DAF7-4D59-B359-11E8410BFAFD}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YeSql.Net.Tests", "tests\YeSql.Net.Tests.csproj", "{FD0B2217-1B24-4E6F-B3FF-1318970511A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0A6D1D79-DAF7-4D59-B359-11E8410BFAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A6D1D79-DAF7-4D59-B359-11E8410BFAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A6D1D79-DAF7-4D59-B359-11E8410BFAFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD0B2217-1B24-4E6F-B3FF-1318970511A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD0B2217-1B24-4E6F-B3FF-1318970511A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD0B2217-1B24-4E6F-B3FF-1318970511A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD0B2217-1B24-4E6F-B3FF-1318970511A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
