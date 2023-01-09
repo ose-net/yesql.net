@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YeSql.Net.Exceptions;
+namespace YeSql.Net;
 
 public class YeSqlParserException : Exception
 {
