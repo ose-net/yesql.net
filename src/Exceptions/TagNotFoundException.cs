@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace YeSql.Net
-{
-    public class TagNotFoundException : Exception
-    {
-        public TagNotFoundException() : base(ExceptionMessages.TagNotFoundMessage) { }
+namespace YeSql.Net;
 
-        public TagNotFoundException(string message) : base(message) { }
-    }
+public class TagNotFoundException : Exception
+{
+    public TagNotFoundException() : base(ExceptionMessages.TagNotFoundDefaultMessage) { }
+
+    public TagNotFoundException(string message) : base(message) { }
 }
