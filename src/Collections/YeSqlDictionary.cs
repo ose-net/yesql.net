@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 namespace YeSql.Net;
 
@@ -52,4 +53,16 @@ internal class YeSqlDictionary : IYeSqlCollection
     /// <inheritdoc cref="GetEnumerator" />
     IEnumerator IEnumerable.GetEnumerator()
         => this.GetEnumerator();
+
+    /// <summary>
+    /// Converts the <see cref="IYeSqlCollection" /> instance to a <see cref="string" /> object.
+    /// </summary>
+    /// <returns>A string that represents the current object of type <see cref="IYeSqlCollection" />.</returns>
+    public override string ToString()
+    {
+        var sb = new StringBuilder();
+        foreach (var tagModel in this)
+            sb.Append(tagModel.ToString());
+        return sb.ToString();
+    }
 }
