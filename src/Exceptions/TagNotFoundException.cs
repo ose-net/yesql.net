@@ -8,12 +8,12 @@ namespace YeSql.Net;
 public class TagNotFoundException : Exception
 {
     /// <summary>
-    /// Creates a new instance of the <see cref="TagNotFoundException"/> class with a default message.
+    /// Initializes a new instance of the <see cref="TagNotFoundException"/> class with a default message.
     /// </summary>
     public TagNotFoundException() : base(ExceptionMessages.TagNotFoundDefaultMessage) { }
 
     /// <summary>
-    /// Creates a new instance of the <see cref="TagNotFoundException"/> class with a custom message.
+    /// Initializes a new instance of the <see cref="TagNotFoundException"/> class with a custom message.
     /// </summary>
     /// <param name="message">The custom message to be displayed with the exception.</param>
     public TagNotFoundException(string message) : base(message) { }
