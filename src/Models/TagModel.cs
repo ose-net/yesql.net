@@ -20,5 +20,5 @@ public struct TagModel
     /// </summary>
     /// <returns>A string that represents the current object of type <see cref="TagModel" />.</returns>
     public override string ToString()
-        => $"-- name: {Name}\n{SqlStatement}";
+        => $"-- name: {Name}\n{SqlStatement}\n";
 }
