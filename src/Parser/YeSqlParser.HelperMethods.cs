@@ -4,7 +4,7 @@ using System.Text;
 
 namespace YeSql.Net;
 
-/// <inheritdoc cref="{YeSqlParser}"/>
+/// <inheritdoc cref="YeSqlParser"/>
 public partial class YeSqlParser
 {
 	/// <summary>
