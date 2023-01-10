@@ -35,5 +35,8 @@ public interface IYeSqlCollection : IEnumerable<TagModel>
     /// <returns>
     /// <c>true</c> if the <see cref="IYeSqlCollection" /> contains a SQL statement with the specified tag; otherwise, <c>false</c>.
     /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// <c>tagName</c> is <c>null</c>.
+    /// </exception>
     bool TryGetStatement(string tagName, out string sqlStatement);
 }

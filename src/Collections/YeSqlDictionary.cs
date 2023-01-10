@@ -30,7 +30,12 @@ internal class YeSqlDictionary : IYeSqlCollection
 
     /// <inheritdoc />
     public bool TryGetStatement(string tagName, out string sqlStatement)
-        => _sqlStatements.TryGetValue(tagName, out sqlStatement);
+    {
+        if (tagName is null)
+            throw new ArgumentNullException(nameof(tagName));
+
+        return _sqlStatements.TryGetValue(tagName, out sqlStatement);
+    }
 
     /// <summary>
     /// Adds the specified tag and SQL statement to the dictionary.
