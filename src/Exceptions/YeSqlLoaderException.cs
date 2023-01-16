@@ -3,7 +3,7 @@
 namespace YeSql.Net;
 
 /// <summary>
-/// The exception is thrown when there is an error during the process of loading SQL files using the <see cref="YeSqlLoader"/> class.
+/// The exception is thrown when there are one or more errors during the process of loading SQL files using the <see cref="YeSqlLoader"/> class.
 /// </summary>
 public class YeSqlLoaderException : Exception
 {
