@@ -13,13 +13,13 @@ public class YeSqlLoader
 
     public IYeSqlCollection Load()
     {
-        return Load(Directory.GetCurrentDirectory());
+        return Load(AppContext.BaseDirectory);
     }
 
     public IYeSqlCollection Load(params string[] files)
     {
         if (files is null)
-            throw new ArgumentNullException($"{nameof(files)} is null");
+            throw new ArgumentNullException(nameof(files));
 
         var filesSql = GetSqlFileContents(files);
 
@@ -37,7 +37,7 @@ public class YeSqlLoader
     public IYeSqlCollection Load(string directoryName)
     {
         if (directoryName is null)
-            throw new ArgumentNullException($"{nameof(directoryName)} is null");
+            throw new ArgumentNullException(nameof(files));
 
         var files = GetSqlFileContents(directoryName);
 
