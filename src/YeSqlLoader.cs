@@ -9,7 +9,7 @@ public class YeSqlLoader
 {
     private readonly YeSqlParser _parser = new();
 
-    private YeSqlValidationResult _validationResult = new();
+    private readonly YeSqlValidationResult _validationResult = new();
 
     public IYeSqlCollection Load()
     {
@@ -18,6 +18,9 @@ public class YeSqlLoader
 
     public IYeSqlCollection Load(params string[] files)
     {
+        if (files is null)
+            throw new ArgumentNullException($"{nameof(files)} is null");
+
         var filesSql = GetSqlFileContents(files);
 
         if (_validationResult.HasError())
@@ -35,7 +38,7 @@ public class YeSqlLoader
     public IYeSqlCollection Load(string directoryName)
     {
         if (directoryName is null)
-            _validationResult.Add($"{nameof(directoryName)} is null");
+            throw new ArgumentNullException($"{nameof(directoryName)} is null");
 
         var files = GetSqlFileContents(directoryName);
 
@@ -60,11 +63,14 @@ public class YeSqlLoader
 
     private IEnumerable<SqlFile> GetSqlFileContents(string[] files)
     {
-        if (files is null)
-            _validationResult.Add($"{nameof(files)} is null");
-
         foreach (var file in files)
         {
+            if (file is null)
+            {
+                _validationResult.Add($"{nameof(files)} is null");
+                continue;
+            }
+
             var fileInfo = new FileInfo(file);
             var content = string.Empty;
 
@@ -82,9 +88,6 @@ public class YeSqlLoader
 
             if (fileInfo.Extension != "sql")
                 _validationResult.Add("The file is not sql.");
-
-            if (file is null)
-                _validationResult.Add($"{nameof(files)} is null");
 
             yield return new SqlFile
             {
