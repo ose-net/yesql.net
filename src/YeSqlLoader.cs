@@ -23,14 +23,13 @@ public class YeSqlLoader
 
         var filesSql = GetSqlFileContents(files);
 
-        if (_validationResult.HasError())
-            throw new AggregateException();
-
         foreach (var file in filesSql)
         {
             _parser.SqlFileName = file.FileName;
             _parser.Parse(file.Content, out _);
         }
+
+        CreateAndThrowExceptions();
 
         return _parser.SqlStatements;
     }
@@ -54,9 +53,32 @@ public class YeSqlLoader
             _parser.Parse(file.Content, out _);         
         }
 
+        CreateAndThrowExceptions();
+
         return _parser.SqlStatements;
     }
 
+    private void CreateAndThrowExceptions()
+    {
+        var exceptions = new List<Exception>();
+
+        if (_validationResult.HasError())
+            exceptions.Add(new YeSqlLoaderException(_validationResult.ErrorMessages));
+
+        if (_parser.ValidationResult.HasError())
+            exceptions.Add(new YeSqlParserException(_parser.ValidationResult.ErrorMessages));
+
+        if (exceptions.Count == 0)
+            throw new AggregateException(exceptions);
+    }
+
+    public IYeSqlCollection Load(string[] files)
+    {
+        // Al final del método...
+        // ...
+
+        CreateAndThrowExceptions();
+    }
 
     private bool IsSqlFile(string fileName)
     => new FileInfo(fileName).Extension == "sql";
