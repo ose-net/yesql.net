@@ -13,7 +13,7 @@ public class YeSqlLoader
 
     public IYeSqlCollection Load()
     {
-        throw new NotImplementedException();
+        return Load(Directory.GetCurrentDirectory());
     }
 
     public IYeSqlCollection Load(params string[] files)
