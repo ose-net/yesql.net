@@ -8,22 +8,6 @@ public partial class YeSqlLoader
 {
 
     /// <summary>
-    /// Represents a class that is used to store the file name and contents of an SQL file.
-    /// </summary>
-    private class SqlFile
-    {
-        /// <summary>
-        /// Gets or sets the file name of the SQL file.
-        /// </summary>
-        public string FileName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the contents of the SQL file.
-        /// </summary>
-        public string Content { get; set; }
-    }
-
-    /// <summary>
     /// Checks for any validation errors that may have occurred during the loading process, and throws an exception if there are any.
     /// If there is validation errors found in <see cref="YeSqlLoader"/>, it throws an <see cref="YeSqlLoaderException"/>,
     /// If there is validation errors found in <see cref="YeSqlParser"/>, it throws an <see cref="YeSqlParserException"/>,

@@ -20,6 +20,7 @@ public partial class YeSqlLoader
     /// </summary>
     private readonly YeSqlValidationResult _validationResult = new();
 
+
     /// <summary>
     /// Loads all SQL files found in the root of the project.
     /// </summary>
@@ -44,8 +45,7 @@ public partial class YeSqlLoader
 
         foreach (var file in filesSql)
         {
-            _parser.SqlFileName = file.FileName;
-            _parser.Parse(file.Content, out _);
+            _parser.Parse(file.Content, file.FileName);
         }
 
         CreateAndThrowExceptions();
@@ -72,8 +72,7 @@ public partial class YeSqlLoader
 
         foreach (var file in files)
         {
-            _parser.SqlFileName = file.FileName;
-            _parser.Parse(file.Content, out _);
+            _parser.Parse(file.Content, file.FileName);
         }
 
         CreateAndThrowExceptions();
