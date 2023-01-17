@@ -41,9 +41,9 @@ public partial class YeSqlLoader
         if (files is null)
             throw new ArgumentNullException(nameof(files));
 
-        var filesSql = GetSqlFileContents(files);
+        var sqlFiles = GetSqlFileContents(files);
 
-        foreach (var file in filesSql)
+        foreach (var file in sqlFiles)
         {
             _parser.Parse(file.Content, file.FileName);
         }
@@ -65,12 +65,12 @@ public partial class YeSqlLoader
         if (directoryName is null)
             throw new ArgumentNullException(nameof(directoryName));
 
-        var files = GetSqlFileContents(directoryName);
+        var sqlFiles = GetSqlFileContents(directoryName);
 
-        if (!files.Any())
+        if (sqlFiles.IsEmpty())
             _validationResult.Add(string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectoryMessage, directoryName));
 
-        foreach (var file in files)
+        foreach (var file in sqlFiles)
         {
             _parser.Parse(file.Content, file.FileName);
         }
