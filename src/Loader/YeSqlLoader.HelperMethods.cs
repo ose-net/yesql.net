@@ -31,7 +31,7 @@ public partial class YeSqlLoader
     /// </summary>
     /// <param name="files">The SQL files to load.</param>
     /// <returns>An enumerable of type <see cref="SqlFile"/> that contains the SQL file details.</returns>
-    private IEnumerable<SqlFile> GetSqlFileContents(string[] files)
+    private IEnumerable<SqlFile> GetSqlFilesDetails(string[] files)
     {
         foreach (var file in files)
         {
@@ -79,7 +79,7 @@ public partial class YeSqlLoader
     /// </summary>
     /// <param name="directoryName">The name of the directory where the SQL files are located.</param>
     /// <returns>An enumerable of type <see cref="SqlFile"/> that contains the SQL file details.</returns>
-    private IEnumerable<SqlFile> GetSqlFileContents(string directoryName)
+    private IEnumerable<SqlFile> GetSqlFilesDetails(string directoryName)
     {
         var files = Directory.GetFiles(directoryName, "*.sql", SearchOption.AllDirectories);
 

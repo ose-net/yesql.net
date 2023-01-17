@@ -38,7 +38,7 @@ public partial class YeSqlLoader
         if (files is null)
             throw new ArgumentNullException(nameof(files));
 
-        var sqlFiles = GetSqlFileContents(files);
+        var sqlFiles = GetSqlFilesDetails(files);
 
         foreach (var file in sqlFiles)
         {
@@ -62,7 +62,7 @@ public partial class YeSqlLoader
         if (directoryName is null)
             throw new ArgumentNullException(nameof(directoryName));
 
-        var sqlFiles = GetSqlFileContents(directoryName);
+        var sqlFiles = GetSqlFilesDetails(directoryName);
 
         if (sqlFiles.IsEmpty())
             _validationResult.Add(string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectoryMessage, directoryName));
