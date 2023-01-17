@@ -10,7 +10,7 @@ public partial class YeSqlLoader
     /// <summary>
     /// Represents a class that is used to store the file name and contents of an SQL file.
     /// </summary>
-    private class SqlFiles
+    private class SqlFile
     {
         /// <summary>
         /// Gets or sets the file name of the SQL file.
