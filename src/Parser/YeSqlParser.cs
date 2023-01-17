@@ -1,37 +1,44 @@
 ﻿using System;
 
-
 namespace YeSql.Net;
 
 /// <summary>
-/// A partial class that contains methods and properties related to parsing and validating SQL statements in a YeSQL file.
+/// Represents the parser that extracts the SQL statements from the tags.
 /// </summary>
 public partial class YeSqlParser
 {
     /// <summary>
-    /// A dictionary containing the SQL statements that have been parsed from the source code.
+    /// Gets the dictionary containing the SQL statements that have been parsed from the data source (e.g., a SQL file).
     /// </summary>
-    private YeSqlDictionary _sqlStatements;
+    internal YeSqlDictionary SqlStatements { get; } = new();
 
     /// <summary>
-    /// The result of the validation performed on the SQL statements.
+    /// Gets the result of the validation performed on the SQL statements.
     /// </summary>
-    internal YeSqlValidationResult validationResult;
+    internal YeSqlValidationResult ValidationResult { get; } = new();
 
     /// <summary>
-    /// The name of the file from which the SQL statements were parsed.
+    /// Gets the name of the file from which the SQL statements were parsed.
     /// </summary>
-    internal string sqlFileName;
+    internal string SqlFileName { get; }
 
     /// <summary>
-    /// Parses an SQL file and returns a collection of SQL statements.
+    /// Start the parsing to extract the SQL statements from a data source.
     /// </summary>
-    /// <param name="source">The source code of the SQL file to parse.</param>
-    /// <param name="result">The validation result of the parsing process.</param>
-    /// <returns>A collection of SQL statements.</returns>
-    public IYeSqlCollection Parse(string source, YeSqlValidationResult result)
+    /// <param name="source">The data source to parsing.</param>
+    /// <returns>A collection containing the tags with their associated SQL statements.</returns>
+    /// <exception cref="ArgumentNullException"><c>source</c> is <c>null</c>.</exception>
+    internal IYeSqlCollection Parse(string source)
+        => Parse(source, out _);
+
+    /// <inheritdoc cref="Parse(string)" />
+    /// <param name="validationResult">The validation result of the parsing process.</param>
+    public IYeSqlCollection Parse(string source, out YeSqlValidationResult validationResult)
     {
+        if(source is null)
+            throw new ArgumentNullException(nameof(source));
 
+        validationResult = ValidationResult;
+        return SqlStatements;
     }
-
 }

@@ -4,36 +4,42 @@ using System.Text;
 
 namespace YeSql.Net;
 
-/// <inheritdoc cref="YeSqlParser"/>
+// This class defines the private (or internal) helper methods.
 public partial class YeSqlParser
 {
-	/// <summary>
-	/// Determines if a line of text is a comment line that does not contain a tag.
-	/// </summary>
-	/// <param name="line">The line of text to check.</param>
-	/// <returns>True if the line is a comment without a tag, false otherwise.</returns>
-	private bool IsCommentWithoutTag(string line)
+    /// <summary>
+    /// Checks if the line of text is a comment without a tag.
+    /// </summary>
+    /// <param name="line">The line of text to validate.</param>
+    /// <returns><c>true</c> if the line is a comment without a tag, otherwise <c>false</c>.</returns>
+	/// <example>
+	/// -- This is a comment.
+	/// </example>
+    private bool IsCommentWithoutTag(string line)
 	{
-
+		throw new NotImplementedException();
 	}
 
-	/// <summary>
-	/// Determines if a line of text is a comment line that contains a tag.
-	/// </summary>
-	/// <param name="line">The line of text to check.</param>
-	/// <returns>True if the line is a comment with a tag, false otherwise.</returns>
-	private bool IsCommentWithTag(string line)
+    /// <summary>
+    /// Checks if the line of text is a comment with tag.
+    /// </summary>
+    /// <param name="line">The line of text to validate.</param>
+    /// <returns><c>true</c> if the line is a comment with tag, otherwise <c>false</c>.</returns>
+    /// <example>
+	/// -- name: This is a comment with tag.
+	/// </example>
+    private bool IsCommentWithTag(string line)
 	{
+        throw new NotImplementedException();
+    }
 
-	}
-
-	/// <summary>
-	/// Extracts the tag name from a line of text that is a comment with a tag.
-	/// </summary>
-	/// <param name="line">The line of text to extract the tag name from.</param>
-	/// <returns>The name of the tag, or an empty string if no tag name could be extracted.</returns>
-	private string ExtractTagName(string line)
+    /// <summary>
+    /// Extracts the tag name from a comment.
+    /// </summary>
+    /// <param name="line">The line with the tag name.</param>
+    /// <returns>The tag name extracted.</returns>
+    private string ExtractTagName(string line)
 	{
-
-	}
+        throw new NotImplementedException();
+    }
 }
