@@ -5,7 +5,7 @@ using System.Text;
 namespace YeSql.Net;
 
 /// <summary>
-/// Represents a struct that is used to store the file name and contents of an SQL file.
+/// Represents the details of a SQL file.
 /// </summary>
 internal struct SqlFile
 {
@@ -15,7 +15,7 @@ internal struct SqlFile
     public string FileName { get; set; }
 
     /// <summary>
-    /// Gets or sets the contents of the SQL file.
+    /// Gets or sets the content of the SQL file.
     /// </summary>
     public string Content { get; set; }
 }

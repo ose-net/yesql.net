@@ -3,34 +3,36 @@
 namespace YeSql.Net;
 
 /// <summary>
-/// Represents the loader that provides the functionality for loading SQL files into the system.
+/// Represents the loader that provides the functionality to load SQL files.
 /// </summary>
 public partial class YeSqlLoader
 {
     /// <summary>
-    ///  An instance of <see cref="YeSqlParser"/> class, used to parse SQL files before loading into the system.
+    ///  An instance of the <see cref="YeSqlParser"/> class used to parse SQL files.
     /// </summary>
     private readonly YeSqlParser _parser = new();
 
     /// <summary>
-    ///  An instance of <see cref="YeSqlValidationResult"/> class, used to store the result of validating SQL files before loading them into the system.
+    ///  An instance of the <see cref="YeSqlValidationResult"/> class used to store errors associated with the loader.
     /// </summary>
     private readonly YeSqlValidationResult _validationResult = new();
 
 
     /// <summary>
-    /// Loads all SQL files found in the root of the project.
+    /// Loads SQL files from a default directory.
     /// </summary>
-    /// <returns>An instance of <see cref="IYeSqlCollection"/> interface that contains the loaded SQL files</returns>
+    /// <returns>A collection containing the tags with their associated SQL statements.</returns>
+    /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
     public IYeSqlCollection Load() 
         => Load("./sql");
 
     /// <summary>
-    /// Loads the SQL files from the specified file paths.
+    /// Loads a set of SQL files.
     /// </summary>
-    /// <param name="files">An array of file paths of the SQL files to be loaded.</param>
-    /// <returns>An instance of <see cref="IYeSqlCollection"/> interface that contains the loaded SQL files.</returns>
-    /// <exception cref="ArgumentNullException">Thrown when the files parameter is null.</exception>
+    /// <param name="files">The SQL files to load.</param>
+    /// <returns>A collection containing the tags with their associated SQL statements.</returns>
+    /// <exception cref="ArgumentNullException"><c>files</c> is <c>null</c>.</exception>
+    /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
     public IYeSqlCollection Load(params string[] files)
     {
         if (files is null)
@@ -51,10 +53,10 @@ public partial class YeSqlLoader
     /// <summary>
     /// Loads the SQL files from the specified directory.
     /// </summary>
-    /// <param name="directoryName">The path of the directory where the SQL files are located.</param>
-    /// <returns>An instance of <see cref="IYeSqlCollection"/> interface that contains the loaded SQL files.</returns>
-    /// <exception cref="ArgumentNullException">Thrown when the directoryName parameter is null.</exception>
-    /// <exception cref="AggregateException">Thrown when there are validation errors on the files or if no files were found in the specified directory.</exception>
+    /// <param name="directoryName">The name of the directory where the SQL files are located.</param>
+    /// <returns>A collection containing the tags with their associated SQL statements.</returns>
+    /// <exception cref="ArgumentNullException"><c>directoryName</c> is <c>null</c>.</exception>
+    /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
     public IYeSqlCollection Load(string directoryName)
     {
         if (directoryName is null)

@@ -8,12 +8,9 @@ public partial class YeSqlLoader
 {
 
     /// <summary>
-    /// Checks for any validation errors that may have occurred during the loading process, and throws an exception if there are any.
-    /// If there is validation errors found in <see cref="YeSqlLoader"/>, it throws an <see cref="YeSqlLoaderException"/>,
-    /// If there is validation errors found in <see cref="YeSqlParser"/>, it throws an <see cref="YeSqlParserException"/>,
-    /// If there is validation errors found in both <see cref="YeSqlLoader"/> and <see cref="YeSqlParser"/>, it throws an <see cref="AggregateException"/> that contains both exception.
+    /// Creates and throws <see cref="AggregateException" />.
     /// </summary>
-    /// <exception cref="AggregateException">Thrown when there are validation errors in <see cref="YeSqlLoader"/> and <see cref="YeSqlParser"/>.</exception>
+    /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
     private void CreateAndThrowException()
     {
         var exceptions = new List<Exception>();
@@ -30,10 +27,10 @@ public partial class YeSqlLoader
 
 
     /// <summary>
-    /// Retrieves the contents of the specified SQL files and returns them as an enumerable collection of <see cref="SqlFile"/> objects.
+    /// Retrieves the details of the specified SQL files.
     /// </summary>
-    /// <param name="files">An array of file paths of the SQL files to be loaded.</param>
-    /// <returns>An enumerable collection of <see cref="SqlFile"/> objects that contains the file name and contents of the SQL files.</returns>
+    /// <param name="files">The SQL files to load.</param>
+    /// <returns>An enumerable of type <see cref="SqlFile"/> that contains the SQL file details.</returns>
     private IEnumerable<SqlFile> GetSqlFileContents(string[] files)
     {
         foreach (var file in files)
@@ -70,18 +67,18 @@ public partial class YeSqlLoader
     }
 
     /// <summary>
-    /// Checks if the file has not sql extension.
+    /// Checks if the file name has not sql extension.
     /// </summary>
-    /// <param name="file">The file to validate.</param>
-    /// <returns><c>false</c> if the file has sql extension, otherwise <c>true</c>.</returns>
-    private bool HasNotSqlExtension(string file)
-        => !Path.GetExtension(file).Equals("sql", StringComparison.OrdinalIgnoreCase);
+    /// <param name="fileName">The file name to validate.</param>
+    /// <returns><c>true</c> if the file has not sql extension, otherwise <c>false</c>.</returns>
+    private bool HasNotSqlExtension(string fileName)
+        => !Path.GetExtension(fileName).Equals("sql", StringComparison.OrdinalIgnoreCase);
 
     /// <summary>
-    /// Retrieves the contents of the SQL files located in the specified directory and its subdirectories, and returns them as an enumerable collection of <see cref="SqlFile"/> objects.
+    /// Retrieves the details of SQL files from a specified directory.
     /// </summary>
-    /// <param name="directoryName">The path of the directory where the SQL files are located.</param>
-    /// <returns>An enumerable collection of <see cref="SqlFile"/> objects that contains the file name and contents of the SQL files.</returns>
+    /// <param name="directoryName">The name of the directory where the SQL files are located.</param>
+    /// <returns>An enumerable of type <see cref="SqlFile"/> that contains the SQL file details.</returns>
     private IEnumerable<SqlFile> GetSqlFileContents(string directoryName)
     {
         var files = Directory.GetFiles(directoryName, "*.sql", SearchOption.AllDirectories);
