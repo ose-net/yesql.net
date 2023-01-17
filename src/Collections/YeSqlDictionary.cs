@@ -26,6 +26,10 @@ internal class YeSqlDictionary : IYeSqlCollection
 
             throw new TagNotFoundException(string.Format(ExceptionMessages.TagNotFoundMessage, tagName));
         }
+        set
+        {
+            _sqlStatements[tagName] = value;
+        }
     }
 
     /// <inheritdoc />
