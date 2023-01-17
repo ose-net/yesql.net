@@ -41,9 +41,7 @@ public partial class YeSqlLoader
         var sqlFilesDetails = GetSqlFilesDetails(files);
 
         foreach (var fileDetails in sqlFilesDetails)
-        {
             _parser.Parse(fileDetails.Content, fileDetails.FileName);
-        }
 
         CreateAndThrowException();
 
@@ -68,9 +66,7 @@ public partial class YeSqlLoader
             _validationResult.Add(string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectoryMessage, directoryName));
 
         foreach (var fileDetails in sqlFilesDetails)
-        {
             _parser.Parse(fileDetails.Content, fileDetails.FileName);
-        }
 
         CreateAndThrowException();
 
