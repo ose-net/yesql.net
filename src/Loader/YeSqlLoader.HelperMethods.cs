@@ -41,7 +41,7 @@ public partial class YeSqlLoader
             if (file is null)
                 continue;
 
-            if (Path.GetExtension(file) != "sql")
+            if (!HasSqlExtension(file))
             {
                 _validationResult.Add("The file has no sql extension");
                 continue;
@@ -68,6 +68,14 @@ public partial class YeSqlLoader
         }
 
     }
+
+    /// <summary>
+    /// Checks if the file has sql extension.
+    /// </summary>
+    /// <param name="file">The file to validate.</param>
+    /// <returns><c>true</c> if the file has sql extension, otherwise <c>false</c>.</returns>
+    private bool HasSqlExtension(string file)
+        => Path.GetExtension(file) == "sql";
 
     /// <summary>
     /// Retrieves the contents of the SQL files located in the specified directory and its subdirectories, and returns them as an enumerable collection of <see cref="SqlFile"/> objects.
