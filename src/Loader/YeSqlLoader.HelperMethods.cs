@@ -46,7 +46,7 @@ public partial class YeSqlLoader
                 continue;
             }
 
-            var fileInfo = new FileInfo(file);
+            var name = Path.GetFileName(file);
             var content = string.Empty;
 
             try
@@ -61,12 +61,12 @@ public partial class YeSqlLoader
             if (string.IsNullOrWhiteSpace(content))
                 _validationResult.Add(ExceptionMessages.DataSourceIsEmptyOrWhitespaceMessage);
 
-            if (fileInfo.Extension != "sql")
+            if (Path.GetExtension(file) != "sql")
                 _validationResult.Add("The file is not sql.");
 
             yield return new SqlFile
             {
-                FileName = fileInfo.Name,
+                FileName = name,
                 Content = content
             };
         }
@@ -85,7 +85,7 @@ public partial class YeSqlLoader
         foreach (var file in files)
         {
             var content = File.ReadAllText(file);
-            var name = new FileInfo(file).Name;
+            var name = Path.GetFileName(file);
 
             if (string.IsNullOrWhiteSpace(content))
             {
