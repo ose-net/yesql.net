@@ -41,13 +41,16 @@ public partial class YeSqlLoader
         foreach (var file in files)
         {
             if (file is null)
+                continue;
+
+            if (Path.GetExtension(file) != "sql")
             {
-                _validationResult.Add($"{nameof(files)} is null");
+                _validationResult.Add("The file has no sql extension");
                 continue;
             }
 
             var name = Path.GetFileName(file);
-            var content = string.Empty;
+            string content;
 
             try
             {
@@ -56,13 +59,8 @@ public partial class YeSqlLoader
             catch (FileNotFoundException)
             {
                 _validationResult.Add(string.Format(ExceptionMessages.FileNotFoundMessage, file));
+                continue;
             }
-
-            if (string.IsNullOrWhiteSpace(content))
-                _validationResult.Add(ExceptionMessages.DataSourceIsEmptyOrWhitespaceMessage);
-
-            if (Path.GetExtension(file) != "sql")
-                _validationResult.Add("The file is not sql.");
 
             yield return new SqlFile
             {
@@ -86,11 +84,6 @@ public partial class YeSqlLoader
         {
             var content = File.ReadAllText(file);
             var name = Path.GetFileName(file);
-
-            if (string.IsNullOrWhiteSpace(content))
-            {
-                _validationResult.Add($"{name} {ExceptionMessages.DataSourceIsEmptyOrWhitespaceMessage}");
-            }
 
             yield return new SqlFile
             {

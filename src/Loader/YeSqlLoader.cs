@@ -25,10 +25,8 @@ public partial class YeSqlLoader
     /// Loads all SQL files found in the root of the project.
     /// </summary>
     /// <returns>An instance of <see cref="IYeSqlCollection"/> interface that contains the loaded SQL files</returns>
-    public IYeSqlCollection Load()
-    {
-        return Load(AppContext.BaseDirectory);
-    }
+    public IYeSqlCollection Load() 
+        => Load("./sql");
 
     /// <summary>
     /// Loads the SQL files from the specified file paths.
