@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 
 namespace YeSql.Net;
 
@@ -46,7 +43,7 @@ public partial class YeSqlLoader
             _parser.Parse(file.Content, file.FileName);
         }
 
-        CreateAndThrowExceptions();
+        CreateAndThrowException();
 
         return _parser.SqlStatements;
     }

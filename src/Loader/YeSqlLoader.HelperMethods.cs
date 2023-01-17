@@ -13,10 +13,8 @@ public partial class YeSqlLoader
     /// If there is validation errors found in <see cref="YeSqlParser"/>, it throws an <see cref="YeSqlParserException"/>,
     /// If there is validation errors found in both <see cref="YeSqlLoader"/> and <see cref="YeSqlParser"/>, it throws an <see cref="AggregateException"/> that contains both exception.
     /// </summary>
-    /// <exception cref="YeSqlLoaderException">Thrown when there are validation errors in <see cref="YeSqlLoader"/>.</exception>
-    /// <exception cref="YeSqlParserException">Thrown when there are validation errors in <see cref="YeSqlParser"/>.</exception>
     /// <exception cref="AggregateException">Thrown when there are validation errors in <see cref="YeSqlLoader"/> and <see cref="YeSqlParser"/>.</exception>
-    private void CreateAndThrowExceptions()
+    private void CreateAndThrowException()
     {
         var exceptions = new List<Exception>();
 
