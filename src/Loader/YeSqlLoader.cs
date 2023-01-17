@@ -6,7 +6,7 @@ using System.Linq;
 namespace YeSql.Net;
 
 /// <summary>
-/// The <see cref="YeSqlLoader"/> class is a partial class that provides the functionality for loading SQL files into the system.
+/// Represents the loader that provides the functionality for loading SQL files into the system.
 /// </summary>
 public partial class YeSqlLoader
 {

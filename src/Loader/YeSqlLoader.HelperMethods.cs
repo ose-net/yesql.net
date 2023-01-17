@@ -8,9 +8,9 @@ public partial class YeSqlLoader
 {
 
     /// <summary>
-    /// Nested class that is used to store the file name and contents of an SQL file.
+    /// Represents a class that is used to store the file name and contents of an SQL file.
     /// </summary>
-    private class SqlFile
+    private class SqlFiles
     {
         /// <summary>
         /// Gets or sets the file name of the SQL file.
