@@ -44,9 +44,7 @@ public partial class YeSqlLoader
                 continue;
             }
 
-            var name = Path.GetFileName(file);
             string content;
-
             try
             {
                 content = File.ReadAllText(file);
@@ -59,8 +57,8 @@ public partial class YeSqlLoader
 
             yield return new SqlFile
             {
-                FileName = name,
-                Content = content
+                FileName = Path.GetFileName(file),
+                Content  = content
             };
         }
 
@@ -85,13 +83,10 @@ public partial class YeSqlLoader
 
         foreach (var file in files)
         {
-            var content = File.ReadAllText(file);
-            var name = Path.GetFileName(file);
-
             yield return new SqlFile
             {
-                Content = content,
-                FileName = name
+                Content  = File.ReadAllText(file),
+                FileName = Path.GetFileName(file)
             };
         }
     }
