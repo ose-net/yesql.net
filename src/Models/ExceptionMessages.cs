@@ -14,6 +14,5 @@ public class ExceptionMessages
     public const string TagNotFoundDefaultMessage                 = "error: No tag found in the collection.";
     public const string DuplicateTagNameMessage                   = "The given tag '{0}' is duplicated.";
     public const string TagIsEmptyOrWhitespaceMessage             = "The tag name is empty.";
-    public const string TagHasNotAssociatedSqlStatementMessage    = "'{0}' tag has no sql statement associated with it.";
     public const string StatementIsNotAssociatedWithAnyTagMessage = "'{0}' statement is not associated with any tag.";
 }
