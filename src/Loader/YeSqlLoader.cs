@@ -1,4 +1,5 @@
 ﻿using System;
+using static YeSql.Net.ExceptionMessages;
 
 namespace YeSql.Net;
 
@@ -8,12 +9,12 @@ namespace YeSql.Net;
 public partial class YeSqlLoader
 {
     /// <summary>
-    ///  An instance of the <see cref="YeSqlParser"/> class used to parse SQL files.
+    /// An instance of the <see cref="YeSqlParser"/> class used to parse SQL files.
     /// </summary>
     private readonly YeSqlParser _parser = new();
 
     /// <summary>
-    ///  An instance of the <see cref="YeSqlValidationResult"/> class used to store errors associated with the loader.
+    /// An instance of the <see cref="YeSqlValidationResult"/> class used to store errors associated with the loader.
     /// </summary>
     private readonly YeSqlValidationResult _validationResult = new();
 
@@ -63,7 +64,7 @@ public partial class YeSqlLoader
         var sqlFilesDetails = GetSqlFilesDetails(directoryName);
 
         if (sqlFilesDetails.IsEmpty())
-            _validationResult.Add(string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectoryMessage, directoryName));
+            _validationResult.Add(string.Format(NoneFileFoundInSpecifiedDirectoryMessage, directoryName));
 
         foreach (var fileDetails in sqlFilesDetails)
             _parser.Parse(fileDetails.Content, fileDetails.FileName);
