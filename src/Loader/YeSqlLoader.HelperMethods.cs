@@ -40,7 +40,7 @@ public partial class YeSqlLoader
 
             if (HasNotSqlExtension(file))
             {
-                _validationResult.Add("The file has no sql extension");
+                _validationResult.Add(string.Format(ExceptionMessages.FileHasNotSqlExtensionMessage, file));
                 continue;
             }
 

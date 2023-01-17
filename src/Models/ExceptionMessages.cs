@@ -6,6 +6,7 @@
 public class ExceptionMessages
 {
     public const string FileNotFoundMessage                       = "{0}: error: No such file or directory.";
+    public const string FileHasNotSqlExtensionMessage             = "error: '{0}' has no sql extension.";
     public const string NoneFileFoundInSpecifiedDirectoryMessage  = "error: No sql file found in the directory '{0}'.";
     public const string YeSqlParserDefaultMessage                 = "error: Parser found syntax errors.";
     public const string DataSourceIsEmptyOrWhitespaceMessage      = "Data source is empty or consists only in whitespace.";
