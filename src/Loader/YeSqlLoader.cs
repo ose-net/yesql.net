@@ -72,7 +72,7 @@ public partial class YeSqlLoader
             _parser.Parse(file.Content, file.FileName);
         }
 
-        CreateAndThrowExceptions();
+        CreateAndThrowException();
 
         return _parser.SqlStatements;
     }
