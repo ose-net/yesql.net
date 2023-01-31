@@ -1,8 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 	  <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Framework" Version="17.4.0" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.4.0" />
+  </ItemGroup>
+
+	<Target Name="CopySql">
+		<MakeDir Directories="$(OutputPath)\sql" />
+		<CopySqlFiles SourceFolder="Sql" DestinationFolder="$(OutputPath)\sql" />
+	</Target>
 </Project>
