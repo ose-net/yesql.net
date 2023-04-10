@@ -2,7 +2,7 @@
 
 namespace YeSql.Net;
 
-public static class FormattingMessage
+internal static class FormattingMessage
 {
     /// <summary>
     /// Formats an error message in case the parser encounters errors.
