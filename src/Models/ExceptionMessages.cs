@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents the messages of an exception.
 /// </summary>
-public class ExceptionMessages
+internal class ExceptionMessages
 {
     public const string FileNotFoundMessage                       = "{0}: error: No such file or directory.";
     public const string FileHasNotSqlExtensionMessage             = "error: '{0}' has no sql extension.";
