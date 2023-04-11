@@ -42,12 +42,25 @@ internal class YeSqlDictionary : IYeSqlCollection
     }
 
     /// <summary>
-    /// Adds the specified tag and SQL statement to the dictionary.
+    /// Attempts to add the specified tag and SQL statement to the dictionary.
     /// </summary>
     /// <param name="tagName">The tag to add.</param>
     /// <param name="sqlStatement">The SQL statement to add.</param>
-    internal void Add(string tagName, string sqlStatement)
-        => _sqlStatements.Add(tagName, sqlStatement);
+    /// <returns>
+    /// true if the tag name is not duplicated; otherwise, false.
+    /// </returns>
+    internal bool TryAdd(string tagName, string sqlStatement)
+    {
+        try
+        {
+            _sqlStatements.Add(tagName, sqlStatement);
+            return true;
+        }
+        catch(ArgumentException)
+        {
+            return false;
+        }
+    }
 
     /// <summary>
     /// Returns an enumerator that iterates through the SQL statements contained in the collection.
