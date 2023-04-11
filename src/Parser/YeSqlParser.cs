@@ -1,4 +1,5 @@
 ﻿using System;
+using static YeSql.Net.FormattingMessage;
 
 namespace YeSql.Net;
 
@@ -7,6 +8,18 @@ namespace YeSql.Net;
 /// </summary>
 public partial class YeSqlParser
 {
+    private static readonly string[] s_newLines = new[] { "\r\n", "\n", "\r" };
+
+    /// <summary>
+    /// The maximum number of substrings to be returned by the Split method.
+    /// </summary>
+    private const int MaxCount = 2;
+
+    /// <summary>
+    /// This prefix is used to identify the SQL statement.
+    /// </summary>
+    private const string NamePrefix = "name:";
+
     /// <summary>
     /// The name of the SQL file that caused an error.
     /// </summary>
@@ -43,6 +56,50 @@ public partial class YeSqlParser
             throw new ArgumentNullException(nameof(source));
 
         validationResult = ValidationResult;
+        if(string.IsNullOrWhiteSpace(source))
+        {
+            ValidationResult.Add(errorMessage: FormatParserExceptionMessage(
+                ExceptionMessages.DataSourceIsEmptyOrWhitespaceMessage,
+                sqlFileName: _sqlFileName
+            ));
+            return SqlStatements;
+        }
+
+        var lines = source.Split(s_newLines, StringSplitOptions.None);
+        string currentTag = default;
+        for (int i = 0, len = lines.Length; i < len; ++i)
+        {
+            var line = new Line { Number = i + 1, Text = lines[i] };
+
+            if (string.IsNullOrWhiteSpace(line.Text))
+                continue;
+
+            if(IsCommentWithTag(ref line))
+            {
+                var extractedTag  = ExtractTagName(ref line);
+                CheckIfTagIsDuplicated(extractedTag, ref line);
+                currentTag = extractedTag;
+                continue;
+            }
+
+            if (IsCommentWithoutTag(ref line))
+                continue;
+
+            if(string.IsNullOrEmpty(currentTag))
+            {
+                validationResult.Add(errorMessage: FormatParserExceptionMessage(
+                    ExceptionMessages.LineIsNotAssociatedWithAnyTagMessage,
+                    actualValue: line.Text,
+                    lineNumber: line.Number,
+                    column: 1,
+                    sqlFileName: _sqlFileName
+                ));
+                continue;
+            }
+
+            SqlStatements[currentTag] += "\n";
+        }
+
         return SqlStatements;
     }
 }

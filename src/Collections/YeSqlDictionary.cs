@@ -47,7 +47,7 @@ internal class YeSqlDictionary : IYeSqlCollection
     /// <param name="tagName">The tag to add.</param>
     /// <param name="sqlStatement">The SQL statement to add.</param>
     /// <returns>
-    /// true if the tag name is not duplicated; otherwise, false.
+    /// <c>true</c> if the tag name is not duplicated; otherwise, <c>false</c>.
     /// </returns>
     internal bool TryAdd(string tagName, string sqlStatement)
     {
