@@ -16,7 +16,7 @@ public class YeSqlValidationResult : IEnumerable<string>
     private readonly List<string> _errors = new();
 
     /// <summary>
-    /// Check if there has been an error.
+    /// Checks if there has been an error.
     /// </summary>
     /// <returns><c>true</c> if an error occurred, otherwise <c>false</c>.</returns>
     public bool HasError()
