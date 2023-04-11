@@ -8,12 +8,12 @@ public struct TagModel
     /// <summary>
     /// Gets the name of the tag.
     /// </summary>
-    public string Name { get; set; }
+    public string Name { get; init; }
 
     /// <summary>
     /// Gets the SQL statement of the tag.
     /// </summary>
-    public string SqlStatement { get; set; }
+    public string SqlStatement { get; init; }
 
     /// <summary>
     /// Deconstructs the current <see cref="TagModel" />.
