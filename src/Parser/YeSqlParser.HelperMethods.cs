@@ -15,7 +15,7 @@ public partial class YeSqlParser
 	/// <example>
 	/// -- This is a comment.
 	/// </example>
-    private bool IsCommentWithoutTag(string line)
+    private bool IsCommentWithoutTag(ref Line line)
 	{
 		throw new NotImplementedException();
 	}
@@ -28,7 +28,7 @@ public partial class YeSqlParser
     /// <example>
 	/// -- name: This is a comment with tag.
 	/// </example>
-    private bool IsCommentWithTag(string line)
+    private bool IsCommentWithTag(ref Line line)
 	{
         throw new NotImplementedException();
     }
@@ -38,7 +38,7 @@ public partial class YeSqlParser
     /// </summary>
     /// <param name="line">The line with the tag name.</param>
     /// <returns>The tag name extracted.</returns>
-    private string ExtractTagName(string line)
+    private string ExtractTagName(ref Line line)
 	{
         throw new NotImplementedException();
     }
