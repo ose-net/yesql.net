@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YeSql.Net.Console", "sample
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YeSql.Net.AspNetCore", "samples\YeSql.Net.AspNetCore\YeSql.Net.AspNetCore.csproj", "{0A6D1D79-DAF7-4D59-B359-11E8410BFAFD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YeSql.Net.Tests", "tests\YeSql.Net.Tests.csproj", "{FD0B2217-1B24-4E6F-B3FF-1318970511A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "tests\UnitTests\UnitTests.csproj", "{A057DB65-24DF-4D36-9C35-78F96B54F95D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "tests\IntegrationTests\IntegrationTests.csproj", "{77950E6C-7F70-4224-878A-B3D30BF66A98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +31,14 @@ Global
 		{0A6D1D79-DAF7-4D59-B359-11E8410BFAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A6D1D79-DAF7-4D59-B359-11E8410BFAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A6D1D79-DAF7-4D59-B359-11E8410BFAFD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD0B2217-1B24-4E6F-B3FF-1318970511A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD0B2217-1B24-4E6F-B3FF-1318970511A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD0B2217-1B24-4E6F-B3FF-1318970511A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD0B2217-1B24-4E6F-B3FF-1318970511A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A057DB65-24DF-4D36-9C35-78F96B54F95D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A057DB65-24DF-4D36-9C35-78F96B54F95D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A057DB65-24DF-4D36-9C35-78F96B54F95D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A057DB65-24DF-4D36-9C35-78F96B54F95D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77950E6C-7F70-4224-878A-B3D30BF66A98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77950E6C-7F70-4224-878A-B3D30BF66A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77950E6C-7F70-4224-878A-B3D30BF66A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77950E6C-7F70-4224-878A-B3D30BF66A98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
