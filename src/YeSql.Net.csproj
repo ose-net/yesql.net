@@ -13,4 +13,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="UnitTests" />
+    <InternalsVisibleTo Include="IntegrationTests" />
+  </ItemGroup>
+
 </Project>
