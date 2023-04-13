@@ -14,10 +14,10 @@ var sqlStatements = new YeSqlParser().Parse(source, out var validationResult);
 
 if (validationResult.HasError())
 {
-    Console.WriteLine(validationResult.ErrorMessages);
+    Console.Write(validationResult.ErrorMessages);
 }
 else 
 {
-    Console.WriteLine(sqlStatements["GetUsers"]);
-    Console.WriteLine(sqlStatements["GetRoles"]);
+    Console.Write(sqlStatements["GetUsers"]);
+    Console.Write(sqlStatements["GetRoles"]);
 }
