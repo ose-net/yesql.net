@@ -5,13 +5,13 @@ VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YeSql.Net", "src\YeSql.Net.csproj", "{CE03D92C-A3E2-44CF-B2BC-7B702961AC09}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YeSql.Net.Console", "samples\YeSql.Net.Console\YeSql.Net.Console.csproj", "{DACE9A75-46A9-4CE4-9E0D-7260D3E65C85}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YeSql.Net.AspNetCore", "samples\YeSql.Net.AspNetCore\YeSql.Net.AspNetCore.csproj", "{0A6D1D79-DAF7-4D59-B359-11E8410BFAFD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "tests\UnitTests\UnitTests.csproj", "{A057DB65-24DF-4D36-9C35-78F96B54F95D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "tests\IntegrationTests\IntegrationTests.csproj", "{77950E6C-7F70-4224-878A-B3D30BF66A98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParserSample", "samples\ParserSample\ParserSample.csproj", "{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoaderSample", "samples\LoaderSample\LoaderSample.csproj", "{B62F5C67-64F7-4BFC-A0AE-DE04B6A64D5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +23,6 @@ Global
 		{CE03D92C-A3E2-44CF-B2BC-7B702961AC09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE03D92C-A3E2-44CF-B2BC-7B702961AC09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE03D92C-A3E2-44CF-B2BC-7B702961AC09}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DACE9A75-46A9-4CE4-9E0D-7260D3E65C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DACE9A75-46A9-4CE4-9E0D-7260D3E65C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DACE9A75-46A9-4CE4-9E0D-7260D3E65C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DACE9A75-46A9-4CE4-9E0D-7260D3E65C85}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0A6D1D79-DAF7-4D59-B359-11E8410BFAFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A6D1D79-DAF7-4D59-B359-11E8410BFAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A6D1D79-DAF7-4D59-B359-11E8410BFAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A6D1D79-DAF7-4D59-B359-11E8410BFAFD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A057DB65-24DF-4D36-9C35-78F96B54F95D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A057DB65-24DF-4D36-9C35-78F96B54F95D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A057DB65-24DF-4D36-9C35-78F96B54F95D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +31,14 @@ Global
 		{77950E6C-7F70-4224-878A-B3D30BF66A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77950E6C-7F70-4224-878A-B3D30BF66A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77950E6C-7F70-4224-878A-B3D30BF66A98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B62F5C67-64F7-4BFC-A0AE-DE04B6A64D5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B62F5C67-64F7-4BFC-A0AE-DE04B6A64D5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B62F5C67-64F7-4BFC-A0AE-DE04B6A64D5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B62F5C67-64F7-4BFC-A0AE-DE04B6A64D5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
