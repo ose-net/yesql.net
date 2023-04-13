@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "tests\UnitTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "tests\IntegrationTests\IntegrationTests.csproj", "{77950E6C-7F70-4224-878A-B3D30BF66A98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParserSample", "samples\ParserSample\ParserSample.csproj", "{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoaderSample", "samples\LoaderSample\LoaderSample.csproj", "{B62F5C67-64F7-4BFC-A0AE-DE04B6A64D5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{77950E6C-7F70-4224-878A-B3D30BF66A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77950E6C-7F70-4224-878A-B3D30BF66A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77950E6C-7F70-4224-878A-B3D30BF66A98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B62F5C67-64F7-4BFC-A0AE-DE04B6A64D5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B62F5C67-64F7-4BFC-A0AE-DE04B6A64D5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B62F5C67-64F7-4BFC-A0AE-DE04B6A64D5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B62F5C67-64F7-4BFC-A0AE-DE04B6A64D5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
