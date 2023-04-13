@@ -10,5 +10,11 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\YeSql.Net.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="sample.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   
 </Project>
