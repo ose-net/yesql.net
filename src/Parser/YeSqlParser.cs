@@ -97,7 +97,7 @@ public partial class YeSqlParser
                 continue;
             }
 
-            SqlStatements[currentTag] += "\n";
+            SqlStatements[currentTag] += line.Text.Trim() + "\n";
         }
 
         return SqlStatements;
