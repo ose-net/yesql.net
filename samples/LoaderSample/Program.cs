@@ -1,3 +1,6 @@
 ﻿using YeSql.Net;
 
-Console.WriteLine("Hello, World!");
+var sqlStatements = new YeSqlLoader().Load(new [] { "./sample.sql" });
+
+Console.Write(sqlStatements["GetUsers"]);
+Console.Write(sqlStatements["GetRoles"]);
