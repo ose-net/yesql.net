@@ -50,7 +50,7 @@ public partial class YeSqlParser
             ));
             return default;
         }
-        return extractedTag;
+        return extractedTag.Trim();
     }
 
     /// <summary>
