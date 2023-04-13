@@ -22,7 +22,7 @@ public partial class YeSqlLoader
         if (_parser.ValidationResult.HasError())
             exceptions.Add(new YeSqlParserException(_parser.ValidationResult.ErrorMessages));
 
-        if (exceptions.Count == 0)
+        if (exceptions.Count > 0)
             throw new AggregateException(exceptions);
     }
 
