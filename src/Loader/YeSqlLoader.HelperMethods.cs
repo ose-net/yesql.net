@@ -71,7 +71,7 @@ public partial class YeSqlLoader
     /// <param name="fileName">The file name to validate.</param>
     /// <returns><c>true</c> if the file has not sql extension, otherwise <c>false</c>.</returns>
     private bool HasNotSqlExtension(string fileName)
-        => !Path.GetExtension(fileName).Equals("sql", StringComparison.OrdinalIgnoreCase);
+        => !Path.GetExtension(fileName).Equals(".sql", StringComparison.OrdinalIgnoreCase);
 
     /// <summary>
     /// Retrieves the details of SQL files from a specified directory.
