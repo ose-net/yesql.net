@@ -10,8 +10,12 @@
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.4.0" />
   </ItemGroup>
 
+	
 	<Target Name="CopySql">
 		<MakeDir Directories="$(OutputPath)\sql" />
-		<CopySqlFiles SourceFolder="Sql" DestinationFolder="$(OutputPath)\sql" />
+		<CopySqlFiles SourceFolder="$(MSBuildProjectDirectory)" DestinationFolder="$(OutputPath)\sql" />
 	</Target>
+	
+	<UsingTask TaskName="CopySqlFiles" AssemblyFile="$(MSBuildThisFileDirectory)bin\$(Configuration)\$(TargetFramework)\YeSql.Net.dll" />
+
 </Project>

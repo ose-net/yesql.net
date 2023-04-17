@@ -5,7 +5,7 @@ using Microsoft.Build.Utilities;
 
 namespace YeSql.Net;
 
-internal class CopySqlFiles : Task
+public class CopySqlFiles : Task
 {
     [Required]
     public string SourceFolder { get; set; }
