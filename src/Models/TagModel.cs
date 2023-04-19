@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents the tag with its associated SQL statement.
 /// </summary>
-public struct TagModel
+public struct ModelTag
 {
     /// <summary>
     /// Gets the name of the tag.
@@ -16,10 +16,10 @@ public struct TagModel
     public string SqlStatement { get; init; }
 
     /// <summary>
-    /// Deconstructs the current <see cref="TagModel" />.
+    /// Deconstructs the current <see cref="ModelTag" />.
     /// </summary>
-    /// <param name="name">The name of the current <see cref="TagModel" />.</param>
-    /// <param name="sqlStatement">The SQL statement of the current <see cref="TagModel" />.</param>
+    /// <param name="name">The name of the current <see cref="ModelTag" />.</param>
+    /// <param name="sqlStatement">The SQL statement of the current <see cref="ModelTag" />.</param>
     public void Deconstruct(out string name, out string sqlStatement)
     {
         name = Name;
@@ -27,9 +27,9 @@ public struct TagModel
     }
 
     /// <summary>
-    /// Returns a string that represents the current object of type <see cref="TagModel" />.
+    /// Returns a string that represents the current object of type <see cref="ModelTag" />.
     /// </summary>
-    /// <returns>A string that represents the current object of type <see cref="TagModel" />.</returns>
+    /// <returns>A string that represents the current object of type <see cref="ModelTag" />.</returns>
     public override string ToString()
         => $"-- name: {Name}\n{SqlStatement}\n";
 }

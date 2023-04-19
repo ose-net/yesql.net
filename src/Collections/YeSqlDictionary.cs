@@ -66,10 +66,10 @@ internal class YeSqlDictionary : IYeSqlCollection
     /// Returns an enumerator that iterates through the SQL statements contained in the collection.
     /// </summary>
     /// <returns>An enumerator that can be used to iterate through the SQL statements contained in the collection.</returns>
-    public IEnumerator<TagModel> GetEnumerator()
+    public IEnumerator<ModelTag> GetEnumerator()
     {
         foreach(var keyValuePair in _sqlStatements)
-            yield return new TagModel { Name = keyValuePair.Key, SqlStatement = keyValuePair.Value };
+            yield return new ModelTag { Name = keyValuePair.Key, SqlStatement = keyValuePair.Value };
     }
 
     /// <inheritdoc cref="GetEnumerator" />
