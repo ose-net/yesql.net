@@ -18,45 +18,53 @@ public partial class YeSqlLoader
     /// </summary>
     private readonly YeSqlValidationResult _validationResult = new();
 
-
     /// <summary>
-    /// Loads SQL files from a default directory.
+    /// Loads the SQL statements from the specified files.
     /// </summary>
+    /// <param name="sqlFiles">The SQL files to load.</param>
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
+    /// <exception cref="ArgumentNullException"><c>sqlFiles</c> is <c>null</c>.</exception>
     /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
-    public IYeSqlCollection Load() 
-        => Load("./sql");
-
-    /// <summary>
-    /// Loads a set of SQL files.
-    /// </summary>
-    /// <param name="files">The SQL files to load.</param>
-    /// <returns>A collection containing the tags with their associated SQL statements.</returns>
-    /// <exception cref="ArgumentNullException"><c>files</c> is <c>null</c>.</exception>
-    /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
-    public IYeSqlCollection Load(params string[] files)
+    public IYeSqlCollection LoadFromFiles(params string[] sqlFiles)
     {
-        if (files is null)
-            throw new ArgumentNullException(nameof(files));
+        if (sqlFiles is null)
+            throw new ArgumentNullException(nameof(sqlFiles));
 
-        var sqlFilesDetails = GetSqlFilesDetails(files);
+        var sqlFilesDetails = GetSqlFilesDetails(sqlFiles);
 
         foreach (var fileDetails in sqlFilesDetails)
             _parser.Parse(fileDetails.Content, fileDetails.FileName);
 
         CreateAndThrowException();
-
         return _parser.SqlStatements;
     }
 
     /// <summary>
-    /// Loads the SQL files from the specified directory.
+    /// Loads the SQL statements from all the SQL files in the specified directories.
+    /// </summary>
+    /// <param name="directories">A set of directories where the SQL files are located.</param>
+    /// <returns>A collection containing the tags with their associated SQL statements.</returns>
+    /// <exception cref="ArgumentNullException"><c>directoryName</c> is <c>null</c>.</exception>
+    /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
+    public IYeSqlCollection LoadFromDirectories(params string[] directories)
+    {
+        if (directories is null)
+            throw new ArgumentNullException(nameof(directories));
+
+        foreach (var directory in directories)
+            LoadFromDirectory(directory);
+
+        CreateAndThrowException();
+        return _parser.SqlStatements;
+    }
+
+    /// <summary>
+    /// Loads the SQL statements from all the SQL files in the specified directory.
     /// </summary>
     /// <param name="directoryName">The name of the directory where the SQL files are located.</param>
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
     /// <exception cref="ArgumentNullException"><c>directoryName</c> is <c>null</c>.</exception>
-    /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
-    public IYeSqlCollection Load(string directoryName)
+    private IYeSqlCollection LoadFromDirectory(string directoryName)
     {
         if (directoryName is null)
             throw new ArgumentNullException(nameof(directoryName));
@@ -68,8 +76,6 @@ public partial class YeSqlLoader
 
         foreach (var fileDetails in sqlFilesDetails)
             _parser.Parse(fileDetails.Content, fileDetails.FileName);
-
-        CreateAndThrowException();
 
         return _parser.SqlStatements;
     }
