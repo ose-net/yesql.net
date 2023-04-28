@@ -45,12 +45,7 @@ public partial class YeSqlLoader
                 continue;
             }
 
-            string content;
-            try
-            {
-                content = File.ReadAllText(file);
-            }
-            catch (FileNotFoundException)
+            if(!File.Exists(file))
             {
                 _validationResult.Add(string.Format(FileNotFoundMessage, file));
                 continue;
@@ -59,7 +54,7 @@ public partial class YeSqlLoader
             yield return new SqlFile
             {
                 FileName = Path.GetFileName(file),
-                Content  = content
+                Content  = File.ReadAllText(file)
             };
         }
 
