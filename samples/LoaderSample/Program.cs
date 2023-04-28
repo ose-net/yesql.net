@@ -1,7 +1,7 @@
 ﻿using YeSql.Net;
 
 var loader = new YeSqlLoader();
-var sqlStatements = loader.LoadFromFiles("./sample");
+var sqlStatements = loader.LoadFromFiles("./sample.sql");
 loader.LoadFromDirectories("./sql");
 
 Console.Write(sqlStatements["GetUsers"]);
