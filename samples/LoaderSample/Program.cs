@@ -1,6 +1,9 @@
 ﻿using YeSql.Net;
 
-var sqlStatements = new YeSqlLoader().Load(new [] { "./sample.sql" });
+var loader = new YeSqlLoader();
+var sqlStatements = loader.LoadFromFiles("./sample.sql");
+loader.LoadFromDirectories("./sql");
 
 Console.Write(sqlStatements["GetUsers"]);
 Console.Write(sqlStatements["GetRoles"]);
+Console.Write(sqlStatements["GetProducts"]);

@@ -17,4 +17,10 @@
     </None>
   </ItemGroup>
   
+  <ItemGroup>
+    <None Update="sql/*.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
 </Project>
