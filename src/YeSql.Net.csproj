@@ -14,8 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="UnitTests" />
-    <InternalsVisibleTo Include="IntegrationTests" />
+    <InternalsVisibleTo Include="YeSql.Net.Tests" />
   </ItemGroup>
 
 </Project>

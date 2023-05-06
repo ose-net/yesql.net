@@ -5,9 +5,7 @@ VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YeSql.Net", "src\YeSql.Net.csproj", "{CE03D92C-A3E2-44CF-B2BC-7B702961AC09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "tests\UnitTests\UnitTests.csproj", "{A057DB65-24DF-4D36-9C35-78F96B54F95D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "tests\IntegrationTests\IntegrationTests.csproj", "{77950E6C-7F70-4224-878A-B3D30BF66A98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YeSql.Net.Tests", "tests\YeSql.Net.Tests.csproj", "{A057DB65-24DF-4D36-9C35-78F96B54F95D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParserSample", "samples\ParserSample\ParserSample.csproj", "{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}"
 EndProject
@@ -27,10 +25,6 @@ Global
 		{A057DB65-24DF-4D36-9C35-78F96B54F95D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A057DB65-24DF-4D36-9C35-78F96B54F95D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A057DB65-24DF-4D36-9C35-78F96B54F95D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{77950E6C-7F70-4224-878A-B3D30BF66A98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77950E6C-7F70-4224-878A-B3D30BF66A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77950E6C-7F70-4224-878A-B3D30BF66A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77950E6C-7F70-4224-878A-B3D30BF66A98}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,8 +36,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7C7C905A-24A4-447E-A16F-4E0BCF88EE49}
 	EndGlobalSection
 EndGlobal
