@@ -1,4 +1,4 @@
-namespace UnitTests.Parser;
+namespace YeSql.Net.Tests.Parser;
 
 public class YeSqlParserTests
 {
