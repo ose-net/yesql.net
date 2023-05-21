@@ -66,8 +66,8 @@ public partial class YeSqlParser
             if (isDuplicated)
             {
                 ValidationResult.Add(errorMessage: FormatParserExceptionMessage(
-                    ExceptionMessages.DuplicateTagName,
-                    actualValue: line.Text,
+                    ExceptionMessages.DuplicateTagNameMessage,
+                    actualValue: tagName,
                     lineNumber: line.Number,
                     column: line.Text.IndexOf(NamePrefix) + 6,
                     sqlFileName: _sqlFileName
