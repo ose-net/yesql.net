@@ -6,7 +6,7 @@ public class LineIsNotAssociatedWithAnyTagTestCases : IEnumerable
     {
         yield return new object[]
         {
-           """
+            """
             This should generate an error.
             SELECT price FROM products;
               
@@ -30,7 +30,7 @@ public class LineIsNotAssociatedWithAnyTagTestCases : IEnumerable
 
         yield return new object[]
         {
-           """
+            """
             This should generate an error.
             SELECT price FROM products;
               

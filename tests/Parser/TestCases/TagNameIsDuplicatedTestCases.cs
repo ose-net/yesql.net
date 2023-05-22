@@ -6,7 +6,7 @@ public class TagNameIsDuplicatedTestCases : IEnumerable
     {
         yield return new object[]
         {
-           """
+            """
             -- name: GetProducts
             SELECT
             name,
@@ -32,7 +32,7 @@ public class TagNameIsDuplicatedTestCases : IEnumerable
 
         yield return new object[]
         {
-           """
+            """
             -- name: GetUsers
             SELECT id, name FROM users;
             
@@ -58,7 +58,7 @@ public class TagNameIsDuplicatedTestCases : IEnumerable
 
         yield return new object[]
         {
-           """
+            """
             -- name: GetUsers
             SELECT id, name FROM users;
             
@@ -84,7 +84,7 @@ public class TagNameIsDuplicatedTestCases : IEnumerable
 
         yield return new object[]
         {
-           """
+            """
             -- name: GetUsers
             SELECT id, name FROM users;
             
@@ -99,7 +99,7 @@ public class TagNameIsDuplicatedTestCases : IEnumerable
               
             -- name: GetUsers           
             SELECT email FROM users;
-                   
+                    
             """,
            new List<string>
            {
