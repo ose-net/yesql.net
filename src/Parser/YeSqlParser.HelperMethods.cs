@@ -42,7 +42,7 @@ public partial class YeSqlParser
         if(string.IsNullOrWhiteSpace(extractedTag))
         {
             ValidationResult.Add(errorMessage: FormatParserExceptionMessage(
-                ExceptionMessages.TagIsEmptyOrWhitespaceMessage,
+                ExceptionMessages.TagIsEmptyOrWhitespace,
                 actualValue: line.Text,
                 lineNumber: line.Number,
                 column: line.Text.IndexOf(NamePrefix) + 6,
@@ -66,7 +66,7 @@ public partial class YeSqlParser
             if (isDuplicated)
             {
                 ValidationResult.Add(errorMessage: FormatParserExceptionMessage(
-                    ExceptionMessages.DuplicateTagNameMessage,
+                    ExceptionMessages.DuplicateTagName,
                     actualValue: line.Text,
                     lineNumber: line.Number,
                     column: line.Text.IndexOf(NamePrefix) + 6,

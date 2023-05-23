@@ -1,5 +1,4 @@
 ﻿using System;
-using static YeSql.Net.ExceptionMessages;
 
 namespace YeSql.Net;
 
@@ -72,7 +71,7 @@ public partial class YeSqlLoader
         var sqlFilesDetails = GetSqlFilesDetails(directoryName);
 
         if (sqlFilesDetails.IsEmpty())
-            _validationResult.Add(string.Format(NoneFileFoundInSpecifiedDirectoryMessage, directoryName));
+            _validationResult.Add(string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectory, directoryName));
 
         foreach (var fileDetails in sqlFilesDetails)
             _parser.Parse(fileDetails.Content, fileDetails.FileName);

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using static YeSql.Net.ExceptionMessages;
 
 namespace YeSql.Net;
 
@@ -41,13 +40,13 @@ public partial class YeSqlLoader
 
             if (HasNotSqlExtension(file))
             {
-                _validationResult.Add(string.Format(FileHasNotSqlExtensionMessage, file));
+                _validationResult.Add(string.Format(ExceptionMessages.FileHasNotSqlExtension, file));
                 continue;
             }
 
             if(!File.Exists(file))
             {
-                _validationResult.Add(string.Format(FileNotFoundMessage, file));
+                _validationResult.Add(string.Format(ExceptionMessages.FileNotFound, file));
                 continue;
             }
 
