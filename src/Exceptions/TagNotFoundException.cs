@@ -10,7 +10,7 @@ public class TagNotFoundException : Exception
     /// <summary>
     /// Initializes a new instance of the <see cref="TagNotFoundException" /> class with a default message.
     /// </summary>
-    public TagNotFoundException() : base(ExceptionMessages.TagNotFoundDefaultMessage) { }
+    public TagNotFoundException() : base(ExceptionMessages.TagNotFoundDefault) { }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="TagNotFoundException" /> class with the a specified error message.

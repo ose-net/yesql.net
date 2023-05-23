@@ -59,7 +59,7 @@ public partial class YeSqlParser
         if(string.IsNullOrWhiteSpace(source))
         {
             ValidationResult.Add(errorMessage: FormatParserExceptionMessage(
-                ExceptionMessages.DataSourceIsEmptyOrWhitespaceMessage,
+                ExceptionMessages.DataSourceIsEmptyOrWhitespace,
                 sqlFileName: _sqlFileName
             ));
             return SqlStatements;
@@ -88,7 +88,7 @@ public partial class YeSqlParser
             if(string.IsNullOrEmpty(currentTag))
             {
                 validationResult.Add(errorMessage: FormatParserExceptionMessage(
-                    ExceptionMessages.LineIsNotAssociatedWithAnyTagMessage,
+                    ExceptionMessages.LineIsNotAssociatedWithAnyTag,
                     actualValue: line.Text,
                     lineNumber: line.Number,
                     column: 1,

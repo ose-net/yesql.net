@@ -24,7 +24,7 @@ internal class YeSqlDictionary : IYeSqlCollection
             if(_sqlStatements.TryGetValue(tagName, out var sqlStatement))
                 return sqlStatement;
 
-            throw new TagNotFoundException(string.Format(ExceptionMessages.TagNotFoundMessage, tagName));
+            throw new TagNotFoundException(string.Format(ExceptionMessages.TagNotFound, tagName));
         }
         set
         {
