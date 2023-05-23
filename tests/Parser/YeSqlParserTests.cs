@@ -11,10 +11,10 @@ public class YeSqlParserTests
         var expectedMessage = ExceptionMessages.DataSourceIsEmptyOrWhitespaceMessage;
 
         // Act
-        var actual = parser.Parse(source, out var validationResult);
+        var sqlStatements = parser.Parse(source, out var validationResult);
 
         // Asserts
-        actual.Should().BeEmpty();
+        sqlStatements.Should().BeEmpty();
         validationResult.ErrorMessages.Should().Contain(expectedMessage);
     }
 
@@ -27,11 +27,11 @@ public class YeSqlParserTests
         var parser = new YeSqlParser();
 
         // Act
-        var actual = parser.Parse(source, out var validationResult);
+        var sqlStatements = parser.Parse(source, out var validationResult);
         var errors = validationResult.ToList();
 
         // Asserts
-        actual.Should().HaveCount(1);
+        sqlStatements.Should().HaveCount(1);
         errors.Should().BeEquivalentTo(expectedErrors);
     }
 
@@ -64,11 +64,11 @@ public class YeSqlParserTests
         };
 
         // Act
-        var actual = parser.Parse(source, out var validationResult);
+        var sqlStatements = parser.Parse(source, out var validationResult);
         var errors = validationResult.ToList();
 
         // Asserts
-        actual.Should().BeEquivalentTo(expectedCollection);
+        sqlStatements.Should().BeEquivalentTo(expectedCollection);
         errors.Should().BeEquivalentTo(expectedErrors);
     }
 
@@ -81,11 +81,11 @@ public class YeSqlParserTests
         var parser = new YeSqlParser();
 
         // Act
-        var actual = parser.Parse(source, out var validationResult);
+        var sqlStatements = parser.Parse(source, out var validationResult);
         var errors = validationResult.ToList();
 
         // Asserts
-        actual.Should().HaveCount(1);
+        sqlStatements.Should().HaveCount(1);
         errors.Should().BeEquivalentTo(expectedErrors);
     }
 
@@ -98,10 +98,10 @@ public class YeSqlParserTests
         var parser = new YeSqlParser();
 
         // Act
-        var actual = parser.Parse(source, out _);
+        var sqlStatements = parser.Parse(source, out _);
 
         // Assert
-        actual.Should().BeEquivalentTo(expectedCollection);
+        sqlStatements.Should().BeEquivalentTo(expectedCollection);
     }
 
     [TestCaseSource(typeof(TagHasNoSqlStatementTestCases))]
@@ -117,10 +117,10 @@ public class YeSqlParserTests
         };
 
         // Act
-        var actual = parser.Parse(source, out _);
+        var sqlStatements = parser.Parse(source, out _);
 
         // Assert
-        actual.Should().BeEquivalentTo(expectedCollection);
+        sqlStatements.Should().BeEquivalentTo(expectedCollection);
     }
 
     [TestCaseSource(typeof(LineIsCommentWithTagTestCases))]
@@ -162,10 +162,10 @@ public class YeSqlParserTests
         };
 
         // Act
-        var actual = parser.Parse(source, out _);
+        var sqlStatements = parser.Parse(source, out _);
 
         // Assert
-        actual.Should().BeEquivalentTo(expectedCollection);
+        sqlStatements.Should().BeEquivalentTo(expectedCollection);
     }
 
     [TestCase]
