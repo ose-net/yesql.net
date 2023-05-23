@@ -25,13 +25,25 @@ public class YeSqlParserTests
     {
         // Arrange
         var parser = new YeSqlParser();
+        var expectedCollection = new Dictionary<string, string>
+        {
+            { 
+                "GetProducts",
+                """
+                SELECT
+                name,
+                price
+                FROM products;
+                """
+            }
+        };
 
         // Act
         var sqlStatements = parser.Parse(source, out var validationResult);
         var errors = validationResult.ToList();
 
         // Asserts
-        sqlStatements.Should().HaveCount(1);
+        sqlStatements.Should().BeEquivalentTo(expectedCollection);
         errors.Should().BeEquivalentTo(expectedErrors);
     }
 
@@ -79,13 +91,25 @@ public class YeSqlParserTests
     {
         // Arrange
         var parser = new YeSqlParser();
+        var expectedCollection = new Dictionary<string, string>
+        {
+            {
+                "GetProducts",
+                """
+                SELECT
+                name,
+                price
+                FROM products;
+                """
+            }
+        };
 
         // Act
         var sqlStatements = parser.Parse(source, out var validationResult);
         var errors = validationResult.ToList();
 
         // Asserts
-        sqlStatements.Should().HaveCount(1);
+        sqlStatements.Should().BeEquivalentTo(expectedCollection);
         errors.Should().BeEquivalentTo(expectedErrors);
     }
 
