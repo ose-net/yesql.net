@@ -42,7 +42,7 @@ public class YeSqlParserTests
     {
         // Arrange
         var parser = new YeSqlParser();
-        var expectedSqlStatements = new Dictionary<string, string>
+        var expectedCollection = new Dictionary<string, string>
         {
             { 
                 "GetUsers",
@@ -68,7 +68,7 @@ public class YeSqlParserTests
         var errors = validationResult.ToList();
 
         // Asserts
-        actual.Should().BeEquivalentTo(expectedSqlStatements);
+        actual.Should().BeEquivalentTo(expectedCollection);
         errors.Should().BeEquivalentTo(expectedErrors);
     }
 
@@ -92,7 +92,7 @@ public class YeSqlParserTests
     [TestCaseSource(typeof(LineIsCommentWithoutTagTestCases))]
     public void Parse_WhenLineIsCommentWithoutTag_ShouldIgnoreComment(
         string source,
-        Dictionary<string, string> expectedSqlStatements)
+        Dictionary<string, string> expectedCollection)
     {
         // Arrange
         var parser = new YeSqlParser();
@@ -101,7 +101,7 @@ public class YeSqlParserTests
         var actual = parser.Parse(source, out _);
 
         // Assert
-        actual.Should().BeEquivalentTo(expectedSqlStatements);
+        actual.Should().BeEquivalentTo(expectedCollection);
     }
 
     [TestCaseSource(typeof(TagHasNoSqlStatementTestCases))]
@@ -109,7 +109,7 @@ public class YeSqlParserTests
     {
         // Arrange
         var parser = new YeSqlParser();
-        var expectedSqlStatements = new Dictionary<string, string>
+        var expectedCollection = new Dictionary<string, string>
         {
             { "GetProducts", "SELECT id, name, price FROM products;" },
             { "GetUsers", string.Empty },
@@ -120,7 +120,7 @@ public class YeSqlParserTests
         var actual = parser.Parse(source, out _);
 
         // Assert
-        actual.Should().BeEquivalentTo(expectedSqlStatements);
+        actual.Should().BeEquivalentTo(expectedCollection);
     }
 
     [TestCaseSource(typeof(LineIsCommentWithTagTestCases))]
@@ -128,7 +128,7 @@ public class YeSqlParserTests
     {
         // Arrange
         var parser = new YeSqlParser();
-        var expectedSqlStatements = new Dictionary<string, string>
+        var expectedCollection = new Dictionary<string, string>
         {
             {
                "GetProducts",
@@ -165,7 +165,7 @@ public class YeSqlParserTests
         var actual = parser.Parse(source, out _);
 
         // Assert
-        actual.Should().BeEquivalentTo(expectedSqlStatements);
+        actual.Should().BeEquivalentTo(expectedCollection);
     }
 
     [TestCase]
