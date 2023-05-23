@@ -42,20 +42,33 @@ public class YeSqlParserTests
     {
         // Arrange
         var parser = new YeSqlParser();
-        var expectedSql =
-       $"""
-        SELECT id, name FROM users;
-        SELECT email, name FROM users;
-        SELECT email FROM users;{NewLine}
-        """;
+        var expectedSqlStatements = new Dictionary<string, string>
+        {
+            { 
+                "GetUsers",
+                """
+                SELECT id, name FROM users;
+                SELECT email, name FROM users;
+                SELECT email FROM users;
+                """
+            },
+            {
+                "GetProducts",
+                """
+                SELECT
+                name,
+                price
+                FROM products;
+                """
+            }
+        };
 
         // Act
         var actual = parser.Parse(source, out var validationResult);
         var errors = validationResult.ToList();
 
         // Asserts
-        actual.Should().HaveCount(2);
-        actual["GetUsers"].Should().Be(expectedSql);
+        actual.Should().BeEquivalentTo(expectedSqlStatements);
         errors.Should().BeEquivalentTo(expectedErrors);
     }
 
@@ -85,10 +98,10 @@ public class YeSqlParserTests
         var parser = new YeSqlParser();
 
         // Act
-        var actual = parser.Parse(source, out _).ToDictionary();
+        var actual = parser.Parse(source, out _);
 
         // Assert
-        actual.Should().Equal(expectedSqlStatements);
+        actual.Should().BeEquivalentTo(expectedSqlStatements);
     }
 
     [TestCaseSource(typeof(TagHasNoSqlStatementTestCases))]
@@ -98,16 +111,16 @@ public class YeSqlParserTests
         var parser = new YeSqlParser();
         var expectedSqlStatements = new Dictionary<string, string>
         {
-            { "GetProducts", $"SELECT id, name, price FROM products;{NewLine}" },
+            { "GetProducts", "SELECT id, name, price FROM products;" },
             { "GetUsers", string.Empty },
             { "GetRoles", string.Empty }
         };
 
         // Act
-        var actual = parser.Parse(source, out _).ToDictionary();
+        var actual = parser.Parse(source, out _);
 
         // Assert
-        actual.Should().Equal(expectedSqlStatements);
+        actual.Should().BeEquivalentTo(expectedSqlStatements);
     }
 
     [TestCaseSource(typeof(LineIsCommentWithTagTestCases))]
@@ -119,40 +132,40 @@ public class YeSqlParserTests
         {
             {
                "GetProducts",
-               $"""
+                """
                 SELECT
                 id,
                 name,
                 price
-                FROM products;{NewLine}
+                FROM products;
                 """
                },
                {
                "GetUsers",
-               $"""
+                """
                 SELECT
                 id,
                 name,
                 email
-                FROM users;{NewLine}
+                FROM users;
                 """
                },
                {
                "GetRoles",
-               $"""
+                """
                 SELECT
                 id,
                 name
-                FROM roles;{NewLine}
+                FROM roles;
                 """
             }
         };
 
         // Act
-        var actual = parser.Parse(source, out _).ToDictionary();
+        var actual = parser.Parse(source, out _);
 
         // Assert
-        actual.Should().Equal(expectedSqlStatements);
+        actual.Should().BeEquivalentTo(expectedSqlStatements);
     }
 
     [TestCase]

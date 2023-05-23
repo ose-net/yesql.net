@@ -26,7 +26,7 @@ public class LineIsCommentWithoutTagTestCases : IEnumerable
             """,
            new Dictionary<string, string>
            {
-               { "GetProducts", $"SELECT name, price FROM products;{NewLine}" }
+               { "GetProducts", "SELECT name, price FROM products;" }
            }
         };
 
@@ -49,8 +49,8 @@ public class LineIsCommentWithoutTagTestCases : IEnumerable
             """,
            new Dictionary<string, string>
            {
-               { "GetProducts", $"SELECT name, price FROM products;{NewLine}" },
-               { "GetUsers", $"SELECT id, name FROM users;{NewLine}" }
+               { "GetProducts", "SELECT name, price FROM products;" },
+               { "GetUsers", "SELECT id, name FROM users;" }
            }
         };
 
@@ -79,9 +79,9 @@ public class LineIsCommentWithoutTagTestCases : IEnumerable
             """,
            new Dictionary<string, string>
            {
-               { "GetProducts", $"SELECT name, price FROM products;{NewLine}" },
-               { "GetUsers", $"SELECT id, name FROM users;{NewLine}" },
-               { "GetRoles", $"SELECT id, name FROM roles;{NewLine}" }
+               { "GetProducts", "SELECT name, price FROM products;" },
+               { "GetUsers", "SELECT id, name FROM users;" },
+               { "GetRoles", "SELECT id, name FROM roles;" }
            }
         };
 
@@ -110,9 +110,9 @@ public class LineIsCommentWithoutTagTestCases : IEnumerable
             """,
            new Dictionary<string, string>
            {
-               { "GetProducts", $"SELECT name, price FROM products;{NewLine}" },
-               { "GetUsers", $"SELECT id, name FROM users;{NewLine}" },
-               { "GetRoles", $"SELECT id, name FROM roles;{NewLine}" }
+               { "GetProducts", "SELECT name, price FROM products;" },
+               { "GetUsers", "SELECT id, name FROM users;" },
+               { "GetRoles", "SELECT id, name FROM roles;" }
            }
         };
     }
