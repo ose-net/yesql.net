@@ -21,10 +21,10 @@ public class LineIsNotAssociatedWithAnyTagTestCases : IEnumerable
             """,
            new List<string>
            {
-               $"Parsing error (line 1, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTagMessage, "This should generate an error.")}",
-               $"Parsing error (line 2, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTagMessage, "SELECT price FROM products;")}",
-               $"Parsing error (line 10, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespaceMessage}",
-               $"Parsing error (line 11, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTagMessage, "SELECT name FROM products;")}"
+               $"Parsing error (line 1, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "This should generate an error.")}",
+               $"Parsing error (line 2, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT price FROM products;")}",
+               $"Parsing error (line 10, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
+               $"Parsing error (line 11, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT name FROM products;")}"
            }
         };
 
@@ -45,10 +45,10 @@ public class LineIsNotAssociatedWithAnyTagTestCases : IEnumerable
             """,
            new List<string>
            {
-               $"Parsing error (line 1, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTagMessage, "This should generate an error.")}",
-               $"Parsing error (line 2, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTagMessage, "SELECT price FROM products;")}",
-               $"Parsing error (line 4, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespaceMessage}",
-               $"Parsing error (line 5, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTagMessage, "SELECT name FROM products;")}"
+               $"Parsing error (line 1, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "This should generate an error.")}",
+               $"Parsing error (line 2, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT price FROM products;")}",
+               $"Parsing error (line 4, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
+               $"Parsing error (line 5, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT name FROM products;")}"
            }
         };
     }

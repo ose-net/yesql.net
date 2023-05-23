@@ -25,8 +25,8 @@ public class TagNameIsDuplicatedTestCases : IEnumerable
             """,
            new List<string>
            {
-               $"Parsing error (line 10, col 9): error: {string.Format(ExceptionMessages.DuplicateTagNameMessage, "GetUsers")}",
-               $"Parsing error (line 13, col 9): error: {string.Format(ExceptionMessages.DuplicateTagNameMessage, "GetUsers")}"
+               $"Parsing error (line 10, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}",
+               $"Parsing error (line 13, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}"
            }
         };
 
@@ -51,8 +51,8 @@ public class TagNameIsDuplicatedTestCases : IEnumerable
             """,
            new List<string>
            {
-               $"Parsing error (line 4, col 9): error: {string.Format(ExceptionMessages.DuplicateTagNameMessage, "GetUsers")}",
-               $"Parsing error (line 7, col 9): error: {string.Format(ExceptionMessages.DuplicateTagNameMessage, "GetUsers")}"
+               $"Parsing error (line 4, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}",
+               $"Parsing error (line 7, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}"
            }
         };
 
@@ -77,8 +77,8 @@ public class TagNameIsDuplicatedTestCases : IEnumerable
             """,
            new List<string>
            {
-               $"Parsing error (line 4, col 9): error: {string.Format(ExceptionMessages.DuplicateTagNameMessage, "GetUsers")}",
-               $"Parsing error (line 13, col 9): error: {string.Format(ExceptionMessages.DuplicateTagNameMessage, "GetUsers")}"
+               $"Parsing error (line 4, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}",
+               $"Parsing error (line 13, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}"
            }
         };
 
@@ -103,8 +103,8 @@ public class TagNameIsDuplicatedTestCases : IEnumerable
             """,
            new List<string>
            {
-               $"Parsing error (line 10, col 9): error: {string.Format(ExceptionMessages.DuplicateTagNameMessage, "GetUsers")}",
-               $"Parsing error (line 13, col 9): error: {string.Format(ExceptionMessages.DuplicateTagNameMessage, "GetUsers")}"
+               $"Parsing error (line 10, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}",
+               $"Parsing error (line 13, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}"
            }
         };
     }

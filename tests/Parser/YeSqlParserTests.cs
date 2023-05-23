@@ -8,7 +8,7 @@ public class YeSqlParserTests
     {
         // Arrange
         var parser = new YeSqlParser();
-        var expectedMessage = ExceptionMessages.DataSourceIsEmptyOrWhitespaceMessage;
+        var expectedMessage = ExceptionMessages.DataSourceIsEmptyOrWhitespace;
 
         // Act
         var sqlStatements = parser.Parse(source, out var validationResult);
@@ -217,12 +217,12 @@ public class YeSqlParserTests
         """;
         var expectedErrors = new List<string>()
         {
-            $"Parsing error (line 1, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTagMessage, "    SELECT * FROM users;")}",
-            $"Parsing error (line 8, col 13): error: {ExceptionMessages.TagIsEmptyOrWhitespaceMessage}",
-            $"Parsing error (line 9, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTagMessage, "    SELECT name FROM roles;")}",
-            $"Parsing error (line 11, col 13): error: {string.Format(ExceptionMessages.DuplicateTagNameMessage, "GetUsers")}",
-            $"Parsing error (line 14, col 13): error: {ExceptionMessages.TagIsEmptyOrWhitespaceMessage}",
-            $"Parsing error (line 15, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTagMessage, "    SELECT * FROM roles;")}",
+            $"Parsing error (line 1, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "    SELECT * FROM users;")}",
+            $"Parsing error (line 8, col 13): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
+            $"Parsing error (line 9, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "    SELECT name FROM roles;")}",
+            $"Parsing error (line 11, col 13): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}",
+            $"Parsing error (line 14, col 13): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
+            $"Parsing error (line 15, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "    SELECT * FROM roles;")}",
         };
 
         // Act
