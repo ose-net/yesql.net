@@ -3,6 +3,14 @@
 /// <summary>
 /// Represents custom assertions for YeSql.Tests.
 /// </summary>
+/// <remarks>
+/// <para>
+/// It has been decided to create a custom assertion with the purpose of adding an additional code 
+/// that takes care of adding a new line at the end of each SQL statement of the expected dictionary.
+/// </para>
+/// This is because the current parser adds a new line at the end of each processed SQL statement, therefore, 
+/// to perform the comparison between the current and the expected value, both need to have the new line at the end of each SQL statement.
+/// </remarks>
 public class YeSqlAssertions : GenericCollectionAssertions<IYeSqlCollection, ModelTag, YeSqlAssertions>
 {
     private readonly Dictionary<string, string> _sqlStatements;
