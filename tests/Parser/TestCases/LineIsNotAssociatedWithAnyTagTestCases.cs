@@ -30,19 +30,19 @@ public class LineIsNotAssociatedWithAnyTagTestCases : IEnumerable
 
         yield return new object[]
         {
-            """
-            This should generate an error.
-            SELECT price FROM products;
+           """
+           This should generate an error.
+           SELECT price FROM products;
               
-            -- name: GetProducts
-            SELECT
-            name,
-            price
-            FROM products;
+           -- name: GetProducts
+           SELECT
+           name,
+           price
+           FROM products;
             
-            -- name:
-            SELECT name FROM products;
-            """,
+           -- name:
+           SELECT name FROM products;
+           """,
            new List<string>
            {
                $"Parsing error (line 1, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "This should generate an error.")}",
@@ -54,19 +54,19 @@ public class LineIsNotAssociatedWithAnyTagTestCases : IEnumerable
 
         yield return new object[]
         {
-            """
-            This should generate an error.
-            SELECT price FROM products;
+           """
+           This should generate an error.
+           SELECT price FROM products;
               
-            -- name:
-            SELECT name FROM products;
+           -- name:
+           SELECT name FROM products;
 
-            -- name: GetProducts
-            SELECT
-            name,
-            price
-            FROM products;
-            """,
+           -- name: GetProducts
+           SELECT
+           name,
+           price
+           FROM products;
+           """,
            new List<string>
            {
                $"Parsing error (line 1, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "This should generate an error.")}",

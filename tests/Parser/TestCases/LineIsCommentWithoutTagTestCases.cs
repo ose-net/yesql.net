@@ -93,7 +93,7 @@ public class LineIsCommentWithoutTagTestCases : IEnumerable
           $"""
            -- Queries:
                    
-               -- Gets a set of products
+              -- Gets a set of products
            -- name: GetProducts
               -- This query returns only two columns:
               -- name, price

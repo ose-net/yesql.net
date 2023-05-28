@@ -6,23 +6,23 @@ public class TagNameIsDuplicatedTestCases : IEnumerable
     {
         yield return new object[]
         {
-            """
-            -- name: GetProducts
-            SELECT
-            name,
-            price
-            FROM products;
+           """
+           -- name: GetProducts
+           SELECT
+           name,
+           price
+           FROM products;
             
-            -- name: GetUsers
-            SELECT id, name FROM users;
+           -- name: GetUsers
+           SELECT id, name FROM users;
             
-            -- name: GetUsers           
-            SELECT email, name FROM users;
+           -- name: GetUsers           
+           SELECT email, name FROM users;
               
-            -- name: GetUsers           
-            SELECT email FROM users;
+           -- name: GetUsers           
+           SELECT email FROM users;
                  
-            """,
+           """,
            new List<string>
            {
                $"Parsing error (line 10, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}",
@@ -32,23 +32,23 @@ public class TagNameIsDuplicatedTestCases : IEnumerable
 
         yield return new object[]
         {
-            """
-            -- name: GetUsers
-            SELECT id, name FROM users;
+           """
+           -- name: GetUsers
+           SELECT id, name FROM users;
             
-            -- name: GetUsers           
-            SELECT email, name FROM users;
+           -- name: GetUsers           
+           SELECT email, name FROM users;
               
-            -- name: GetUsers           
-            SELECT email FROM users;
+           -- name: GetUsers           
+           SELECT email FROM users;
 
-            -- name: GetProducts
-            SELECT
-            name,
-            price
-            FROM products;
+           -- name: GetProducts
+           SELECT
+           name,
+           price
+           FROM products;
                  
-            """,
+           """,
            new List<string>
            {
                $"Parsing error (line 4, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}",
@@ -58,23 +58,23 @@ public class TagNameIsDuplicatedTestCases : IEnumerable
 
         yield return new object[]
         {
-            """
-            -- name: GetUsers
-            SELECT id, name FROM users;
+           """
+           -- name: GetUsers
+           SELECT id, name FROM users;
             
-            -- name: GetUsers           
-            SELECT email, name FROM users;
+           -- name: GetUsers           
+           SELECT email, name FROM users;
               
-            -- name: GetProducts
-            SELECT
-            name,
-            price
-            FROM products;
+           -- name: GetProducts
+           SELECT
+           name,
+           price
+           FROM products;
               
-            -- name: GetUsers           
-            SELECT email FROM users;
+           -- name: GetUsers           
+           SELECT email FROM users;
                    
-            """,
+           """,
            new List<string>
            {
                $"Parsing error (line 4, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}",
@@ -84,23 +84,23 @@ public class TagNameIsDuplicatedTestCases : IEnumerable
 
         yield return new object[]
         {
-            """
-            -- name: GetUsers
-            SELECT id, name FROM users;
+           """
+           -- name: GetUsers
+           SELECT id, name FROM users;
             
-            -- name: GetProducts
-            SELECT
-            name,
-            price
-            FROM products;
+           -- name: GetProducts
+           SELECT
+           name,
+           price
+           FROM products;
 
-            -- name: GetUsers           
-            SELECT email, name FROM users;
+           -- name: GetUsers           
+           SELECT email, name FROM users;
               
-            -- name: GetUsers           
-            SELECT email FROM users;
+           -- name: GetUsers           
+           SELECT email FROM users;
                     
-            """,
+           """,
            new List<string>
            {
                $"Parsing error (line 10, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}",
