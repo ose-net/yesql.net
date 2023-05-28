@@ -110,7 +110,7 @@ public partial class YeSqlParser
                 continue;
             }
 
-            SqlStatements[currentTag] += line.Text.Trim() + "\n";
+            SqlStatements[currentTag] += line.Text.Trim() + Environment.NewLine;
         }
 
         return SqlStatements;
