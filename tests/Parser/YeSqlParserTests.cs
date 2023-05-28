@@ -233,4 +233,31 @@ public class YeSqlParserTests
         validationResult.HasError().Should().BeTrue();
         errors.Should().BeEquivalentTo(expectedErrors);
     }
+
+    [TestCase]
+    public void ParseAndThrow_WhenErrorsAreFound_ShouldThrowYeSqlParserException()
+    {
+        // Arrange
+        var parser = new YeSqlParser();
+        var source =
+        """
+            -- name: GetUsers
+            SELECT * FROM users;
+
+            -- name:
+            SELECT name FROM roles;
+
+            -- name:  GetUsers    
+            SELECT name FROM users;
+
+            -- name:          
+            SELECT * FROM roles;
+        """;
+
+        // Act
+        Action act = () => parser.ParseAndThrow(source);
+
+        // Assert
+        act.Should().Throw<YeSqlParserException>();
+    }
 }
