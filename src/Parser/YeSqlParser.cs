@@ -49,6 +49,19 @@ public partial class YeSqlParser
     }
 
     /// <inheritdoc cref="Parse(string, string)" />
+    /// <exception cref="YeSqlParserException">
+    /// If the parser encounters one or more errors.
+    /// </exception>
+    public IYeSqlCollection ParseAndThrow(string source)
+    {
+        var sqlStatements = Parse(source, out var validationResult);
+        if (validationResult.HasError())
+            throw new YeSqlParserException(validationResult.ErrorMessages);
+
+        return sqlStatements;
+    }
+
+    /// <inheritdoc cref="Parse(string, string)" />
     /// <param name="validationResult">The validation result of the parsing process.</param>
     public IYeSqlCollection Parse(string source, out YeSqlValidationResult validationResult)
     {
