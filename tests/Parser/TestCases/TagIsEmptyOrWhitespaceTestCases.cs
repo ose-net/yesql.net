@@ -22,7 +22,7 @@ public class TagIsEmptyOrWhitespaceTestCases : IEnumerable
             -- name:
                           
             
-            -- name:{"\t"}{"\t"}
+            -- name:{"\t\t"}
             """,
             new List<string>
             {
@@ -47,7 +47,7 @@ public class TagIsEmptyOrWhitespaceTestCases : IEnumerable
             -- name:
                           
             
-            -- name:{"\t"}{"\t"}
+            -- name:{"\t\t"}
 
 
             -- name: GetProducts
@@ -85,7 +85,7 @@ public class TagIsEmptyOrWhitespaceTestCases : IEnumerable
             -- name:
                           
             
-            -- name:{"\t"}{"\t"}
+            -- name:{"\t\t"}
 
               
             """,
@@ -118,7 +118,7 @@ public class TagIsEmptyOrWhitespaceTestCases : IEnumerable
             -- name:
                           
             
-            -- name:{"\t"}{"\t"}
+            -- name:{"\t\t"}
 
               
             """,
@@ -150,7 +150,7 @@ public class TagIsEmptyOrWhitespaceTestCases : IEnumerable
             price
             FROM products;
 
-            -- name:{"\t"}{"\t"}
+            -- name:{"\t\t"}
 
               
             """,
