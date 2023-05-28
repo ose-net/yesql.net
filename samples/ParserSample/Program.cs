@@ -1,6 +1,7 @@
 ﻿using YeSql.Net;
 
-var source = @"
+var source = 
+"""
     -- name: GetUsers
     -- Gets user records.
     SELECT* FROM user;
@@ -8,7 +9,7 @@ var source = @"
     -- name: GetRoles
     -- Gets role records.
     SELECT* FROM role;
-";
+""";
 
 var sqlStatements = new YeSqlParser().ParseAndThrow(source);
 Console.Write(sqlStatements["GetUsers"]);
