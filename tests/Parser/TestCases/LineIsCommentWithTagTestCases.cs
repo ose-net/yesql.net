@@ -32,21 +32,71 @@ public class LineIsCommentWithTagTestCases : IEnumerable
         yield return new object[]
         {
             """
-            --name: GetProducts
+            --name:GetProducts
             SELECT 
             id, 
             name, 
             price 
             FROM products;
                 
-            -- name:    GetUsers      
+            --name:GetUsers      
             SELECT 
             id,  
             name, 
             email 
             FROM users;
                
-               --   name:  GetRoles    
+            --name:GetRoles    
+            SELECT
+            id, 
+            name 
+            FROM roles;
+            """
+        };
+
+        yield return new object[]
+        {
+           $"""
+            -- name:       GetProducts       
+            SELECT 
+            id, 
+            name, 
+            price 
+            FROM products;
+                
+            -- name: {"\t\t"} GetUsers {"\t\t"}
+            SELECT 
+            id,  
+            name, 
+            email 
+            FROM users;
+               
+            -- name:        GetRoles       
+            SELECT
+            id, 
+            name 
+            FROM roles;
+            """
+        };
+
+        yield return new object[]
+        {
+           $"""
+                --       name       :  GetProducts
+            SELECT 
+            id, 
+            name, 
+            price 
+            FROM products;
+                
+                --       name       :  GetUsers      
+            SELECT 
+            id,  
+            name, 
+            email 
+            FROM users;
+               
+            {"\t\t"}-- {"\t\t"} name {"\t\t"}:  GetRoles    
             SELECT
             id, 
             name 

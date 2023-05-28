@@ -29,7 +29,7 @@ public partial class YeSqlParser
 	/// -- name: This is a comment with tag.
 	/// </example>
     private bool IsCommentWithTag(ref Line line)
-        => Regex.IsMatch(line.Text, @"^\s*--\s*name:");
+        => Regex.IsMatch(line.Text, @"^\s*--\s*name\s*:");
 
     /// <summary>
     /// Extracts the tag name from a comment.
