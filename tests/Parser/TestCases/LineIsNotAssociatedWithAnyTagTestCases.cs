@@ -7,6 +7,30 @@ public class LineIsNotAssociatedWithAnyTagTestCases : IEnumerable
         yield return new object[]
         {
             """
+            This-- name: SELECT * FROM users;
+            This -- name: SELECT * FROM products;
+            This-- SELECT * FROM users;
+            This -- SELECT * FROM products;
+
+            -- name: GetProducts
+            SELECT
+            name,
+            price
+            FROM products;
+
+            """,
+            new List<string>
+            {
+               $"Parsing error (line 1, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "This-- name: SELECT * FROM users;")}",
+               $"Parsing error (line 2, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "This -- name: SELECT * FROM products;")}",
+               $"Parsing error (line 3, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "This-- SELECT * FROM users;")}",
+               $"Parsing error (line 4, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "This -- SELECT * FROM products;")}"
+            }
+        };
+
+        yield return new object[]
+        {
+            """
             This should generate an error.
             SELECT price FROM products;
               
