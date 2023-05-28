@@ -4,6 +4,20 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <RootNamespace>YeSql.Net</RootNamespace>
+    <PackageId>YeSql.Net</PackageId>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>David Román Amariles, Johan Sanchéz de León</Authors>
+    <PackageProjectUrl>https://github.com/ose-net/yesql.net</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/ose-net/yesql.net</RepositoryUrl>
+    <PackageTags>sql</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <Description>
+      YeSQL.NET is a class library for loading SQL statements from .sql files instead of writing SQL code in your C# source files
+    </Description>
+    <Version>0.2.0-alpha</Version>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +25,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="True" PackagePath="" />
+    <None Include="..\LICENSE" Pack="True" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
