@@ -62,6 +62,7 @@ public partial class YeSqlParser
     }
 
     /// <inheritdoc cref="Parse(string, string)" />
+    /// <param name="source">The data source to parsing.</param>
     /// <param name="validationResult">The validation result of the parsing process.</param>
     public IYeSqlCollection Parse(string source, out YeSqlValidationResult validationResult)
     {
