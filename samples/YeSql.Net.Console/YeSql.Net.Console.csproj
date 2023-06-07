@@ -11,4 +11,11 @@
     <ProjectReference Include="..\..\src\YeSql.Net.csproj" />
   </ItemGroup>
 
+	<Target Name="CopySql" AfterTargets="Build">
+		<MakeDir Directories="$(OutputPath)\sql" />
+		<CopySqlFiles SourceFolder="$(MSBuildProjectDirectory)" DestinationFolder="$(OutputPath)\sql" />
+	</Target>
+
+	<UsingTask TaskName="CopySqlFiles" AssemblyFile="$(MSBuildThisFileDirectory)$(OutDir)YeSql.Net.dll" />
 </Project>
+

@@ -11,7 +11,7 @@
   </ItemGroup>
 
 	
-	<Target Name="CopySql">
+	<Target Name="CopySql" AfterTargets="Build">
 		<MakeDir Directories="$(OutputPath)\sql" />
 		<CopySqlFiles SourceFolder="$(MSBuildProjectDirectory)" DestinationFolder="$(OutputPath)\sql" />
 	</Target>
