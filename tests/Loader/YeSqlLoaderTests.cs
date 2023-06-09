@@ -36,13 +36,14 @@ public class YeSqlLoaderTests
         // Arrange
         var loader = new YeSqlLoader();
         var path = CreateFile();
+        var expectedMessage = string.Format(ExceptionMessages.FileHasNotSqlExtension, path);
 
         // Act
         Action action = () => loader.LoadFromFiles(path);
 
         // Asserts
         action.Should().Throw<YeSqlLoaderException>()
-                       .WithMessage(string.Format(ExceptionMessages.FileHasNotSqlExtension, path));
+                       .WithMessage(expectedMessage);
         action.Should().Throw<AggregateException>();
     }
 
@@ -52,13 +53,14 @@ public class YeSqlLoaderTests
         // Arrange
         var loader = new YeSqlLoader();
         var path = $"{Directory.GetCurrentDirectory()}/test.sql";
+        var expectedMessage = string.Format(ExceptionMessages.FileNotFound, path);
 
         // Act
         Action action = () => loader.LoadFromFiles(path);
 
         // Asserts
         action.Should().Throw<YeSqlLoaderException>()
-                       .WithMessage(string.Format(ExceptionMessages.FileNotFound, path));
+                       .WithMessage(expectedMessage);
         action.Should().Throw<AggregateException>();
     }
 
@@ -82,13 +84,14 @@ public class YeSqlLoaderTests
         // Arrange
         var loader = new YeSqlLoader();
         var path = Directory.GetCurrentDirectory();
+        var expectedMessage = string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectory, path);
 
         // Act
         Action action = () => loader.LoadFromDirectories(path);
 
         // Asserts
         action.Should().Throw<YeSqlLoaderException>()
-                       .WithMessage(string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectory, path));
+                       .WithMessage(expectedMessage);
         action.Should().Throw<AggregateException>();
     }
 
