@@ -35,7 +35,7 @@ public class YeSqlLoaderTests
     {
         // Arrange
         var loader = new YeSqlLoader();
-        string path = CreateFile();
+        var path = CreateFile();
 
         // Act
         Action action = () => loader.LoadFromFiles(path);
@@ -51,7 +51,7 @@ public class YeSqlLoaderTests
     {
         // Arrange
         var loader = new YeSqlLoader();
-        string path = $"{Directory.GetCurrentDirectory()}/test.sql";
+        var path = $"{Directory.GetCurrentDirectory()}/test.sql";
 
         // Act
         Action action = () => loader.LoadFromFiles(path);
@@ -81,7 +81,7 @@ public class YeSqlLoaderTests
     {
         // Arrange
         var loader = new YeSqlLoader();
-        string path = Directory.GetCurrentDirectory();
+        var path = Directory.GetCurrentDirectory();
 
         // Act
         Action action = () => loader.LoadFromDirectories(path);
@@ -97,8 +97,8 @@ public class YeSqlLoaderTests
     {
         // Arrange
         var loader = new YeSqlLoader();
-        string pathDirectory = Directory.GetCurrentDirectory();
-        string pathFile = CreateSqlFile();
+        var pathDirectory = Directory.GetCurrentDirectory();
+        var pathFile = CreateSqlFile();
 
         // Act
         var collection = loader.LoadFromDirectories(pathDirectory);
@@ -110,33 +110,31 @@ public class YeSqlLoaderTests
 
     private static string CreateSqlFile()
     {
-        string path = $"{Directory.GetCurrentDirectory()}/test.sql";
+        var path = $"{Directory.GetCurrentDirectory()}/test.sql";
         using var fileStream = new FileStream(path, FileMode.Create);
-        string content = """
-                         -- name: GetUsers
-                         -- Gets user records.
-                         SELECT* FROM [user];
-                         """;
+        var content = """
+                      -- name: GetUsers
+                      -- Gets user records.
+                      SELECT* FROM [user];
+                      """;
         byte[] bytes = Encoding.UTF8.GetBytes(content);
         fileStream.Write(bytes, 0, bytes.Length);
         fileStream.Close();
-
         return path;
     }
 
     private static string CreateFile()
     {
-        string path = $"{Directory.GetCurrentDirectory()}/test.txt";
+        var path = $"{Directory.GetCurrentDirectory()}/test.txt";
         using var fileStream = new FileStream(path, FileMode.Create);
-        string content = """
-                         -- name: GetUsers
-                         -- Gets user records.
-                         SELECT* FROM [user];
-                         """;
+        var content = """
+                      -- name: GetUsers
+                      -- Gets user records.
+                      SELECT* FROM [user];
+                      """;
         byte[] bytes = Encoding.UTF8.GetBytes(content);
         fileStream.Write(bytes, 0, bytes.Length);
         fileStream.Close();
-
         return path;
     }
 }
