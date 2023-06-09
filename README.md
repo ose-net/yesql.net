@@ -2,6 +2,8 @@
 
 [![yesql.net](https://img.shields.io/badge/.NET%20Standard-2.0-red)](https://github.com/ose-net/yesql.net)
 [![yesql.net](https://img.shields.io/badge/License-MIT-green)](https://raw.githubusercontent.com/ose-net/yesql.net/master/LICENSE)
+[![yesql.net](https://img.shields.io/badge/Project-Class%20Library-yellow)](https://github.com/ose-net/yesql.net)
+[![Nuget-Badges](https://buildstats.info/nuget/yesql.net)](https://www.nuget.org/packages/yesql.net/)
 
 YeSQL.NET is a class library for loading SQL statements from .sql files instead of writing SQL code in your C# source files.
 
