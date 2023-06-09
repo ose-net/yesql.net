@@ -31,15 +31,15 @@ public class YeSqlLoaderTests
     }
 
     [Test]
-    public void LoadFromFiles_WhenFileNotHaveExtension_ShouldThrowAggregateException()
+    public void LoadFromFiles_WhenFileHasNotSqlExtension_ShouldThrowAggregateException()
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var path = CreateFile();
-        var expectedMessage = string.Format(ExceptionMessages.FileHasNotSqlExtension, path);
+        var file = "test.txt";
+        var expectedMessage = string.Format(ExceptionMessages.FileHasNotSqlExtension, file);
 
         // Act
-        Action action = () => loader.LoadFromFiles(path);
+        Action action = () => loader.LoadFromFiles(file);
 
         // Asserts
         action.Should().Throw<YeSqlLoaderException>()
@@ -63,7 +63,6 @@ public class YeSqlLoaderTests
                        .WithMessage(expectedMessage);
         action.Should().Throw<AggregateException>();
     }
-
 
     [Test]
     public void LoadFromDirectories_WhenDirectoriesPathIsNull_ShouldThrowArgumentNullException()
@@ -114,21 +113,6 @@ public class YeSqlLoaderTests
     private static string CreateSqlFile()
     {
         var path = $"{Directory.GetCurrentDirectory()}/test.sql";
-        using var fileStream = new FileStream(path, FileMode.Create);
-        var content = """
-                      -- name: GetUsers
-                      -- Gets user records.
-                      SELECT* FROM [user];
-                      """;
-        byte[] bytes = Encoding.UTF8.GetBytes(content);
-        fileStream.Write(bytes, 0, bytes.Length);
-        fileStream.Close();
-        return path;
-    }
-
-    private static string CreateFile()
-    {
-        var path = $"{Directory.GetCurrentDirectory()}/test.txt";
         using var fileStream = new FileStream(path, FileMode.Create);
         var content = """
                       -- name: GetUsers
