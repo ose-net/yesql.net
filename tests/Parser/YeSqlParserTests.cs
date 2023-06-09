@@ -273,4 +273,22 @@ public class YeSqlParserTests
         // Assert
         act.Should().Throw<YeSqlParserException>();
     }
+
+    [TestCase]
+    public void ParseAndThrow_WhenNoErrorsAreFound_ShouldNotThrowAnException()
+    {
+        // Arrange
+        var parser = new YeSqlParser();
+        var source =
+        """
+            -- name: GetUsers
+            SELECT * FROM users;
+        """;
+
+        // Act
+        Action act = () => parser.ParseAndThrow(source);
+
+        // Assert
+        act.Should().NotThrow<YeSqlParserException>();
+    }
 }
