@@ -18,22 +18,22 @@ public class YeSqlLoaderTests
     [Test]
     public void LoadFromFiles_WhenSqlFilesExists_ShouldReturnsYeSqlCollection()
     {
-        // Arranges
+        // Arrange
         var loader = new YeSqlLoader();
         var path = CreateSqlFile();
 
-        // Acts
+        // Act
         var collection = loader.LoadFromFiles(path);
         File.Delete(path);
 
-        // Asserts
+        // Assert
         collection.Should().NotBeNull();
     }
 
     [Test]
     public void LoadFromFiles_WhenFileNotHaveExtension_ShouldThrowAggregateException()
     {
-        // Arranges
+        // Arrange
         var loader = new YeSqlLoader();
         string path = CreateFile();
 
@@ -49,7 +49,7 @@ public class YeSqlLoaderTests
     [Test]
     public void LoadFromFiles_WhenSqlFileNotExists_ShouldThrowAggregateException()
     {
-        // Arranges
+        // Arrange
         var loader = new YeSqlLoader();
         string path = $"{Directory.GetCurrentDirectory()}/test.sql";
 
@@ -86,7 +86,7 @@ public class YeSqlLoaderTests
         // Act
         Action action = () => loader.LoadFromDirectories(path);
 
-        // Assert
+        // Asserts
         action.Should().Throw<YeSqlLoaderException>()
                        .WithMessage(string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectory, path));
         action.Should().Throw<AggregateException>();
@@ -95,16 +95,16 @@ public class YeSqlLoaderTests
     [Test]
     public void LoadFromDirectories_WhenSqlFilesExistsInDirectory_ShouldReturnsYeSqlCollection()
     {
-        // Arranges
+        // Arrange
         var loader = new YeSqlLoader();
         string pathDirectory = Directory.GetCurrentDirectory();
         string pathFile = CreateSqlFile();
 
-        // Acts
+        // Act
         var collection = loader.LoadFromDirectories(pathDirectory);
         File.Delete(pathFile);
 
-        // Asserts
+        // Assert
         collection.Should().NotBeNull();
     }
 
