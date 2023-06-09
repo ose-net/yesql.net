@@ -2,6 +2,19 @@ namespace YeSql.Net.Tests.Parser;
 
 public class YeSqlParserTests
 {
+    [Test]
+    public void Parse_WhenDataSourceIsNull_ShouldThrowArgumentNullException()
+    {
+        // Arrange
+        var parser = new YeSqlParser();
+
+        // Act
+        Action act =  () => parser.Parse(null, out _);
+
+        // Assert
+        act.Should().Throw<ArgumentNullException>();
+    }
+
     [TestCase("")]
     [TestCase("  ")]
     public void Parse_WhenDataSourceIsEmptyOrWithWhitespace_ShouldReturnsEmptyCollection(string source)
