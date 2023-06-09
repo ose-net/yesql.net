@@ -3,7 +3,7 @@
 public class YeSqlLoaderTests
 {
     [Test]
-    public void LoadFromFiles_WhenSqlFilesIsNull_ShouldReturnsThrowArgumentNullException()
+    public void LoadFromFiles_WhenSqlFilesIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
         var loader = new YeSqlLoader();
@@ -31,7 +31,7 @@ public class YeSqlLoaderTests
     }
 
     [Test]
-    public void LoadFromFiles_WhenFileNotHaveExtension_ShouldReturnsThrowAggregateException()
+    public void LoadFromFiles_WhenFileNotHaveExtension_ShouldThrowAggregateException()
     {
         // Arranges
         var loader = new YeSqlLoader();
@@ -47,7 +47,7 @@ public class YeSqlLoaderTests
     }
 
     [Test]
-    public void LoadFromFiles_WhenSqlFileNotExists_ShouldReturnsThrowAggregateException()
+    public void LoadFromFiles_WhenSqlFileNotExists_ShouldThrowAggregateException()
     {
         // Arranges
         var loader = new YeSqlLoader();
@@ -64,7 +64,7 @@ public class YeSqlLoaderTests
 
 
     [Test]
-    public void LoadFromDirectories_WhenDirectoriesPathIsNull_ShouldReturnsThrowArgumentNullException()
+    public void LoadFromDirectories_WhenDirectoriesPathIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
         var loader = new YeSqlLoader();
@@ -77,7 +77,7 @@ public class YeSqlLoaderTests
     }
 
     [Test]
-    public void LoadFromDirectories_WhenNotExistsSqlFilesInDirectory_ShouldReturnsThrowAggregateException()
+    public void LoadFromDirectories_WhenNotExistsSqlFilesInDirectory_ShouldThrowAggregateException()
     {
         // Arrange
         var loader = new YeSqlLoader();
