@@ -16,7 +16,7 @@
     <Description>
       YeSQL.NET is a class library for loading SQL statements from .sql files instead of writing SQL code in your C# source files
     </Description>
-    <Version>0.2.0-alpha</Version>
+    <Version>0.3.0-alpha</Version>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
