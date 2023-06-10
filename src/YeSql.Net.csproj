@@ -6,11 +6,13 @@
     <RootNamespace>YeSql.Net</RootNamespace>
     <PackageId>YeSql.Net</PackageId>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Authors>David Román Amariles, Johan Sanchéz de León</Authors>
+    <Authors>OSE.NET</Authors>
+    <Copyright>Copyright (c) OSE.NET</Copyright>
     <PackageProjectUrl>https://github.com/ose-net/yesql.net</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>yesql-icon-nuget.png</PackageIcon>
     <RepositoryUrl>https://github.com/ose-net/yesql.net</RepositoryUrl>
-    <PackageTags>sql</PackageTags>
+    <PackageTags>sql, sql-files, yesql</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <Description>
@@ -28,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\yesql-icon-nuget.png" Pack="True" PackagePath="" />
     <None Include="..\README.md" Pack="True" PackagePath="" />
     <None Include="..\LICENSE" Pack="True" PackagePath="" />
   </ItemGroup>
