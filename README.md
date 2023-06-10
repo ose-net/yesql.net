@@ -15,6 +15,17 @@ YeSQL.NET is a class library for loading SQL statements from .sql files instead 
 This project is still in the development phase, so it is not yet ready for production use.
 > Please note that the current API may change in future versions.
 
+## Advantages
+
+By keeping the SQL and C# separate you get:
+
+- Better editor support. Your editor probably already has great SQL support. By keeping the SQL as SQL, you get to use it.
+- Query reuse. Drop the same SQL files into other projects, because they're just plain ol' SQL. Share them as a submodule.
+- Team interoperability. Your DBAs can read and write the SQL you use in your .NET project.
+- Separation of concerns. Since your SQL statements are not embedded (hard-coded) directly in the application code, you can make minor changes to the SQL file without having to open the C# source file.
+  - Any changes you make to the SQL file should not affect the C# source file unless it is a major change (e.g., renaming a column).
+- Independent development. A developer can create the SQL statements without waiting for another developer to create the C# source file with the proposed functionality.
+
 ## Installation
 
 If you're want to install the package from Visual Studio, you must open the project/solution in Visual Studio, and open the console using the **Tools** > **NuGet Package Manager** > **Package Manager Console** command and run the install command:
