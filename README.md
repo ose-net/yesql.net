@@ -1,4 +1,4 @@
-# yesql.net
+# YeSQL.NET
 
 [![yesql.net](https://img.shields.io/badge/.NET%20Standard-2.0-red)](https://github.com/ose-net/yesql.net)
 [![yesql.net](https://img.shields.io/badge/License-MIT-green)](https://raw.githubusercontent.com/ose-net/yesql.net/master/LICENSE)
