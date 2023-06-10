@@ -24,7 +24,7 @@ By keeping the SQL and C# separate you get:
 - Team interoperability. Your DBAs can read and write the SQL you use in your .NET project.
 - Separation of concerns. Since your SQL statements are not embedded (hard-coded) directly in the application code, you can make minor changes to the SQL file without having to open the C# source file.
   - Any changes you make to the SQL file should not affect the C# source file unless it is a major change (e.g., renaming a column).
-- Independent development. A developer can create the SQL statements without waiting for another developer to create the C# source file with the proposed functionality.
+- Independent development. A developer can create the SQL statements without waiting for another developer to create the C# source file with the proposed feature.
 
 ## Installation
 
