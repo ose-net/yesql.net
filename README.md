@@ -37,7 +37,7 @@ If you are making use of the dotnet CLI, then run the following in your terminal
 dotnet add package YeSql.Net
 ```
 
-## Usage
+## Overview
 
 Create a file with .sql extension containing the SQL statements:
 ```sql
