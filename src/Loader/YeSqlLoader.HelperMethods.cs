@@ -35,7 +35,7 @@ public partial class YeSqlLoader
     {
         foreach (var file in files)
         {
-            if (file is null)
+            if (file is null) //Possible use
                 continue;
 
             if (HasNotSqlExtension(file))
