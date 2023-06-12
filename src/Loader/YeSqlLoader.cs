@@ -29,7 +29,7 @@ public partial class YeSqlLoader
         if (sqlFiles is null)
             throw new ArgumentNullException(nameof(sqlFiles));
 
-        if (directories.ContainsNullOrWhiteSpace() is true)
+        if (sqlFiles.ContainsNullOrWhiteSpace() is true)
             throw new ArgumentNullException(string.Format(ExceptionMessages.ParameterIsNullOrEmptyOrWhiteSpace, nameof(sqlFiles)));
 
         var sqlFilesDetails = GetSqlFilesDetails(sqlFiles);
@@ -73,6 +73,9 @@ public partial class YeSqlLoader
     {
         if (directoryName is null)
             throw new ArgumentNullException(nameof(directoryName));
+
+        if(string.IsNullOrWhiteSpace(directoryName) is true)
+            throw new ArgumentNullException(string.Format(ExceptionMessages.ParameterIsNullOrEmptyOrWhiteSpace, nameof(directoryName)));
 
         var sqlFilesDetails = GetSqlFilesDetails(directoryName);
 
