@@ -69,16 +69,16 @@ public class YeSqlLoaderTests
     [TestCase("        ")]
     [TestCase("data.sql", null)]
     [TestCase("data.sql", "test.sql", "  ", "", null, "hola.sql")]
-    public void LoadFromFiles_WhenSqlFilesAreNullOrWhiteSpace_ShouldThrowArgumentException(params string[] sqlFiles)
+    public void LoadFromFiles_CollectionHasNullValueOrWhiteSpaces_ShouldThrowArgumentException(params string[] sqlFiles)
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var expectedMessage = string.Format(ExceptionMessages.ParameterIsNullOrEmptyOrWhiteSpace, nameof(sqlFiles));
+        var expectedMessage = string.Format(ExceptionMessages.CollectionHasNullValueOrWhiteSpace, nameof(sqlFiles));
 
         // Act
         Action action = () => loader.LoadFromFiles(sqlFiles);
 
-        // Asserts
+        // Assert
         action.Should().Throw<ArgumentException>()
                        .WithMessage(expectedMessage);
     }
@@ -101,16 +101,16 @@ public class YeSqlLoaderTests
     [TestCase("        ")]
     [TestCase("data/", null)]
     [TestCase("sql/", "non/", "  ", "", null, "tests/")]
-    public void LoadFromDirectories_WhenDirectoriesAreNullOrWhiteSpace_ShouldThrowArgumentException(params string[] directories)
+    public void LoadFromDirectories_WhenCollectionHasNullValueOrWhiteSpaces_ShouldThrowArgumentException(params string[] directories)
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var expectedMessage = string.Format(ExceptionMessages.ParameterIsNullOrEmptyOrWhiteSpace, nameof(directories));
+        var expectedMessage = string.Format(ExceptionMessages.CollectionHasNullValueOrWhiteSpace, nameof(directories));
 
         // Act
         Action action = () => loader.LoadFromDirectories(directories);
 
-        // Asserts
+        // Assert
         action.Should().Throw<ArgumentException>()
                        .WithMessage(expectedMessage);
     }
