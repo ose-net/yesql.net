@@ -90,7 +90,7 @@ public class YeSqlLoaderTests
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var expectedMessage = ExceptionMessages.ParamsLengthZero;
+        var expectedMessage = ExceptionMessages.LengthOfParamsListIsZero;
 
         // Act
         Action action = () => loader.LoadFromFiles();
@@ -118,7 +118,7 @@ public class YeSqlLoaderTests
     [TestCase("        ")]
     [TestCase("data/", null)]
     [TestCase("sql/", "non/", "  ", "", null, "tests/")]
-    public void LoadFromDirectories_WhenCollectionHasNullValueOrOnlyWhiteSpace_ShouldThrowArgumentException(params string[] directories)
+    public void LoadFromDirectories_WhenCollectionHasNullValueOrOnlyWhitespace_ShouldThrowArgumentException(params string[] directories)
     {
         // Arrange
         var loader = new YeSqlLoader();
@@ -170,7 +170,7 @@ public class YeSqlLoaderTests
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var expectedMessage = ExceptionMessages.ParamsLengthZero;
+        var expectedMessage = ExceptionMessages.LengthOfParamsListIsZero;
 
         // Act
         Action action = () => loader.LoadFromDirectories();
