@@ -25,6 +25,8 @@ public partial class YeSqlLoader
     /// <exception cref="ArgumentNullException"><c>sqlFiles</c> is <c>null</c>.</exception>
     /// <exception cref="ArgumentException">
     /// One or more files in <paramref name="sqlFiles"/> is null, empty or consists only of white-space characters.
+    /// -or-
+    /// The length of the <paramref name="sqlFiles"/> list is zero.
     /// </exception>
     /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
     public IYeSqlCollection LoadFromFiles(params string[] sqlFiles)
@@ -32,6 +34,9 @@ public partial class YeSqlLoader
         if (sqlFiles is null)
             throw new ArgumentNullException(nameof(sqlFiles));
 
+        if (sqlFiles.IsEmpty())
+            throw new ArgumentException(ExceptionMessages.LengthOfParamsListIsZero);
+      
         if (sqlFiles.ContainsNullOrWhiteSpace())
             throw new ArgumentException(string.Format(ExceptionMessages.CollectionHasNullValueOrOnlyWhitespace, nameof(sqlFiles)));
 
@@ -52,12 +57,17 @@ public partial class YeSqlLoader
     /// <exception cref="ArgumentNullException"><c>directories</c> is <c>null</c>.</exception>
     /// <exception cref="ArgumentException">
     /// One or more directories in <paramref name="directories"/> is null, empty or consists only of white-space characters.
+    /// -or-
+    /// The length of the <paramref name="directories"/> list is zero.
     /// </exception>
     /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
     public IYeSqlCollection LoadFromDirectories(params string[] directories)
     {
         if (directories is null)
             throw new ArgumentNullException(nameof(directories));
+
+        if (directories.IsEmpty())
+            throw new ArgumentException(ExceptionMessages.LengthOfParamsListIsZero);
 
         if(directories.ContainsNullOrWhiteSpace())
             throw new ArgumentException(string.Format(ExceptionMessages.CollectionHasNullValueOrOnlyWhitespace, nameof(directories)));

@@ -84,6 +84,21 @@ public class YeSqlLoaderTests
     }
 
     [Test]
+    public void LoadFromFiles_WhenParamsListIsZero_ShouldThrowArgumentException()
+    {
+        // Arrange
+        var loader = new YeSqlLoader();
+        var expectedMessage = ExceptionMessages.LengthOfParamsListIsZero;
+
+        // Act
+        Action action = () => loader.LoadFromFiles();
+
+        // Assert
+        action.Should().Throw<ArgumentException>()
+                       .WithMessage(expectedMessage);
+    }
+
+    [Test]
     public void LoadFromDirectories_WhenDirectoriesPathIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -101,7 +116,7 @@ public class YeSqlLoaderTests
     [TestCase("        ")]
     [TestCase("data/", null)]
     [TestCase("sql/", "non/", "  ", "", null, "tests/")]
-    public void LoadFromDirectories_WhenCollectionHasNullValueOrOnlyWhiteSpace_ShouldThrowArgumentException(params string[] directories)
+    public void LoadFromDirectories_WhenCollectionHasNullValueOrOnlyWhitespace_ShouldThrowArgumentException(params string[] directories)
     {
         // Arrange
         var loader = new YeSqlLoader();
@@ -146,6 +161,21 @@ public class YeSqlLoaderTests
 
         // Assert
         collection.Should().NotBeNull();
+    }
+
+    [Test]
+    public void LoadFromDirectories_WhenParamsListIsZero_ShouldThrowArgumentException()
+    {
+        // Arrange
+        var loader = new YeSqlLoader();
+        var expectedMessage = ExceptionMessages.LengthOfParamsListIsZero;
+
+        // Act
+        Action action = () => loader.LoadFromDirectories();
+
+        // Assert
+        action.Should().Throw<ArgumentException>()
+                       .WithMessage(expectedMessage);
     }
 
     private static string CreateSqlFile()
