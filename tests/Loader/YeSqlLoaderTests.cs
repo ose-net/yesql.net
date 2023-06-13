@@ -1,4 +1,6 @@
-﻿namespace YeSql.Net.Tests.Loader;
+﻿using System.IO;
+
+namespace YeSql.Net.Tests.Loader;
 
 public class YeSqlLoaderTests
 {
@@ -65,6 +67,21 @@ public class YeSqlLoaderTests
     }
 
     [Test]
+    public void LoadFromFiles_WhenParamsListIsZero_ShouldThrowArgumentException()
+    {
+        // Arrange
+        var loader = new YeSqlLoader();
+        var expectedMessage = ExceptionMessages.ParamsLengthZero;
+
+        // Act
+        Action action = () => loader.LoadFromFiles();
+
+        // Assert
+        action.Should().Throw<ArgumentException>()
+                       .WithMessage(expectedMessage);
+    }
+
+    [Test]
     public void LoadFromDirectories_WhenDirectoriesPathIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -108,6 +125,21 @@ public class YeSqlLoaderTests
 
         // Assert
         collection.Should().NotBeNull();
+    }
+
+    [Test]
+    public void LoadFromDirectories_WhenParamsListIsZero_ShouldThrowArgumentException()
+    {
+        // Arrange
+        var loader = new YeSqlLoader();
+        var expectedMessage = ExceptionMessages.ParamsLengthZero;
+
+        // Act
+        Action action = () => loader.LoadFromDirectories();
+
+        // Assert
+        action.Should().Throw<ArgumentException>()
+                       .WithMessage(expectedMessage);
     }
 
     private static string CreateSqlFile()
