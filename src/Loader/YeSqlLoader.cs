@@ -23,11 +23,17 @@ public partial class YeSqlLoader
     /// <param name="sqlFiles">The SQL files to load.</param>
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
     /// <exception cref="ArgumentNullException"><c>sqlFiles</c> is <c>null</c>.</exception>
+    /// <exception cref="ArgumentException">
+    /// One or more files in <paramref name="sqlFiles"/> is null, empty or consists only of white-space characters.
+    /// </exception>
     /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
     public IYeSqlCollection LoadFromFiles(params string[] sqlFiles)
     {
         if (sqlFiles is null)
             throw new ArgumentNullException(nameof(sqlFiles));
+
+        if (sqlFiles.ContainsNullOrWhiteSpace())
+            throw new ArgumentException(string.Format(ExceptionMessages.CollectionHasNullValueOrWhiteSpace, nameof(sqlFiles)));
 
         var sqlFilesDetails = GetSqlFilesDetails(sqlFiles);
 
@@ -43,12 +49,18 @@ public partial class YeSqlLoader
     /// </summary>
     /// <param name="directories">A set of directories where the SQL files are located.</param>
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
-    /// <exception cref="ArgumentNullException"><c>directoryName</c> is <c>null</c>.</exception>
+    /// <exception cref="ArgumentNullException"><c>directories</c> is <c>null</c>.</exception>
+    /// <exception cref="ArgumentException">
+    /// One or more directories in <paramref name="directories"/> is null, empty or consists only of white-space characters.
+    /// </exception>
     /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
     public IYeSqlCollection LoadFromDirectories(params string[] directories)
     {
         if (directories is null)
             throw new ArgumentNullException(nameof(directories));
+
+        if(directories.ContainsNullOrWhiteSpace())
+            throw new ArgumentException(string.Format(ExceptionMessages.CollectionHasNullValueOrWhiteSpace, nameof(directories)));
 
         foreach (var directory in directories)
             LoadFromDirectory(directory);
