@@ -8,7 +8,7 @@ internal class ExceptionMessages
     public const string FileNotFound                       = "{0}: error: No such file or directory.";
     public const string FileHasNotSqlExtension             = "error: '{0}' has no sql extension.";
     public const string CollectionHasNullValueOrWhiteSpace = "'{0}' collection cannot contain elements with a null value, " +
-                                                             "an empty string or white-space characters.";
+                                                             "an empty string or consists only of white-space characters.";
     public const string NoneFileFoundInSpecifiedDirectory  = "error: No sql file found in the directory '{0}'.";
     public const string YeSqlParserDefault                 = "error: Parser found syntax errors.";
     public const string YeSqlLoaderDefault                 = "error: Loader found an error while loading the SQL file.";
