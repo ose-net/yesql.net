@@ -24,7 +24,7 @@ public partial class YeSqlLoader
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
     /// <exception cref="ArgumentNullException"><c>sqlFiles</c> is <c>null</c>.</exception>
     /// <exception cref="ArgumentException">
-    /// <c>sqlFiles</c> contain elements with a null value, an empty string or white-space characters.
+    /// One or more files in <paramref name="sqlFiles"/> is null, empty string or consists only of white-space characters.
     /// </exception>
     /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
     public IYeSqlCollection LoadFromFiles(params string[] sqlFiles)
@@ -51,7 +51,7 @@ public partial class YeSqlLoader
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
     /// <exception cref="ArgumentNullException"><c>directories</c> is <c>null</c>.</exception>
     /// <exception cref="ArgumentException">
-    /// <c>directories</c> contain elements with a null value, an empty string or white-space characters.
+    /// One or more directories in <paramref name="directories"/> is null, empty string or consists only of white-space characters.
     /// </exception>
     /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
     public IYeSqlCollection LoadFromDirectories(params string[] directories)
