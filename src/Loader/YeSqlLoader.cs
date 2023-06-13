@@ -22,8 +22,12 @@ public partial class YeSqlLoader
     /// </summary>
     /// <param name="sqlFiles">The SQL files to load.</param>
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
-    /// /// <exception cref="ArgumentException"><paramref name="sqlFiles"/> is empty (length is 0).</exception>
     /// <exception cref="ArgumentNullException"><c>sqlFiles</c> is <c>null</c>.</exception>
+    /// <exception cref="ArgumentException">
+    /// One or more files in <paramref name="sqlFiles"/> is null, empty or consists only of white-space characters.
+    /// -or-
+    /// The length of the <paramref name="sqlFiles"/> list is zero.
+    /// </exception>
     /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
     public IYeSqlCollection LoadFromFiles(params string[] sqlFiles)
     {
@@ -32,6 +36,9 @@ public partial class YeSqlLoader
 
         if (sqlFiles.Length is 0)
             throw new ArgumentException(ExceptionMessages.ParamsLengthZero);
+      
+        if (sqlFiles.ContainsNullOrWhiteSpace())
+            throw new ArgumentException(string.Format(ExceptionMessages.CollectionHasNullValueOrOnlyWhitespace, nameof(sqlFiles)));
 
         var sqlFilesDetails = GetSqlFilesDetails(sqlFiles);
 
@@ -47,8 +54,12 @@ public partial class YeSqlLoader
     /// </summary>
     /// <param name="directories">A set of directories where the SQL files are located.</param>
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
-    /// <exception cref="ArgumentException"><paramref name="directories"/> is empty (length is 0).</exception>
-    /// <exception cref="ArgumentNullException"><c>directoryName</c> is <c>null</c>.</exception>
+    /// <exception cref="ArgumentNullException"><c>directories</c> is <c>null</c>.</exception>
+    /// <exception cref="ArgumentException">
+    /// One or more directories in <paramref name="directories"/> is null, empty or consists only of white-space characters.
+    /// -or-
+    /// The length of the <paramref name="directories"/> list is zero.
+    /// </exception>
     /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
     public IYeSqlCollection LoadFromDirectories(params string[] directories)
     {
@@ -57,6 +68,9 @@ public partial class YeSqlLoader
 
         if (directories.Length is 0)
             throw new ArgumentException(ExceptionMessages.ParamsLengthZero);
+
+        if(directories.ContainsNullOrWhiteSpace())
+            throw new ArgumentException(string.Format(ExceptionMessages.CollectionHasNullValueOrOnlyWhitespace, nameof(directories)));
 
         foreach (var directory in directories)
             LoadFromDirectory(directory);
