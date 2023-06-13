@@ -34,7 +34,7 @@ public partial class YeSqlLoader
         if (sqlFiles is null)
             throw new ArgumentNullException(nameof(sqlFiles));
 
-        if (sqlFiles.Length is 0)
+        if (sqlFiles.IsEmpty())
             throw new ArgumentException(ExceptionMessages.LengthOfParamsListIsZero);
       
         if (sqlFiles.ContainsNullOrWhiteSpace())
@@ -66,7 +66,7 @@ public partial class YeSqlLoader
         if (directories is null)
             throw new ArgumentNullException(nameof(directories));
 
-        if (directories.Length is 0)
+        if (directories.IsEmpty())
             throw new ArgumentException(ExceptionMessages.LengthOfParamsListIsZero);
 
         if(directories.ContainsNullOrWhiteSpace())
