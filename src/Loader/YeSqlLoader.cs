@@ -84,12 +84,8 @@ public partial class YeSqlLoader
     /// </summary>
     /// <param name="directoryName">The name of the directory where the SQL files are located.</param>
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
-    /// <exception cref="ArgumentNullException"><c>directoryName</c> is <c>null</c>.</exception>
     private IYeSqlCollection LoadFromDirectory(string directoryName)
     {
-        if (directoryName is null)
-            throw new ArgumentNullException(nameof(directoryName));
-
         var sqlFilesDetails = GetSqlFilesDetails(directoryName);
 
         if (sqlFilesDetails.IsEmpty())
