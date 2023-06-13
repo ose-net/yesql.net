@@ -18,7 +18,10 @@ internal static class EnumerableExtensions
     /// Determines if any string in the specified collection is null, empty, or contains only white-space characters.
     /// </summary>
     /// <param name="source">The collection of strings to check.</param>
-    /// <returns>True if any string in the collection is null, empty, or contains only white-space characters; otherwise, false.</returns>
+    /// <returns>
+    /// <c>true</c> if any string in the collection is null, empty, 
+    /// or contains only white-space characters; otherwise, <c>false</c>.
+    /// </returns>
     public static bool ContainsNullOrWhiteSpace(this IEnumerable<string> source)
         => source.Where(string.IsNullOrWhiteSpace).Any();
 
