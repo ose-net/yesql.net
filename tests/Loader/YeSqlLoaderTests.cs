@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace YeSql.Net.Tests.Loader;
+﻿namespace YeSql.Net.Tests.Loader;
 
 public class YeSqlLoaderTests
 {
