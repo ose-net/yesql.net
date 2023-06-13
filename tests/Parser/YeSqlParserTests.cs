@@ -9,10 +9,10 @@ public class YeSqlParserTests
         var parser = new YeSqlParser();
 
         // Act
-        Action act =  () => parser.Parse(null, out _);
+        Action action =  () => parser.Parse(null, out _);
 
         // Assert
-        act.Should().Throw<ArgumentNullException>();
+        action.Should().Throw<ArgumentNullException>();
     }
 
     [TestCase("")]
@@ -268,10 +268,10 @@ public class YeSqlParserTests
         """;
 
         // Act
-        Action act = () => parser.ParseAndThrow(source);
+        Action action = () => parser.ParseAndThrow(source);
 
         // Assert
-        act.Should().Throw<YeSqlParserException>();
+        action.Should().Throw<YeSqlParserException>();
     }
 
     [TestCase]
@@ -286,9 +286,9 @@ public class YeSqlParserTests
         """;
 
         // Act
-        Action act = () => parser.ParseAndThrow(source);
+        Action action = () => parser.ParseAndThrow(source);
 
         // Assert
-        act.Should().NotThrow<YeSqlParserException>();
+        action.Should().NotThrow<YeSqlParserException>();
     }
 }
