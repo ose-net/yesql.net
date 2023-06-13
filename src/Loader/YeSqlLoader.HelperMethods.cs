@@ -35,9 +35,6 @@ public partial class YeSqlLoader
     {
         foreach (var file in files)
         {
-            if (file is null)
-                continue;
-
             if (HasNotSqlExtension(file))
             {
                 _validationResult.Add(string.Format(ExceptionMessages.FileHasNotSqlExtension, file));
