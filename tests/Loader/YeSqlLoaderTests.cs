@@ -69,7 +69,7 @@ public class YeSqlLoaderTests
     [TestCase("        ")]
     [TestCase("data.sql", null)]
     [TestCase("data.sql", "test.sql", "  ", "", null, "hola.sql")]
-    public void LoadFromFiles_CollectionHasNullValueOrWhiteSpaces_ShouldThrowArgumentException(params string[] sqlFiles)
+    public void LoadFromFiles_WhenCollectionHasNullValueOrWhiteSpaces_ShouldThrowArgumentException(params string[] sqlFiles)
     {
         // Arrange
         var loader = new YeSqlLoader();
