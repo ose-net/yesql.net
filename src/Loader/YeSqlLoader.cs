@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace YeSql.Net;
 
@@ -86,8 +87,13 @@ public partial class YeSqlLoader
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
     private IYeSqlCollection LoadFromDirectory(string directoryName)
     {
-        var sqlFilesDetails = GetSqlFilesDetails(directoryName);
+        if(!Directory.Exists(directoryName))
+        {
+            _validationResult.Add(string.Format(ExceptionMessages.DirectoryNotFound, directoryName));
+            return _parser.SqlStatements;
+        }
 
+        var sqlFilesDetails = GetSqlFilesDetails(directoryName);
         if (sqlFilesDetails.IsEmpty())
             _validationResult.Add(string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectory, directoryName));
 
