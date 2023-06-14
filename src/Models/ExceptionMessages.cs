@@ -6,6 +6,7 @@
 internal class ExceptionMessages
 {
     public const string FileNotFound                            = "{0}: error: No such file or directory.";
+    public const string DirectoryNotFound                       = "{0}: error: No such directory exists.";
     public const string FileHasNotSqlExtension                  = "error: '{0}' has no sql extension.";
     public const string CollectionHasNullValueOrOnlyWhitespace  = "'{0}' collection cannot contain elements with a null value, " +
                                                                   "an empty string or consists only of white-space characters.";
