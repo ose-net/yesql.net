@@ -65,10 +65,10 @@ public class YeSqlLoaderTests
         var file = "sql/users.sql";
 
         // Act
-        var collection = loader.LoadFromFiles(file);
+        var sqlStatements = loader.LoadFromFiles(file);
 
         // Assert
-        collection.Should().NotBeNull();
+        sqlStatements.Should().NotBeNull();
     }
 
     [Test]
@@ -246,10 +246,10 @@ public class YeSqlLoaderTests
         var directory = "sql";
 
         // Act
-        var collection = loader.LoadFromDirectories(directory);
+        var sqlStatements = loader.LoadFromDirectories(directory);
 
         // Assert
-        collection.Should().NotBeNull();
+        sqlStatements.Should().NotBeNull();
     }
 
     [Test]
