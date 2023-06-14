@@ -3,6 +3,48 @@
 public class YeSqlLoaderTests
 {
     [Test]
+    public void LoadFromFiles_WhenErrorsAreFound_ShouldThrowAggregateException()
+    {
+        // Arrange
+        var loader = new YeSqlLoader();
+        var files = new[] 
+        { 
+            "error/errors_1.sql",
+            "error/errors_2.sql",
+            "file_not_found.sql",
+            "file_without_extension"
+        };
+        var expectedLoaderErrors = new[]
+        {
+            string.Format(ExceptionMessages.FileNotFound, "file_not_found.sql"),
+            string.Format(ExceptionMessages.FileHasNotSqlExtension, "file_without_extension")
+        };
+        var expectedParserErrors = new[]
+        {
+            $"errors_1.sql:(line 2, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT * FROM users;")}",
+            $"errors_1.sql:(line 9, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
+            $"errors_1.sql:(line 10, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT name FROM roles;")}",
+            $"errors_2.sql:(line 2, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}",
+            $"errors_2.sql:(line 5, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
+            $"errors_2.sql:(line 6, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT * FROM roles;")}"
+        };
+
+        // Act
+        Action action = () => loader.LoadFromFiles(files);
+
+        // Asserts
+        action.Should()
+              .Throw<YeSqlLoaderException>()
+              .WithMessage(string.Join(Environment.NewLine, expectedLoaderErrors));
+
+        action.Should()
+              .Throw<YeSqlParserException>()
+              .WithMessage(string.Join(Environment.NewLine, expectedParserErrors));
+
+        action.Should().Throw<AggregateException>();
+    }
+
+    [Test]
     public void LoadFromFiles_WhenSqlFilesIsNull_ShouldThrowArgumentNullException()
     {
         // Arrange
@@ -20,11 +62,10 @@ public class YeSqlLoaderTests
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var path = CreateSqlFile();
+        var file = "sql/users.sql";
 
         // Act
-        var collection = loader.LoadFromFiles(path);
-        File.Delete(path);
+        var collection = loader.LoadFromFiles(file);
 
         // Assert
         collection.Should().NotBeNull();
@@ -42,8 +83,10 @@ public class YeSqlLoaderTests
         Action action = () => loader.LoadFromFiles(file);
 
         // Asserts
-        action.Should().Throw<YeSqlLoaderException>()
-                       .WithMessage(expectedMessage);
+        action.Should()
+              .Throw<YeSqlLoaderException>()
+              .WithMessage(expectedMessage);
+
         action.Should().Throw<AggregateException>();
     }
 
@@ -59,8 +102,10 @@ public class YeSqlLoaderTests
         Action action = () => loader.LoadFromFiles(file);
 
         // Asserts
-        action.Should().Throw<YeSqlLoaderException>()
-                       .WithMessage(expectedMessage);
+        action.Should()
+              .Throw<YeSqlLoaderException>()
+              .WithMessage(expectedMessage);
+
         action.Should().Throw<AggregateException>();
     }
 
@@ -79,8 +124,9 @@ public class YeSqlLoaderTests
         Action action = () => loader.LoadFromFiles(sqlFiles);
 
         // Assert
-        action.Should().Throw<ArgumentException>()
-                       .WithMessage(expectedMessage);
+        action.Should()
+              .Throw<ArgumentException>()
+              .WithMessage(expectedMessage);
     }
 
     [Test]
@@ -94,8 +140,50 @@ public class YeSqlLoaderTests
         Action action = () => loader.LoadFromFiles();
 
         // Assert
-        action.Should().Throw<ArgumentException>()
-                       .WithMessage(expectedMessage);
+        action.Should()
+              .Throw<ArgumentException>()
+              .WithMessage(expectedMessage);
+    }
+
+    [Test]
+    public void LoadFromDirectories_WhenErrorsAreFound_ShouldThrowAggregateException()
+    {
+        // Arrange
+        var loader = new YeSqlLoader();
+        var directories = new[]
+        {
+            "error",
+            "directory_not_found",
+            "env",
+        };
+        var expectedLoaderErrors = new[]
+        {
+            string.Format(ExceptionMessages.DirectoryNotFound, "directory_not_found"),
+            string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectory, "env")
+        };
+        var expectedParserErrors = new[]
+        {
+            $"errors_1.sql:(line 2, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT * FROM users;")}",
+            $"errors_1.sql:(line 9, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
+            $"errors_1.sql:(line 10, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT name FROM roles;")}",
+            $"errors_2.sql:(line 2, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}",
+            $"errors_2.sql:(line 5, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
+            $"errors_2.sql:(line 6, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT * FROM roles;")}"
+        };
+
+        // Act
+        Action action = () => loader.LoadFromDirectories(directories);
+
+        // Asserts
+        action.Should()
+              .Throw<YeSqlLoaderException>()
+              .WithMessage(string.Join(Environment.NewLine, expectedLoaderErrors));
+
+        action.Should()
+              .Throw<YeSqlParserException>()
+              .WithMessage(string.Join(Environment.NewLine, expectedParserErrors));
+
+        action.Should().Throw<AggregateException>();
     }
 
     [Test]
@@ -126,8 +214,9 @@ public class YeSqlLoaderTests
         Action action = () => loader.LoadFromDirectories(directories);
 
         // Assert
-        action.Should().Throw<ArgumentException>()
-                       .WithMessage(expectedMessage);
+        action.Should()
+              .Throw<ArgumentException>()
+              .WithMessage(expectedMessage);
     }
 
     [Test]
@@ -135,15 +224,17 @@ public class YeSqlLoaderTests
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var path = Directory.GetCurrentDirectory();
-        var expectedMessage = string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectory, path);
+        var directory = "env";
+        var expectedMessage = string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectory, directory);
 
         // Act
-        Action action = () => loader.LoadFromDirectories(path);
+        Action action = () => loader.LoadFromDirectories(directory);
 
         // Asserts
-        action.Should().Throw<YeSqlLoaderException>()
-                       .WithMessage(expectedMessage);
+        action.Should()
+              .Throw<YeSqlLoaderException>()
+              .WithMessage(expectedMessage);
+
         action.Should().Throw<AggregateException>();
     }
 
@@ -152,12 +243,10 @@ public class YeSqlLoaderTests
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var pathDirectory = Directory.GetCurrentDirectory();
-        var pathFile = CreateSqlFile();
+        var directory = "sql";
 
         // Act
-        var collection = loader.LoadFromDirectories(pathDirectory);
-        File.Delete(pathFile);
+        var collection = loader.LoadFromDirectories(directory);
 
         // Assert
         collection.Should().NotBeNull();
@@ -175,8 +264,10 @@ public class YeSqlLoaderTests
         Action action = () => loader.LoadFromDirectories(directory);
 
         // Asserts
-        action.Should().Throw<YeSqlLoaderException>()
-                       .WithMessage(expectedMessage);
+        action.Should()
+              .Throw<YeSqlLoaderException>()
+              .WithMessage(expectedMessage);
+
         action.Should().Throw<AggregateException>();
     }
 
@@ -191,22 +282,8 @@ public class YeSqlLoaderTests
         Action action = () => loader.LoadFromDirectories();
 
         // Assert
-        action.Should().Throw<ArgumentException>()
-                       .WithMessage(expectedMessage);
-    }
-
-    private static string CreateSqlFile()
-    {
-        var path = $"{Directory.GetCurrentDirectory()}/test.sql";
-        using var fileStream = new FileStream(path, FileMode.Create);
-        var content = """
-                      -- name: GetUsers
-                      -- Gets user records.
-                      SELECT* FROM [user];
-                      """;
-        byte[] bytes = Encoding.UTF8.GetBytes(content);
-        fileStream.Write(bytes, 0, bytes.Length);
-        fileStream.Close();
-        return path;
+        action.Should()
+              .Throw<ArgumentException>()
+              .WithMessage(expectedMessage);
     }
 }
