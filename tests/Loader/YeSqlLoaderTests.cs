@@ -52,11 +52,11 @@ public class YeSqlLoaderTests
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var path = $"{Directory.GetCurrentDirectory()}/test.sql";
-        var expectedMessage = string.Format(ExceptionMessages.FileNotFound, path);
+        var file = "file_not_found.sql";
+        var expectedMessage = string.Format(ExceptionMessages.FileNotFound, file);
 
         // Act
-        Action action = () => loader.LoadFromFiles(path);
+        Action action = () => loader.LoadFromFiles(file);
 
         // Asserts
         action.Should().Throw<YeSqlLoaderException>()
@@ -161,6 +161,23 @@ public class YeSqlLoaderTests
 
         // Assert
         collection.Should().NotBeNull();
+    }
+
+    [Test]
+    public void LoadFromDirectories_WhenDirectoryNotExists_ShouldThrowAggregateException()
+    {
+        // Arrange
+        var loader = new YeSqlLoader();
+        var directory = "directory_not_found";
+        var expectedMessage = string.Format(ExceptionMessages.DirectoryNotFound, directory);
+
+        // Act
+        Action action = () => loader.LoadFromDirectories(directory);
+
+        // Asserts
+        action.Should().Throw<YeSqlLoaderException>()
+                       .WithMessage(expectedMessage);
+        action.Should().Throw<AggregateException>();
     }
 
     [Test]
