@@ -32,11 +32,11 @@ By keeping the SQL and C# separate you get:
 
 If you're want to install the package from Visual Studio, you must open the project/solution in Visual Studio, and open the console using the **Tools** > **NuGet Package Manager** > **Package Manager Console** command and run the install command:
 ```
-Install-Package YeSql.Net
+Install-Package YeSql.Net -IncludePrerelease
 ```
 If you are making use of the dotnet CLI, then run the following in your terminal:
 ```
-dotnet add package YeSql.Net
+dotnet add package YeSql.Net --prerelease
 ```
 
 ## Overview
