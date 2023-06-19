@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using static YeSql.Net.ExceptionMessages;
 
 namespace YeSql.Net;
 
@@ -22,7 +21,7 @@ public partial class YeSqlLoader
         if (_parser.ValidationResult.HasError())
             exceptions.Add(new YeSqlParserException(_parser.ValidationResult.ErrorMessages));
 
-        if (exceptions.Count == 0)
+        if (exceptions.Count > 0)
             throw new AggregateException(exceptions);
     }
 
@@ -36,30 +35,22 @@ public partial class YeSqlLoader
     {
         foreach (var file in files)
         {
-            if (file is null)
-                continue;
-
             if (HasNotSqlExtension(file))
             {
-                _validationResult.Add(string.Format(FileHasNotSqlExtensionMessage, file));
+                _validationResult.Add(string.Format(ExceptionMessages.FileHasNotSqlExtension, file));
                 continue;
             }
 
-            string content;
-            try
+            if(!File.Exists(file))
             {
-                content = File.ReadAllText(file);
-            }
-            catch (FileNotFoundException)
-            {
-                _validationResult.Add(string.Format(FileNotFoundMessage, file));
+                _validationResult.Add(string.Format(ExceptionMessages.FileNotFound, file));
                 continue;
             }
 
             yield return new SqlFile
             {
                 FileName = Path.GetFileName(file),
-                Content  = content
+                Content  = File.ReadAllText(file)
             };
         }
 
@@ -71,7 +62,7 @@ public partial class YeSqlLoader
     /// <param name="fileName">The file name to validate.</param>
     /// <returns><c>true</c> if the file has not sql extension, otherwise <c>false</c>.</returns>
     private bool HasNotSqlExtension(string fileName)
-        => !Path.GetExtension(fileName).Equals("sql", StringComparison.OrdinalIgnoreCase);
+        => !Path.GetExtension(fileName).Equals(".sql", StringComparison.OrdinalIgnoreCase);
 
     /// <summary>
     /// Retrieves the details of SQL files from a specified directory.

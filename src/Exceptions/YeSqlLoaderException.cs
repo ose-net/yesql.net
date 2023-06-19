@@ -10,7 +10,7 @@ public class YeSqlLoaderException : Exception
     /// <summary>
     /// Initializes a new instance of the <see cref="YeSqlLoaderException" /> class with a default error message.
     /// </summary>
-	public YeSqlLoaderException() : base(ExceptionMessages.YeSqlLoaderDefaultMessage) { }
+	public YeSqlLoaderException() : base(ExceptionMessages.YeSqlLoaderDefault) { }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="YeSqlLoaderException" /> class with the a specified error message.

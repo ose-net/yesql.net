@@ -2,20 +2,41 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-	  <LangVersion>latest</LangVersion>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>YeSql.Net</RootNamespace>
+    <PackageId>YeSql.Net</PackageId>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>OSE.NET</Authors>
+    <Copyright>Copyright (c) OSE.NET</Copyright>
+    <PackageProjectUrl>https://github.com/ose-net/yesql.net</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>yesql-icon-nuget.png</PackageIcon>
+    <RepositoryUrl>https://github.com/ose-net/yesql.net</RepositoryUrl>
+    <PackageTags>sql, sql-files, yesql</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <Description>
+      YeSQL.NET is a class library for loading SQL statements from .sql files instead of writing SQL code in your C# source files
+    </Description>
+    <Version>0.4.0-alpha</Version>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Build.Framework" Version="17.4.0" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.4.0" />
+    <PackageReference Include="IsExternalInit" Version="1.0.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
-	
-	<Target Name="CopySql" AfterTargets="Build">
-		<MakeDir Directories="$(OutputPath)\sql" />
-		<CopySqlFiles SourceFolder="$(MSBuildProjectDirectory)" DestinationFolder="$(OutputPath)\sql" />
-	</Target>
-	
-	<UsingTask TaskName="CopySqlFiles" AssemblyFile="$(MSBuildThisFileDirectory)bin\$(Configuration)\$(TargetFramework)\YeSql.Net.dll" />
+  <ItemGroup>
+    <None Include="..\yesql-icon-nuget.png" Pack="True" PackagePath="" />
+    <None Include="..\README.md" Pack="True" PackagePath="" />
+    <None Include="..\LICENSE" Pack="True" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="YeSql.Net.Tests" />
+  </ItemGroup>
 
 </Project>

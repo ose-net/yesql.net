@@ -10,7 +10,7 @@ public class YeSqlParserException : Exception
     /// <summary>
     /// Initializes a new instance of the <see cref="YeSqlParserException" /> class with a default error message.
     /// </summary>
-    public YeSqlParserException() : base(ExceptionMessages.YeSqlParserDefaultMessage) { }
+    public YeSqlParserException() : base(ExceptionMessages.YeSqlParserDefault) { }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="YeSqlParserException" /> class with the a specified error message.

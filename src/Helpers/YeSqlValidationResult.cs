@@ -16,7 +16,7 @@ public class YeSqlValidationResult : IEnumerable<string>
     private readonly List<string> _errors = new();
 
     /// <summary>
-    /// Check if there has been an error.
+    /// Checks if there has been an error.
     /// </summary>
     /// <returns><c>true</c> if an error occurred, otherwise <c>false</c>.</returns>
     public bool HasError()
@@ -36,10 +36,13 @@ public class YeSqlValidationResult : IEnumerable<string>
         {
             if (_errors.Count == 0)
                 return string.Empty;
-            var stringBuilder = new StringBuilder(Environment.NewLine);
+            var stringBuilder = new StringBuilder();
             foreach (var error in _errors)
                 stringBuilder.Append(error + Environment.NewLine);
-            return stringBuilder.ToString();
+
+            return stringBuilder
+                        .ToString()
+                        .TrimEnd(Environment.NewLine.ToCharArray());
         }
     }
 

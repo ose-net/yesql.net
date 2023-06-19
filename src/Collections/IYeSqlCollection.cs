@@ -6,7 +6,7 @@ namespace YeSql.Net;
 /// <summary>
 /// Represents a collection of tags and SQL statements.
 /// </summary>
-public interface IYeSqlCollection : IEnumerable<TagModel>
+public interface IYeSqlCollection : IEnumerable<ModelTag>
 {
     /// <summary>
     /// Gets the SQL statement associated with the specified tag.
