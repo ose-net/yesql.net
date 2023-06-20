@@ -1,0 +1,11 @@
+<Project>
+  
+  <ItemGroup>
+    <SqlFiles Include="**\*.sql" />
+  </ItemGroup>
+
+  <Target Name="CopySqlFiles" BeforeTargets="build">
+    <Copy SourceFiles="@(SqlFiles)" DestinationFolder="$(TargetDir)\YeSQL\%(RecursiveDir)" />
+  </Target>
+  
+</Project>
