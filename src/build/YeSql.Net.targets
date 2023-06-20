@@ -5,11 +5,19 @@
   </ItemGroup>
 
   <Target Name="CopySqlFilesToBuildDirectory" BeforeTargets="Build">
-    <Copy SourceFiles="@(SqlFiles)" DestinationFolder="$(TargetDir)\YeSQL\%(RecursiveDir)" />
+    <Copy 
+      SourceFiles="@(SqlFiles)"
+      DestinationFolder="$(TargetDir)\YeSQL\%(RecursiveDir)"
+      SkipUnchangedFiles="true"
+    />
   </Target>
 
   <Target Name="CopySqlFilesToPublishDirectory" BeforeTargets="Publish">
-    <Copy SourceFiles="@(SqlFiles)" DestinationFolder="$(PublishDir)\YeSQL\%(RecursiveDir)" />
+    <Copy 
+      SourceFiles="@(SqlFiles)"
+      DestinationFolder="$(PublishDir)\YeSQL\%(RecursiveDir)"
+      SkipUnchangedFiles="true"
+    />
   </Target>
   
 </Project>
