@@ -4,8 +4,12 @@
     <SqlFiles Include="**\*.sql" />
   </ItemGroup>
 
-  <Target Name="CopySqlFiles" BeforeTargets="build">
+  <Target Name="CopySqlFilesToBuildDirectory" BeforeTargets="Build">
     <Copy SourceFiles="@(SqlFiles)" DestinationFolder="$(TargetDir)\YeSQL\%(RecursiveDir)" />
+  </Target>
+
+  <Target Name="CopySqlFilesToPublishDirectory" BeforeTargets="Publish">
+    <Copy SourceFiles="@(SqlFiles)" DestinationFolder="$(PublishDir)\YeSQL\%(RecursiveDir)" />
   </Target>
   
 </Project>
