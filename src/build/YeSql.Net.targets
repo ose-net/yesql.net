@@ -1,4 +1,10 @@
 <Project>
+
+  <PropertyGroup>
+    <DefaultItemExcludes>
+      $(DefaultItemExcludes);out/**;publish/**
+    </DefaultItemExcludes>
+  </PropertyGroup>
   
   <ItemGroup>
     <SqlFiles 
