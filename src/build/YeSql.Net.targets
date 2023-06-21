@@ -1,7 +1,10 @@
 <Project>
   
   <ItemGroup>
-    <SqlFiles Include="**\*.sql" />
+    <SqlFiles 
+      Include="**\*.sql" 
+      Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" 
+    />
   </ItemGroup>
 
   <Target Name="CopySqlFilesToBuildDirectory" BeforeTargets="Build">
