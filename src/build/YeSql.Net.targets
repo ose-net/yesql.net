@@ -13,6 +13,10 @@
       DestinationFolder="$(TargetDir)YeSQL\%(RecursiveDir)"
       SkipUnchangedFiles="true"
     />
+    <Message 
+      Text="YeSql.Net -> .sql files have been copied to the build directory: '$(TargetDir)YeSQL'." 
+      Importance="high"
+    />
   </Target>
 
   <Target Name="CopySqlFilesToPublishDirectory" BeforeTargets="Publish">
@@ -20,6 +24,10 @@
       SourceFiles="@(SqlFiles)"
       DestinationFolder="$(PublishDir)YeSQL\%(RecursiveDir)"
       SkipUnchangedFiles="true"
+    />
+    <Message
+      Text="YeSql.Net -> .sql files have been copied to the publish directory: '$(PublishDir)YeSQL'."
+      Importance="high"
     />
   </Target>
   
