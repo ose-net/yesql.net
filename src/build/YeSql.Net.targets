@@ -10,7 +10,7 @@
   <Target Name="CopySqlFilesToBuildDirectory" BeforeTargets="Build">
     <Copy 
       SourceFiles="@(SqlFiles)"
-      DestinationFolder="$(TargetDir)\YeSQL\%(RecursiveDir)"
+      DestinationFolder="$(TargetDir)YeSQL\%(RecursiveDir)"
       SkipUnchangedFiles="true"
     />
   </Target>
@@ -18,7 +18,7 @@
   <Target Name="CopySqlFilesToPublishDirectory" BeforeTargets="Publish">
     <Copy 
       SourceFiles="@(SqlFiles)"
-      DestinationFolder="$(PublishDir)\YeSQL\%(RecursiveDir)"
+      DestinationFolder="$(PublishDir)YeSQL\%(RecursiveDir)"
       SkipUnchangedFiles="true"
     />
   </Target>
