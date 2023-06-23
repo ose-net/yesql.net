@@ -41,7 +41,7 @@
 
   <ItemGroup>
     <!-- To include the targets in the NuGet package -->
-    <Content Include="build\**" Pack="true" PackagePath="build\" />
+    <Content Include="..\build\**" Pack="true" PackagePath="build\" />
   </ItemGroup>
 
 </Project>

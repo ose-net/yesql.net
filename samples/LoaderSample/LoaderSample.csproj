@@ -11,6 +11,6 @@
     <ProjectReference Include="..\..\src\YeSql.Net.csproj" />
   </ItemGroup>
   
-  <Import Project="..\..\src\build\YeSql.Net.targets" />
+  <Import Project="..\..\build\YeSql.Net.targets" />
   
 </Project>
