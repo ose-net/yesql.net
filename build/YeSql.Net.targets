@@ -1,18 +1,31 @@
 <Project>
 
   <PropertyGroup>
+    <!--
+      Redefine the DefaultItemExcludes property to exclude the publish directory as ./publish and ./out (common folders).
+      Other directories such as ./bin and ./obj are also excluded.
+    -->
     <DefaultItemExcludes>
       $(DefaultItemExcludes);out/**;publish/**
     </DefaultItemExcludes>
   </PropertyGroup>
   
   <ItemGroup>
-    <SqlFiles 
+    <!--
+      Enumerate all the .sql files that are in the project folder.
+      And excludes the items defined in the DefaultItemExcludes property.
+    -->
+    <SqlFiles
       Include="**\*.sql" 
       Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" 
     />
   </ItemGroup>
 
+  <!--
+    This target copies all of the .sql files recursively from project folder into build directory before running the "build" target.
+    The build directory is where the application assemblies are located (for example, /bin/Debug/net7.0).
+    SkipUnchangedFiles property skip the copying of .sql files that are unchanged between the source and destination.
+  -->
   <Target Name="CopySqlFilesToBuildDirectory" BeforeTargets="Build">
     <Copy 
       SourceFiles="@(SqlFiles)"
@@ -25,6 +38,11 @@
     />
   </Target>
 
+  <!--
+    This target copies all of the .sql files recursively from project folder into publish directory before running the "publish" target.
+    The publish directory contains the assemblies ready for deployment to a hosting system (for example, a server, PC, laptop) for execution.
+    SkipUnchangedFiles property skip the copying of .sql files that are unchanged between the source and destination.
+  -->
   <Target Name="CopySqlFilesToPublishDirectory" BeforeTargets="Publish">
     <Copy 
       SourceFiles="@(SqlFiles)"
