@@ -17,7 +17,7 @@
     -->
     <SqlFiles
       Include="**\*.sql" 
-      Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" 
+      Exclude="$(DefaultItemExcludes)" 
     />
   </ItemGroup>
 
