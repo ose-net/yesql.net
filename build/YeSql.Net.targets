@@ -13,7 +13,8 @@
   <ItemGroup>
     <!--
       Enumerate all the .sql files that are in the project folder.
-      And excludes the items defined in the DefaultItemExcludes property.
+      And excludes the items defined in the DefaultItemExcludes and DefaultExcludesInProjectFolder properties
+      such as folders that start with a period (.), such as .publish and .webpublish .
     -->
     <SqlFiles
       Include="**\*.sql" 
