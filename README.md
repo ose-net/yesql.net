@@ -113,7 +113,12 @@ But you must specify the tag name to access the SQL statement. Remember that eac
 It is recommended to copy the .sql files to the output directory because currently the loader search for the .sql files in the current directory where the application is running, so to avoid possible errors, it is better to copy the following instruction to your project file (.csproj):
 ```cs
 <ItemGroup>
-  <Content Include="**\*.sql" CopyToOutputDirectory="Always" TargetPath="sql\%(Filename)%(Extension)" />
+  <Content 
+    Include="**\*.sql"
+    Exclude="bin\**"
+    CopyToOutputDirectory="PreserveNewest" 
+    TargetPath="sql\%(Filename)%(Extension)" 
+  />
 </ItemGroup>
 ```
 This will copy the .sql files into an `sql` folder in the output directory (e.g., `/bin/Debug/net7.0`).
