@@ -111,7 +111,7 @@ But you must specify the tag name to access the SQL statement. Remember that eac
 ## Copying .sql files to the output directory
 
 It is recommended to copy the .sql files to the output directory because currently the loader search for the .sql files in the current directory where the application is running, so to avoid possible errors, it is better to copy the following instruction to your project file (.csproj):
-```cs
+```xml
 <ItemGroup>
   <Content 
     Include="**\*.sql"
