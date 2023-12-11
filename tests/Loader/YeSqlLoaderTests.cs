@@ -14,12 +14,12 @@ public class YeSqlLoaderTests
             "file_not_found.sql",
             "file_without_extension"
         };
-        var expectedLoaderErrors = new[]
+        var loaderErrors = new[]
         {
             string.Format(ExceptionMessages.FileNotFound, "file_not_found.sql"),
             string.Format(ExceptionMessages.FileHasNotSqlExtension, "file_without_extension")
         };
-        var expectedParserErrors = new[]
+        var parserErrors = new[]
         {
             $"errors_1.sql:(line 2, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT * FROM users;")}",
             $"errors_1.sql:(line 9, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
@@ -28,6 +28,11 @@ public class YeSqlLoaderTests
             $"errors_2.sql:(line 5, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
             $"errors_2.sql:(line 6, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT * FROM roles;")}"
         };
+        var expectedErrors = new[]
+        {
+            string.Join(Environment.NewLine, loaderErrors),
+            string.Join(Environment.NewLine, parserErrors)
+        };
 
         // Act
         Action action = () => loader.LoadFromFiles(files);
@@ -35,10 +40,11 @@ public class YeSqlLoaderTests
         // Assert
         action.Should()
               .Throw<AggregateException>()
-              .WithInnerException<YeSqlLoaderException>()
-              .WithMessage(string.Join(Environment.NewLine, expectedLoaderErrors))
-              .WithInnerException<YeSqlParserException>()
-              .WithMessage(string.Join(Environment.NewLine, expectedParserErrors));
+              .Which
+              .InnerExceptions
+              .Select(innerException => innerException.Message)
+              .Should()
+              .BeEquivalentTo(expectedErrors);
     }
 
     [Test]
@@ -151,12 +157,12 @@ public class YeSqlLoaderTests
             "directory_not_found",
             "env",
         };
-        var expectedLoaderErrors = new[]
+        var loaderErrors = new[]
         {
             string.Format(ExceptionMessages.DirectoryNotFound, "directory_not_found"),
             string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectory, "env")
         };
-        var expectedParserErrors = new[]
+        var parserErrors = new[]
         {
             $"errors_1.sql:(line 2, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT * FROM users;")}",
             $"errors_1.sql:(line 9, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
@@ -165,6 +171,11 @@ public class YeSqlLoaderTests
             $"errors_2.sql:(line 5, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
             $"errors_2.sql:(line 6, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT * FROM roles;")}"
         };
+        var expectedErrors = new[]
+        {
+            string.Join(Environment.NewLine, loaderErrors),
+            string.Join(Environment.NewLine, parserErrors)
+        };
 
         // Act
         Action action = () => loader.LoadFromDirectories(directories);
@@ -172,10 +183,11 @@ public class YeSqlLoaderTests
         // Assert
         action.Should()
               .Throw<AggregateException>()
-              .WithInnerException<YeSqlLoaderException>()
-              .WithMessage(string.Join(Environment.NewLine, expectedLoaderErrors))
-              .WithInnerException<YeSqlParserException>()
-              .WithMessage(string.Join(Environment.NewLine, expectedParserErrors));
+              .Which
+              .InnerExceptions
+              .Select(innerException => innerException.Message)
+              .Should()
+              .BeEquivalentTo(expectedErrors);
     }
 
     [Test]
