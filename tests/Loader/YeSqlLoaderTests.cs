@@ -32,16 +32,13 @@ public class YeSqlLoaderTests
         // Act
         Action action = () => loader.LoadFromFiles(files);
 
-        // Asserts
+        // Assert
         action.Should()
-              .Throw<YeSqlLoaderException>()
-              .WithMessage(string.Join(Environment.NewLine, expectedLoaderErrors));
-
-        action.Should()
-              .Throw<YeSqlParserException>()
+              .Throw<AggregateException>()
+              .WithInnerException<YeSqlLoaderException>()
+              .WithMessage(string.Join(Environment.NewLine, expectedLoaderErrors))
+              .WithInnerException<YeSqlParserException>()
               .WithMessage(string.Join(Environment.NewLine, expectedParserErrors));
-
-        action.Should().Throw<AggregateException>();
     }
 
     [Test]
@@ -82,12 +79,11 @@ public class YeSqlLoaderTests
         // Act
         Action action = () => loader.LoadFromFiles(file);
 
-        // Asserts
+        // Assert
         action.Should()
-              .Throw<YeSqlLoaderException>()
+              .Throw<AggregateException>()
+              .WithInnerException<YeSqlLoaderException>()
               .WithMessage(expectedMessage);
-
-        action.Should().Throw<AggregateException>();
     }
 
     [Test]
@@ -101,12 +97,11 @@ public class YeSqlLoaderTests
         // Act
         Action action = () => loader.LoadFromFiles(file);
 
-        // Asserts
+        // Assert
         action.Should()
-              .Throw<YeSqlLoaderException>()
+              .Throw<AggregateException>()
+              .WithInnerException<YeSqlLoaderException>()
               .WithMessage(expectedMessage);
-
-        action.Should().Throw<AggregateException>();
     }
 
     [TestCase("")]
@@ -174,16 +169,13 @@ public class YeSqlLoaderTests
         // Act
         Action action = () => loader.LoadFromDirectories(directories);
 
-        // Asserts
+        // Assert
         action.Should()
-              .Throw<YeSqlLoaderException>()
-              .WithMessage(string.Join(Environment.NewLine, expectedLoaderErrors));
-
-        action.Should()
-              .Throw<YeSqlParserException>()
+              .Throw<AggregateException>()
+              .WithInnerException<YeSqlLoaderException>()
+              .WithMessage(string.Join(Environment.NewLine, expectedLoaderErrors))
+              .WithInnerException<YeSqlParserException>()
               .WithMessage(string.Join(Environment.NewLine, expectedParserErrors));
-
-        action.Should().Throw<AggregateException>();
     }
 
     [Test]
@@ -230,12 +222,11 @@ public class YeSqlLoaderTests
         // Act
         Action action = () => loader.LoadFromDirectories(directory);
 
-        // Asserts
+        // Assert
         action.Should()
-              .Throw<YeSqlLoaderException>()
+              .Throw<AggregateException>()
+              .WithInnerException<YeSqlLoaderException>()
               .WithMessage(expectedMessage);
-
-        action.Should().Throw<AggregateException>();
     }
 
     [Test]
@@ -265,10 +256,9 @@ public class YeSqlLoaderTests
 
         // Asserts
         action.Should()
-              .Throw<YeSqlLoaderException>()
+              .Throw<AggregateException>()
+              .WithInnerException<YeSqlLoaderException>()
               .WithMessage(expectedMessage);
-
-        action.Should().Throw<AggregateException>();
     }
 
     [Test]
