@@ -1,0 +1,16 @@
+<Project>
+
+  <ItemGroup>
+    <!--
+      This copies the .sql files to the output directory (e.g. bin/Debug/net8.0). 
+      This also includes the subdirectories in which the .sql files are located.
+      The .sql files will be available in the "yesql" folder.
+    -->
+    <Content
+      Include="**\*.sql"
+      CopyToOutputDirectory="PreserveNewest"
+      TargetPath="yesql\%(RecursiveDir)\%(Filename)%(Extension)"
+    />
+  </ItemGroup>
+
+</Project>
