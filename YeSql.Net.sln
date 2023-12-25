@@ -5,11 +5,17 @@ VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YeSql.Net", "src\YeSql.Net.csproj", "{CE03D92C-A3E2-44CF-B2BC-7B702961AC09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YeSql.Net.Tests", "tests\YeSql.Net.Tests.csproj", "{A057DB65-24DF-4D36-9C35-78F96B54F95D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YeSql.Net.Tests", "tests\YeSql.Net.Tests.csproj", "{A057DB65-24DF-4D36-9C35-78F96B54F95D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParserSample", "samples\ParserSample\ParserSample.csproj", "{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParserSample", "samples\ParserSample\ParserSample.csproj", "{CCC6D826-5D29-428A-AAE6-FD3E1D61BB8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoaderSample", "samples\LoaderSample\LoaderSample.csproj", "{B62F5C67-64F7-4BFC-A0AE-DE04B6A64D5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoaderSample", "samples\LoaderSample\LoaderSample.csproj", "{B62F5C67-64F7-4BFC-A0AE-DE04B6A64D5E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A2554DDC-4D44-4D81-82C3-6491F99C3159}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
