@@ -9,8 +9,8 @@ public class YeSqlLoaderTests
         var loader = new YeSqlLoader();
         var files = new[] 
         { 
-            "error/errors_1.sql",
-            "error/errors_2.sql",
+            "errors/errors_1.sql",
+            "errors/errors_2.sql",
             "file_not_found.sql",
             "file_without_extension"
         };
