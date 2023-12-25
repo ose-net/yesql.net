@@ -1,0 +1,27 @@
+<Project>
+
+  <PropertyGroup>
+    <!--
+      Redefine the DefaultItemExcludes property to exclude the publish directory as ./publish and ./out (common folders).
+      Other directories such as ./bin and ./obj are also excluded.
+    -->
+    <DefaultItemExcludes>
+      $(DefaultItemExcludes);out/**;publish/**
+    </DefaultItemExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      This copies the .sql files to the output directory (e.g. bin/Debug/net8.0). 
+      This also includes the subdirectories in which the .sql files are located.
+      The .sql files will be available in the "yesql" folder.
+    -->
+    <Content
+      Include="**\*.sql"
+      Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)"
+      CopyToOutputDirectory="PreserveNewest"
+      TargetPath="yesql\%(RecursiveDir)\%(Filename)%(Extension)"
+    />
+  </ItemGroup>
+
+</Project>

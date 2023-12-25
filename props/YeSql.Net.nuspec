@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>YeSql.Net.Properties</id>
+        <version>0.2.0-alpha</version>
+        <authors>OSE.NET</authors>
+        <owners>OSE.NET</owners>
+        <projectUrl>https://github.com/ose-net/yesql.net</projectUrl>
+        <license type="expression">MIT</license>
+        <readme>README.md</readme>
+        <icon>yesql-icon-nuget.png</icon>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>
+          A simple package that allows to copy the .sql files from the project folder to the output directory
+        </description>
+		<releaseNotes>
+          fix: Exclude folders such as ./bin, ./obj or any folder beginning with a period
+        </releaseNotes>
+        <copyright>Copyright (c) OSE.NET</copyright>
+        <tags>properties props sql sql-files yesql</tags>
+    </metadata>
+
+    <files>
+        <file src="README.md" target="" />
+        <file src="..\yesql-icon-nuget.png" target="" />
+        <file src="build\**" target="build" />
+    </files>
+</package>
