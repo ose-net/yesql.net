@@ -26,11 +26,29 @@
 
   <ItemGroup>
     <!-- SQL files with errors -->
-    <Content Include="Loader\error\*.sql" CopyToOutputDirectory="Always" TargetPath="error/%(Filename)%(Extension)" />
+    <Content 
+      Include="Loader\Resources\errors\*.sql" 
+      CopyToOutputDirectory="PreserveNewest" 
+      TargetPath="errors\%(Filename)%(Extension)" 
+    />
+    <!-- SQL file with errors -->
+    <Content
+      Include="Loader\Resources\error\*.sql"
+      CopyToOutputDirectory="PreserveNewest"
+      TargetPath="error\%(Filename)%(Extension)"
+    />
     <!-- SQL files without errors -->
-    <Content Include="Loader\sql\*.sql" CopyToOutputDirectory="Always" TargetPath="sql/%(Filename)%(Extension)" />
+    <Content 
+      Include="Loader\Resources\sql\*.sql" 
+      CopyToOutputDirectory="PreserveNewest" 
+      TargetPath="sql\%(Filename)%(Extension)" 
+    />
     <!-- .env sample files -->
-    <Content Include="Loader\env\*.env" CopyToOutputDirectory="Always" TargetPath="env/%(Filename)%(Extension)" />
+    <Content 
+      Include="Loader\Resources\env\*.env" 
+      CopyToOutputDirectory="PreserveNewest" 
+      TargetPath="env\%(Filename)%(Extension)" 
+    />
   </ItemGroup>
 
 </Project>
