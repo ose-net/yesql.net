@@ -164,12 +164,12 @@ public class YeSqlLoaderTests
         };
         var parserErrors = new[]
         {
-            $"errors_1.sql:(line 2, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT * FROM users;")}",
-            $"errors_1.sql:(line 9, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
-            $"errors_1.sql:(line 10, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT name FROM roles;")}",
-            $"errors_2.sql:(line 2, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}",
-            $"errors_2.sql:(line 5, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
-            $"errors_2.sql:(line 6, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT * FROM roles;")}"
+            $"errors.sql:(line 2, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT * FROM users;")}",
+            $"errors.sql:(line 9, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
+            $"errors.sql:(line 10, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT name FROM roles;")}",
+            $"errors.sql:(line 12, col 9): error: {string.Format(ExceptionMessages.DuplicateTagName, "GetUsers")}",
+            $"errors.sql:(line 15, col 9): error: {ExceptionMessages.TagIsEmptyOrWhitespace}",
+            $"errors.sql:(line 16, col 1): error: {string.Format(ExceptionMessages.LineIsNotAssociatedWithAnyTag, "SELECT * FROM roles;")}"
         };
         var expectedErrors = new[]
         {
