@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>CopySqlFilesToPublishDirectory</id>
+        <version>0.1.0-alpha</version>
+        <authors>OSE.NET</authors>
+        <owners>OSE.NET</owners>
+        <projectUrl>https://github.com/ose-net/yesql.net</projectUrl>
+        <license type="expression">MIT</license>
+        <readme>README.md</readme>
+        <icon>yesql-icon-nuget.png</icon>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>
+          A simple package that allows to copy .sql files from the output directory to the publish directory
+        </description>
+		<releaseNotes></releaseNotes>
+        <copyright>Copyright (c) OSE.NET</copyright>
+        <tags>targets target sql sql-files yesql</tags>
+    </metadata>
+
+    <files>
+        <file src="README.md" target="" />
+        <file src="..\yesql-icon-nuget.png" target="" />
+        <file src="build\**" target="build" />
+    </files>
+</package>
