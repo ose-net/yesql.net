@@ -31,5 +31,5 @@ public struct ModelTag
     /// </summary>
     /// <returns>A string that represents the current object of type <see cref="ModelTag" />.</returns>
     public override string ToString()
-        => $"-- name: {Name}\n{SqlStatement}\n";
+        => $"-- name: {Name}{Environment.NewLine}{SqlStatement}{Environment.NewLine}";
 }
