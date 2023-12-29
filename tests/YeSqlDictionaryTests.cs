@@ -147,7 +147,7 @@ public class YeSqlDictionaryTests
     }
 
     [Test]
-    public void EnumeratorTest()
+    public void GetEnumerator_WhenThereAreSqlStatements_ShouldAllowIteratingOverThem()
     {
         // Arrange
         var expected = new List<ModelTag>
