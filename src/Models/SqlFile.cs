@@ -7,7 +7,7 @@ namespace YeSql.Net;
 /// <summary>
 /// Represents the details of a SQL file.
 /// </summary>
-internal struct SqlFile
+internal readonly struct SqlFile
 {
     /// <summary>
     /// Gets or sets the file name of the SQL file.

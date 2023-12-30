@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents the tag with its associated SQL statement.
 /// </summary>
-public struct ModelTag
+public readonly struct ModelTag
 {
     /// <summary>
     /// Gets the name of the tag.

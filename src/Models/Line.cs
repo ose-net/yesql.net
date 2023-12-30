@@ -3,7 +3,7 @@ namespace YeSql.Net;
 /// <summary>
 /// Represents a line of text from a file.
 /// </summary>
-internal struct Line
+internal readonly struct Line
 {
     /// <summary>
     /// Gets the number/position of the line.
