@@ -15,6 +15,8 @@ public class YeSqlValidationResult : IEnumerable<string>
     /// </summary>
     private readonly List<string> _errors = new();
 
+    internal YeSqlValidationResult() { }
+
     /// <summary>
     /// Checks if there has been an error.
     /// </summary>
