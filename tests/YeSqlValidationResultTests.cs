@@ -67,4 +67,28 @@ public class YeSqlValidationResultTests
         // Assert
         actual.Should().Be(expectedMessages);
     }
+
+    [Test]
+    public void GetEnumerator_WhenThereAreErrors_ShouldAllowIteratingOverThem()
+    {
+        // Arrange
+        var validationResult = new YeSqlValidationResult
+        {
+            "Error1",
+            "Error2",
+            "Error3"
+        };
+        var expected = new[]
+        {
+            "Error1",
+            "Error2",
+            "Error3"
+        };
+
+        // Act
+        IEnumerable<string> actual = validationResult.AsEnumerable();
+
+        // Assert
+        actual.Should().BeEquivalentTo(expected);
+    }
 }
