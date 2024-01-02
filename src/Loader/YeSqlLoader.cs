@@ -19,6 +19,17 @@ public partial class YeSqlLoader
     private readonly YeSqlValidationResult _validationResult = new();
 
     /// <summary>
+    /// Loads the SQL statements from a default directory called <c>yesql</c>.
+    /// </summary>
+    /// <remarks>
+    /// This method starts searching from the current directory 
+    /// where the application is running (e.g., bin/Debug/net8.0).
+    /// </remarks>
+    /// <returns>A collection containing the tags with their associated SQL statements.</returns>
+    public IYeSqlCollection Load()
+        => LoadFromDirectories(Path.Combine(AppContext.BaseDirectory, "yesql"));
+
+    /// <summary>
     /// Loads the SQL statements from the specified files.
     /// </summary>
     /// <param name="sqlFiles">The SQL files to load.</param>
