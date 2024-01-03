@@ -83,12 +83,16 @@ public class YeSqlLoaderTests
         // Arrange
         var loader = new YeSqlLoader();
         var file = "./sql/users.sql";
+        var expectedCollection = new Dictionary<string, string>
+        {
+            { "GetUsers", "SELECT* FROM [user];" }
+        };
 
         // Act
         var sqlStatements = loader.LoadFromFiles(file);
 
         // Assert
-        sqlStatements.Should().NotBeNull();
+        sqlStatements.Should().BeEquivalentTo(expectedCollection);
     }
 
     [Test]
@@ -284,12 +288,16 @@ public class YeSqlLoaderTests
         // Arrange
         var loader = new YeSqlLoader();
         var directory = "./sql";
+        var expectedCollection = new Dictionary<string, string>
+        {
+            { "GetUsers", "SELECT* FROM [user];" }
+        };
 
         // Act
         var sqlStatements = loader.LoadFromDirectories(directory);
 
         // Assert
-        sqlStatements.Should().NotBeNull();
+        sqlStatements.Should().BeEquivalentTo(expectedCollection);
     }
 
     [Test]
