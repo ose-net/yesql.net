@@ -109,12 +109,14 @@ public class YeSqlLoaderTests
         sqlStatements.Should().BeEquivalentTo(expectedCollection);
     }
 
-    [Test]
-    public void LoadFromFiles_WhenFileHasNotSqlExtension_ShouldThrowAggregateException()
+    [TestCase("test.txt")]
+    [TestCase("test.png")]
+    [TestCase("test")]
+    [TestCase("test/")]
+    public void LoadFromFiles_WhenFileHasNotSqlExtension_ShouldThrowAggregateException(string file)
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var file = "test.txt";
         var expectedMessage = string.Format(ExceptionMessages.FileHasNotSqlExtension, file);
 
         // Act
