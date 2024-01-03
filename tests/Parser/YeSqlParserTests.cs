@@ -9,7 +9,7 @@ public class YeSqlParserTests
         var parser = new YeSqlParser();
 
         // Act
-        Action action =  () => parser.Parse(null, out _);
+        Action action = () => parser.Parse(null, out _);
 
         // Assert
         action.Should().Throw<ArgumentNullException>();
