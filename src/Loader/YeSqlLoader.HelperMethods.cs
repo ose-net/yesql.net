@@ -47,10 +47,11 @@ public partial class YeSqlLoader
                 continue;
             }
 
+            var path = Path.IsPathRooted(file) ? file : Path.Combine(AppContext.BaseDirectory, file);
             yield return new SqlFile
             {
                 FileName = Path.GetFileName(file),
-                Content  = File.ReadAllText(file)
+                Content  = File.ReadAllText(path)
             };
         }
 
@@ -71,7 +72,11 @@ public partial class YeSqlLoader
     /// <returns>An enumerable of type <see cref="SqlFile"/> that contains the SQL file details.</returns>
     private IEnumerable<SqlFile> GetSqlFilesDetails(string directoryName)
     {
-        var files = Directory.GetFiles(directoryName, "*.sql", SearchOption.AllDirectories);
+        var path = Path.IsPathRooted(directoryName) ? 
+            directoryName : 
+            Path.Combine(AppContext.BaseDirectory, directoryName);
+
+        var files = Directory.GetFiles(path, "*.sql", SearchOption.AllDirectories);
 
         foreach (var file in files)
         {
