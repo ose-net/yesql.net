@@ -9,9 +9,7 @@ public class YeSqlLoaderTests
         var loader = new YeSqlLoader();
         var expectedCollection = new Dictionary<string, string>
         {
-            {
-                "GetProducts", "SELECT * FROM products;"
-            }
+            { "GetProducts", "SELECT * FROM products;" }
         };
 
         // Act
@@ -84,13 +82,31 @@ public class YeSqlLoaderTests
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var file = "sql/users.sql";
+        var file = "./sql/users.sql";
 
         // Act
         var sqlStatements = loader.LoadFromFiles(file);
 
         // Assert
         sqlStatements.Should().NotBeNull();
+    }
+
+    [Test]
+    public void LoadFromFiles_WhenPathsAreAbsolute_ShouldBeAbleToLoadSqlFiles()
+    {
+        // Arrange
+        var loader = new YeSqlLoader();
+        var file = Path.Combine(AppContext.BaseDirectory, "sql/users.sql");
+        var expectedCollection = new Dictionary<string, string>
+        {
+            { "GetUsers", "SELECT* FROM [user];" }
+        };
+
+        // Act
+        var sqlStatements = loader.LoadFromFiles(file);
+
+        // Assert
+        sqlStatements.Should().BeEquivalentTo(expectedCollection);
     }
 
     [Test]
@@ -265,13 +281,31 @@ public class YeSqlLoaderTests
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var directory = "sql";
+        var directory = "./sql";
 
         // Act
         var sqlStatements = loader.LoadFromDirectories(directory);
 
         // Assert
         sqlStatements.Should().NotBeNull();
+    }
+
+    [Test]
+    public void LoadFromDirectories_WhenPathsAreAbsolute_ShouldBeAbleToLoadSqlFiles()
+    {
+        // Arrange
+        var loader = new YeSqlLoader();
+        var directory = Path.Combine(AppContext.BaseDirectory, "sql");
+        var expectedCollection = new Dictionary<string, string>
+        {
+            { "GetUsers", "SELECT* FROM [user];" }
+        };
+
+        // Act
+        var sqlStatements = loader.LoadFromDirectories(directory);
+
+        // Assert
+        sqlStatements.Should().BeEquivalentTo(expectedCollection);
     }
 
     [Test]
