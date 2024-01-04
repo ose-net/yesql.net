@@ -6,7 +6,7 @@
       Other directories such as ./bin and ./obj are also excluded.
     -->
     <DefaultItemExcludes>
-      $(DefaultItemExcludes);out/**;publish/**
+      $(DefaultItemExcludes);out/**;publish/**;bin/**;obj/**
     </DefaultItemExcludes>
   </PropertyGroup>
 
