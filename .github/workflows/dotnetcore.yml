@@ -22,4 +22,6 @@ jobs:
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
     - name: Test 
-      run: dotnet test ./tests/YeSql.Net.Tests.csproj
+      run: |
+       dotnet test ./tests/YeSql.Net.Tests.csproj
+       dotnet test ./samples/Example.AspNetCore.Tests/Example.AspNetCore.Tests.csproj
