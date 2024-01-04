@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\YeSql.Net.csproj" />
+    <ProjectReference Include="..\Example.SqlFiles\Example.SqlFiles.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CopySqlFilesToOutputDirectory" />
+    <PackageReference Include="CopySqlFilesToPublishDirectory" />
+  </ItemGroup>
+  
+</Project>
