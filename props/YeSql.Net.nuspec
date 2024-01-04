@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>CopySqlFilesToOutputDirectory</id>
-        <version>0.1.0-alpha</version>
+        <version>0.2.0-alpha</version>
         <authors>OSE.NET</authors>
         <owners>OSE.NET</owners>
         <projectUrl>https://github.com/ose-net/yesql.net</projectUrl>

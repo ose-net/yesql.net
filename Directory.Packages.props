@@ -3,7 +3,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="CopySqlFilesToOutputDirectory" Version="0.1.0-alpha" />
+    <PackageVersion Include="CopySqlFilesToOutputDirectory" Version="0.2.0-alpha" />
     <PackageVersion Include="CopySqlFilesToPublishDirectory" Version="0.1.0-alpha" />
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="7.0.10" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
