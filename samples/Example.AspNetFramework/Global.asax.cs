@@ -22,8 +22,7 @@ namespace AspNetFramework
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            var path = Path.Combine(AppContext.BaseDirectory, "sql");
-            var sqlStatements = new YeSqlLoader().LoadFromDirectories(path);
+            var sqlStatements = new YeSqlLoader().LoadFromDirectories("./sql");
             SqlStatement = sqlStatements["GetProducts"];
         }
     }
