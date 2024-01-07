@@ -80,7 +80,7 @@ public partial class YeSqlParser
         }
 
         var lines = source.Split(s_newLines, StringSplitOptions.None);
-        string currentTag = default;
+        string currentTag = string.Empty;
         for (int i = 0, len = lines.Length; i < len; ++i)
         {
             var line = new Line { Number = i + 1, Text = lines[i] };
@@ -90,8 +90,8 @@ public partial class YeSqlParser
 
             if(IsCommentWithTag(ref line))
             {
-                var extractedTag  = ExtractTagName(ref line);
-                CheckIfTagIsDuplicated(extractedTag, ref line);
+                var extractedTag = ExtractTagName(ref line);
+                AddExtractedTagToDictionary(extractedTag, ref line);
                 currentTag = extractedTag;
                 continue;
             }

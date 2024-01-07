@@ -35,11 +35,13 @@ public partial class YeSqlParser
     /// Extracts the tag name from a comment.
     /// </summary>
     /// <param name="line">The line with the tag name.</param>
-    /// <returns>The tag name extracted; otherwise, <c>null</c> if the tag is empty.</returns>
+    /// <returns>
+    /// The tag name extracted; otherwise, <see cref="string.Empty"/> if the tag is empty.
+    /// </returns>
     private string ExtractTagName(ref Line line)
     {
         var extractedTag = line.Text.Split(new[] { ':' }, MaxCount)[1];
-        if(string.IsNullOrWhiteSpace(extractedTag))
+        if (string.IsNullOrWhiteSpace(extractedTag))
         {
             ValidationResult.Add(errorMessage: FormatParserExceptionMessage(
                 ExceptionMessages.TagIsEmptyOrWhitespace,
@@ -48,31 +50,31 @@ public partial class YeSqlParser
                 column: line.Text.IndexOf(NamePrefix) + 6,
                 sqlFileName: _sqlFileName
             ));
-            return default;
+            return string.Empty;
         }
         return extractedTag.Trim();
     }
 
     /// <summary>
-    /// Checks if the tag name is duplicated.
+    /// Adds the extracted tag from a comment to the dictionary.
     /// </summary>
-    /// <param name="tagName">The tag name to validate.</param>
+    /// <param name="tagName">The tag name obtained from a comment.</param>
     /// <param name="line">The current line.</param>
-    private void CheckIfTagIsDuplicated(string tagName, ref Line line)
+    private void AddExtractedTagToDictionary(string tagName, ref Line line)
     {
-        if (tagName is not null)
+        if (string.IsNullOrEmpty(tagName))
+            return;
+
+        bool isDuplicated = SqlStatements.TryAdd(tagName, string.Empty) is false;
+        if (isDuplicated)
         {
-            bool isDuplicated = SqlStatements.TryAdd(tagName, string.Empty) is false;
-            if (isDuplicated)
-            {
-                ValidationResult.Add(errorMessage: FormatParserExceptionMessage(
-                    ExceptionMessages.DuplicateTagName,
-                    actualValue: tagName,
-                    lineNumber: line.Number,
-                    column: line.Text.IndexOf(NamePrefix) + 6,
-                    sqlFileName: _sqlFileName
-                ));
-            }
+            ValidationResult.Add(errorMessage: FormatParserExceptionMessage(
+                ExceptionMessages.DuplicateTagName,
+                actualValue: tagName,
+                lineNumber: line.Number,
+                column: line.Text.IndexOf(NamePrefix) + 6,
+                sqlFileName: _sqlFileName
+            ));
         }
     }
 }
