@@ -6,11 +6,12 @@ namespace YeSql.Net;
 
 public partial class YeSqlLoader
 {
-
     /// <summary>
     /// Creates and throws <see cref="AggregateException" />.
     /// </summary>
-    /// <exception cref="AggregateException">If the parser and/or loader encounters one or more errors.</exception>
+    /// <exception cref="AggregateException">
+    /// If the parser and/or loader encounters one or more errors.
+    /// </exception>
     private void CreateAndThrowException()
     {
         var exceptions = new List<Exception>();
@@ -25,65 +26,96 @@ public partial class YeSqlLoader
             throw new AggregateException(exceptions);
     }
 
-
     /// <summary>
-    /// Retrieves the details of the specified SQL files.
+    /// Loads the SQL statements from a specified file.
     /// </summary>
-    /// <param name="files">The SQL files to load.</param>
-    /// <returns>An enumerable of type <see cref="SqlFile"/> that contains the SQL file details.</returns>
-    private IEnumerable<SqlFile> GetSqlFilesDetails(string[] files)
+    /// <param name="file">
+    /// The SQL file to load (can include your path or not).
+    /// </param>
+    private Result<SqlFile> LoadFromFile(string file)
     {
-        foreach (var file in files)
+        var path = Path.IsPathRooted(file) ? 
+            file : 
+            Path.Combine(AppContext.BaseDirectory, file);
+
+        if (HasNotSqlExtension(path))
         {
-            if (HasNotSqlExtension(file))
-            {
-                _validationResult.Add(string.Format(ExceptionMessages.FileHasNotSqlExtension, file));
-                continue;
-            }
-
-            if(!File.Exists(file))
-            {
-                _validationResult.Add(string.Format(ExceptionMessages.FileNotFound, file));
-                continue;
-            }
-
-            var path = Path.IsPathRooted(file) ? file : Path.Combine(AppContext.BaseDirectory, file);
-            yield return new SqlFile
-            {
-                FileName = Path.GetFileName(file),
-                Content  = File.ReadAllText(path)
-            };
+            _validationResult.Add(string.Format(ExceptionMessages.FileHasNotSqlExtension, file));
+            return Result<SqlFile>.Failure();
         }
 
+        if (!File.Exists(path))
+        {
+            _validationResult.Add(string.Format(ExceptionMessages.FileNotFound, file));
+            return Result<SqlFile>.Failure();
+        }
+
+        var sqlFile = new SqlFile
+        {
+            FileName = Path.GetFileName(file),
+            Content  = File.ReadAllText(path)
+        };
+        return Result<SqlFile>.Success(sqlFile);
     }
 
     /// <summary>
     /// Checks if the file name has not sql extension.
     /// </summary>
-    /// <param name="fileName">The file name to validate.</param>
-    /// <returns><c>true</c> if the file has not sql extension, otherwise <c>false</c>.</returns>
+    /// <param name="fileName">
+    /// The file name to validate.
+    /// </param>
+    /// <returns>
+    /// <c>true</c> if the file has not sql extension, otherwise <c>false</c>.
+    /// </returns>
     private bool HasNotSqlExtension(string fileName)
         => !Path.GetExtension(fileName).Equals(".sql", StringComparison.OrdinalIgnoreCase);
 
     /// <summary>
-    /// Retrieves the details of SQL files from a specified directory.
+    /// Loads the SQL statements from all the SQL files in the specified directory.
     /// </summary>
-    /// <param name="directoryName">The name of the directory where the SQL files are located.</param>
-    /// <returns>An enumerable of type <see cref="SqlFile"/> that contains the SQL file details.</returns>
-    private IEnumerable<SqlFile> GetSqlFilesDetails(string directoryName)
+    /// <param name="directoryName">
+    /// The name of the directory where the SQL files are located.
+    /// </param>
+    private Result<IEnumerable<SqlFile>> LoadFromDirectory(string directoryName)
     {
-        var path = Path.IsPathRooted(directoryName) ? 
-            directoryName : 
+        var path = Path.IsPathRooted(directoryName) ?
+            directoryName :
             Path.Combine(AppContext.BaseDirectory, directoryName);
 
-        var files = Directory.GetFiles(path, "*.sql", SearchOption.AllDirectories);
+        if (!Directory.Exists(path))
+        {
+            _validationResult.Add(string.Format(ExceptionMessages.DirectoryNotFound, directoryName));
+            return Result<IEnumerable<SqlFile>>.Failure();
+        }
 
+        var sqlFiles = GetSqlFiles(path);
+        if (sqlFiles.IsEmpty())
+        {
+            _validationResult.Add(string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectory, directoryName));
+            return Result<IEnumerable<SqlFile>>.Failure();
+        }
+
+        return Result<IEnumerable<SqlFile>>.Success(sqlFiles);
+    }
+
+    /// <summary>
+    /// Returns the details of the SQL files in a specified directory.
+    /// </summary>
+    /// <param name="directoryName">
+    /// The name of the directory where the SQL files are located.
+    /// </param>
+    /// <returns>
+    /// An enumerable of type <see cref="SqlFile"/> that contains the SQL file details.
+    /// </returns>
+    private IEnumerable<SqlFile> GetSqlFiles(string directoryName)
+    {
+        var files = Directory.GetFiles(directoryName, "*.sql", SearchOption.AllDirectories);
         foreach (var file in files)
         {
-            yield return new SqlFile
+            yield return new()
             {
-                Content  = File.ReadAllText(file),
-                FileName = Path.GetFileName(file)
+                FileName = Path.GetFileName(file),
+                Content  = File.ReadAllText(file)
             };
         }
     }

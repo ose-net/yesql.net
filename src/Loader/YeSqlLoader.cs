@@ -26,8 +26,7 @@ public partial class YeSqlLoader
     /// where the application is running (e.g., bin/Debug/net8.0).
     /// </remarks>
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
-    public IYeSqlCollection Load()
-        => LoadFromDirectories(Path.Combine(AppContext.BaseDirectory, "yesql"));
+    public IYeSqlCollection Load() => LoadFromDirectories("yesql");
 
     /// <summary>
     /// Loads the SQL statements from the specified files.
@@ -52,10 +51,12 @@ public partial class YeSqlLoader
         if (sqlFiles.ContainsNullOrWhiteSpace())
             throw new ArgumentException(string.Format(ExceptionMessages.CollectionHasNullValueOrOnlyWhitespace, nameof(sqlFiles)));
 
-        var sqlFilesDetails = GetSqlFilesDetails(sqlFiles);
-
-        foreach (var fileDetails in sqlFilesDetails)
-            _parser.Parse(fileDetails.Content, fileDetails.FileName);
+        foreach (string fileName in sqlFiles)
+        {
+            Result<SqlFile> result = LoadFromFile(fileName);
+            if (result.IsSuccess)
+                _parser.Parse(result.Value.Content, result.Value.FileName);
+        }
 
         CreateAndThrowException();
         return _parser.SqlStatements;
@@ -85,32 +86,16 @@ public partial class YeSqlLoader
             throw new ArgumentException(string.Format(ExceptionMessages.CollectionHasNullValueOrOnlyWhitespace, nameof(directories)));
 
         foreach (var directory in directories)
-            LoadFromDirectory(directory);
-
-        CreateAndThrowException();
-        return _parser.SqlStatements;
-    }
-
-    /// <summary>
-    /// Loads the SQL statements from all the SQL files in the specified directory.
-    /// </summary>
-    /// <param name="directoryName">The name of the directory where the SQL files are located.</param>
-    /// <returns>A collection containing the tags with their associated SQL statements.</returns>
-    private IYeSqlCollection LoadFromDirectory(string directoryName)
-    {
-        if(!Directory.Exists(directoryName))
         {
-            _validationResult.Add(string.Format(ExceptionMessages.DirectoryNotFound, directoryName));
-            return _parser.SqlStatements;
+            Result<IEnumerable<SqlFile>> result = LoadFromDirectory(directory);
+            if (result.IsFailed)
+                continue;
+
+            foreach (SqlFile sqlFile in result.Value)
+                _parser.Parse(sqlFile.Content, sqlFile.FileName);
         }
 
-        var sqlFilesDetails = GetSqlFilesDetails(directoryName);
-        if (sqlFilesDetails.IsEmpty())
-            _validationResult.Add(string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectory, directoryName));
-
-        foreach (var fileDetails in sqlFilesDetails)
-            _parser.Parse(fileDetails.Content, fileDetails.FileName);
-
+        CreateAndThrowException();
         return _parser.SqlStatements;
     }
 }
