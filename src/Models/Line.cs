@@ -13,5 +13,7 @@ internal readonly struct Line
     /// <summary>
     /// Gets the content of the line.
     /// </summary>
-    public string Text { get; init; }
+    public string Text { get; init; } = string.Empty;
+
+    public Line() { }
 }

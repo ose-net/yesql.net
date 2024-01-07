@@ -12,10 +12,12 @@ internal readonly struct SqlFile
     /// <summary>
     /// Gets or sets the file name of the SQL file.
     /// </summary>
-    public string FileName { get; init; }
+    public string FileName { get; init; } = string.Empty;
 
     /// <summary>
     /// Gets or sets the content of the SQL file.
     /// </summary>
-    public string Content { get; init; }
+    public string Content { get; init; } = string.Empty;
+
+    public SqlFile() { }
 }

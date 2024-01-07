@@ -8,12 +8,17 @@ public readonly struct ModelTag
     /// <summary>
     /// Gets the name of the tag.
     /// </summary>
-    public string Name { get; init; }
+    public string Name { get; init; } = string.Empty;
 
     /// <summary>
     /// Gets the SQL statement of the tag.
     /// </summary>
-    public string SqlStatement { get; init; }
+    public string SqlStatement { get; init; } = string.Empty;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ModelTag"/> class.
+    /// </summary>
+    public ModelTag() { }
 
     /// <summary>
     /// Deconstructs the current <see cref="ModelTag" />.
