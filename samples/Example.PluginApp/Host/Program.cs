@@ -7,7 +7,9 @@ using YeSql.Net;
 var builder = WebApplication.CreateBuilder(args);
 
 // Load .env file.
-new EnvLoader().Load();
+new EnvLoader()
+    .AllowOverwriteExistingVars()
+    .Load();
 
 // Load plugins from the .env file.
 var envConfiguration = new CPluginEnvConfiguration();
