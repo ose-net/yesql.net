@@ -25,7 +25,7 @@ jobs:
       run: |
        dotnet test ./tests/YeSql.Net.Tests.csproj
        dotnet test ./samples/Example.AspNetCore.Tests/Example.AspNetCore.Tests.csproj
-       dotnet build ./samples/PluginApp/Plugins/EmployeePlugin/PluginApp.EmployeePlugin.csproj
-       dotnet build ./samples/PluginApp/Plugins/UserPlugin/PluginApp.UserPlugin.csproj
-       dotnet build ./samples/PluginApp/Plugins/HelloPlugin/PluginApp.HelloPlugin.csproj
-       dotnet test ./samples/PluginApp/Test/PluginApp.Host.Tests.csproj
+       dotnet build ./samples/Example.PluginApp/Plugins/EmployeePlugin/PluginApp.EmployeePlugin.csproj
+       dotnet build ./samples/Example.PluginApp/Plugins/UserPlugin/PluginApp.UserPlugin.csproj
+       dotnet build ./samples/Example.PluginApp/Plugins/HelloPlugin/PluginApp.HelloPlugin.csproj
+       dotnet test ./samples/Example.PluginApp/Test/PluginApp.Host.Tests.csproj
