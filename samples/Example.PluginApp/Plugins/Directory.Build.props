@@ -1,0 +1,21 @@
+<Project>
+  <!-- Import global properties from root directory. -->
+  <Import Project="..\..\..\Directory.Build.props" />
+  <PropertyGroup>
+    <Configuration Condition="$(Configuration) == ''">Debug</Configuration>
+    <ProjectRootDir>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), 'YeSql.Net.Examples.sln'))</ProjectRootDir>
+    <OutDir>$(ProjectRootDir)/Example.PluginApp/Host/bin/$(Configuration)/$(TargetFramework)/plugins/$(MSBuildProjectName)</OutDir>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(ProjectRootDir)/Example.PluginApp/Contracts/PluginApp.Contracts.csproj">
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </ProjectReference>
+    <PackageReference Include="CPlugin.Net.Attributes" ExcludeAssets="runtime" />
+    <PackageReference Include="YeSql.Net" ExcludeAssets="runtime" />
+    <PackageReference Include="CopySqlFilesToOutputDirectory" />
+  </ItemGroup>
+  
+</Project>

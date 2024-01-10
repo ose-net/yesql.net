@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotEnv.Core" />
+    <PackageReference Include="CopySqlFilesToOutputDirectory" />
+    <PackageReference Include="CPlugin.Net" />
+    <PackageReference Include="CPlugin.Net.Attributes" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Swashbuckle.AspNetCore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\YeSql.Net.csproj" />
+    <ProjectReference Include="..\Contracts\PluginApp.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
