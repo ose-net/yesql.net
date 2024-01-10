@@ -58,7 +58,7 @@ public partial class YeSqlLoader
                 _parser.Parse(result.Value.Content, result.Value.FileName);
         }
 
-        CreateAndThrowException();
+        ThrowExceptionIfErrorsExist();
         return _parser.SqlStatements;
     }
 
@@ -95,7 +95,7 @@ public partial class YeSqlLoader
                 _parser.Parse(sqlFile.Content, sqlFile.FileName);
         }
 
-        CreateAndThrowException();
+        ThrowExceptionIfErrorsExist();
         return _parser.SqlStatements;
     }
 }

@@ -7,12 +7,12 @@ namespace YeSql.Net;
 public partial class YeSqlLoader
 {
     /// <summary>
-    /// Creates and throws <see cref="AggregateException" />.
+    /// Throws an exception if there are errors.
     /// </summary>
     /// <exception cref="AggregateException">
     /// If the parser and/or loader encounters one or more errors.
     /// </exception>
-    private void CreateAndThrowException()
+    private void ThrowExceptionIfErrorsExist()
     {
         var exceptions = new List<Exception>();
 
