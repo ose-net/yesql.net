@@ -7,6 +7,6 @@ namespace PluginApp.HelloPlugin;
 public class HelloController : ControllerBase
 {
     [HttpGet]
-    public string GetCodeSql(HelloService service)
+    public string Greet(HelloService service)
         => service.Greet();
 }

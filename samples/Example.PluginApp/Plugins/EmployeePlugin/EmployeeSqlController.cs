@@ -7,6 +7,6 @@ namespace PluginApp.EmployeePlugin;
 public class EmployeeSqlController : ControllerBase
 {
     [HttpGet]
-    public string GetCodeSql(EmployeeSqlService service)
+    public string GetSqlCode(EmployeeSqlService service)
         => service.GetSqlCode();
 }

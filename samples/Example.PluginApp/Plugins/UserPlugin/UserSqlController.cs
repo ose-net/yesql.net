@@ -7,6 +7,6 @@ namespace PluginApp.UserPlugin;
 public class UserSqlController : ControllerBase
 {
     [HttpGet]
-    public string GetCodeSql(UserSqlService service)
+    public string GetSqlCode(UserSqlService service)
         => service.GetSqlCode();
 }
