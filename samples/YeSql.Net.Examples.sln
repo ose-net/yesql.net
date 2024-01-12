@@ -21,11 +21,24 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.NetFramework", "Exa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.AspNetFramework", "Example.AspNetFramework\Example.AspNetFramework.csproj", "{968FCF41-955C-48F4-AB63-D39BAE47930F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginApp.Contracts", "Example.PluginApp\Contracts\PluginApp.Contracts.csproj", "{711AEA1E-2C14-4E26-90F4-9CC21FC436E8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginApp.Host", "Example.PluginApp\Host\PluginApp.Host.csproj", "{C4833FCA-491A-46E1-A9E5-EF34ABC469DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginApp.Host.Tests", "Example.PluginApp\Test\PluginApp.Host.Tests.csproj", "{BBD2189A-46B1-4CD6-BACA-904BCBA036BE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginApp.UserPlugin", "Example.PluginApp\Plugins\UserPlugin\PluginApp.UserPlugin.csproj", "{42398B01-238E-442E-B677-8563EF7957E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginApp.EmployeePlugin", "Example.PluginApp\Plugins\EmployeePlugin\PluginApp.EmployeePlugin.csproj", "{EDCC4759-3DBE-42C1-B520-68DC1C18DDCB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginApp.HelloPlugin", "Example.PluginApp\Plugins\HelloPlugin\PluginApp.HelloPlugin.csproj", "{8A3E96F3-B6FE-4F0B-9421-49328822E36B}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{91D295C8-520D-46AF-95BC-D1E6C1E60534}"
 	ProjectSection(SolutionItems) = preProject
 		..\props\build\CopySqlFilesToOutputDirectory.props = ..\props\build\CopySqlFilesToOutputDirectory.props
 		..\targets\build\CopySqlFilesToPublishDirectory.targets = ..\targets\build\CopySqlFilesToPublishDirectory.targets
 		..\Directory.Build.props = ..\Directory.Build.props
+		Example.PluginApp\Plugins\Directory.Build.props = Example.PluginApp\Plugins\Directory.Build.props
 		..\Directory.Packages.props = ..\Directory.Packages.props
 	EndProjectSection
 EndProject
@@ -71,6 +84,30 @@ Global
 		{968FCF41-955C-48F4-AB63-D39BAE47930F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{968FCF41-955C-48F4-AB63-D39BAE47930F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{968FCF41-955C-48F4-AB63-D39BAE47930F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{711AEA1E-2C14-4E26-90F4-9CC21FC436E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{711AEA1E-2C14-4E26-90F4-9CC21FC436E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{711AEA1E-2C14-4E26-90F4-9CC21FC436E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{711AEA1E-2C14-4E26-90F4-9CC21FC436E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4833FCA-491A-46E1-A9E5-EF34ABC469DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4833FCA-491A-46E1-A9E5-EF34ABC469DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4833FCA-491A-46E1-A9E5-EF34ABC469DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4833FCA-491A-46E1-A9E5-EF34ABC469DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42398B01-238E-442E-B677-8563EF7957E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42398B01-238E-442E-B677-8563EF7957E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42398B01-238E-442E-B677-8563EF7957E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42398B01-238E-442E-B677-8563EF7957E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDCC4759-3DBE-42C1-B520-68DC1C18DDCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDCC4759-3DBE-42C1-B520-68DC1C18DDCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDCC4759-3DBE-42C1-B520-68DC1C18DDCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDCC4759-3DBE-42C1-B520-68DC1C18DDCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A3E96F3-B6FE-4F0B-9421-49328822E36B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A3E96F3-B6FE-4F0B-9421-49328822E36B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A3E96F3-B6FE-4F0B-9421-49328822E36B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A3E96F3-B6FE-4F0B-9421-49328822E36B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD2189A-46B1-4CD6-BACA-904BCBA036BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD2189A-46B1-4CD6-BACA-904BCBA036BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD2189A-46B1-4CD6-BACA-904BCBA036BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD2189A-46B1-4CD6-BACA-904BCBA036BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

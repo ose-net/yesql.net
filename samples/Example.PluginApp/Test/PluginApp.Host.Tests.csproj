@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit3TestAdapter" />
+    <PackageReference Include="NUnit.Analyzers" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Host\PluginApp.Host.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Copy the plugins directory from PluginApp.Host to the output directory of PluginApp.Host.Tests. -->
+    <Content
+      Include="..\Host\bin\$(Configuration)\$(TargetFramework)\plugins\**"
+      CopyToOutputDirectory="PreserveNewest"
+      TargetPath="plugins\%(RecursiveDir)\%(Filename)%(Extension)"
+    />
+    <!-- Copy the .env file from PluginApp.Host to the output directory of PluginApp.Host.Tests. -->
+    <Content Include="..\Host\.env" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
