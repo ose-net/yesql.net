@@ -34,7 +34,7 @@ public class SqlTests
         Environment.SetEnvironmentVariable("PLUGINS", "  ");
         using var factory = new WebApplicationFactory<Program>();
         var client = factory.CreateClient();
-        var requestUri = "/api/Hello";
+        var requestUri = "/api/Sql/GetOrderSql";
 
         // Act
         var httpResponse = await client.GetAsync(requestUri);
