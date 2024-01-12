@@ -11,6 +11,7 @@ public class SqlTests
         string expectedResult)
     {
         // Arrange
+        Environment.SetEnvironmentVariable("PLUGINS", "");
         using var factory = new WebApplicationFactory<Program>();
         var client = factory.CreateClient();
 
@@ -24,5 +25,21 @@ public class SqlTests
         // Asserts
         httpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
         result.Should().Be(expectedResult);
+    }
+
+    [Test]
+    public async Task Get_WhenNoPluginIsLoaded_ShouldNotThrowException()
+    {
+        // Arrange
+        Environment.SetEnvironmentVariable("PLUGINS", "  ");
+        using var factory = new WebApplicationFactory<Program>();
+        var client = factory.CreateClient();
+        var requestUri = "/api/Hello";
+
+        // Act
+        var httpResponse = await client.GetAsync(requestUri);
+
+        // Assert
+        httpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
     }
 }
