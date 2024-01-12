@@ -35,11 +35,17 @@ public class SqlTests
         using var factory = new WebApplicationFactory<Program>();
         var client = factory.CreateClient();
         var requestUri = "/api/Sql/OrderSql";
+        var expectedResult = "SELECT * FROM [order];";
 
         // Act
         var httpResponse = await client.GetAsync(requestUri);
+        var result = (await httpResponse
+            .Content
+            .ReadAsStringAsync())
+            .TrimEnd(Environment.NewLine.ToCharArray());
 
-        // Assert
+        // Asserts
         httpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
+        result.Should().Be(expectedResult);
     }
 }
