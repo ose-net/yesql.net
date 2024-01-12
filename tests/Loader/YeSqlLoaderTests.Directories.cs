@@ -147,18 +147,15 @@ public partial class YeSqlLoaderTests
     }
 
     [Test]
-    public void LoadFromDirectories_WhenParamsListIsZero_ShouldThrowArgumentException()
+    public void LoadFromDirectories_WhenParamsListIsZero_ShouldNotThrowException()
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var expectedMessage = ExceptionMessages.LengthOfParamsListIsZero;
 
         // Act
-        Action action = () => loader.LoadFromDirectories();
+        var sqlStatements = loader.LoadFromDirectories();
 
         // Assert
-        action.Should()
-              .Throw<ArgumentException>()
-              .WithMessage(expectedMessage);
+        sqlStatements.Should().BeEmpty();
     }
 }

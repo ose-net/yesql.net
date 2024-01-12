@@ -18,5 +18,4 @@ internal class ExceptionMessages
     public const string DuplicateTagName                        = "The given tag '{0}' is duplicated.";
     public const string TagIsEmptyOrWhitespace                  = "The tag name is empty.";
     public const string LineIsNotAssociatedWithAnyTag           = "'{0}' line is not associated with any tag.";
-    public const string LengthOfParamsListIsZero                = "The length of the params list is zero.";
 }
