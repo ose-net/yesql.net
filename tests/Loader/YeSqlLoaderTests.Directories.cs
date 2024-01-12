@@ -15,8 +15,7 @@ public partial class YeSqlLoaderTests
         };
         var loaderErrors = new[]
         {
-            string.Format(ExceptionMessages.DirectoryNotFound, "directory_not_found"),
-            string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectory, "env")
+            string.Format(ExceptionMessages.DirectoryNotFound, "directory_not_found")
         };
         var parserErrors = new[]
         {
@@ -80,21 +79,17 @@ public partial class YeSqlLoaderTests
     }
 
     [Test]
-    public void LoadFromDirectories_WhenNotExistsSqlFilesInDirectory_ShouldThrowAggregateException()
+    public void LoadFromDirectories_WhenNotExistsSqlFilesInDirectory_ShouldNotThrowException()
     {
         // Arrange
         var loader = new YeSqlLoader();
         var directory = "env";
-        var expectedMessage = string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectory, directory);
 
         // Act
-        Action action = () => loader.LoadFromDirectories(directory);
+        var sqlStatements = loader.LoadFromDirectories(directory);
 
         // Assert
-        action.Should()
-              .Throw<AggregateException>()
-              .WithInnerException<YeSqlLoaderException>()
-              .WithMessage(expectedMessage);
+        sqlStatements.Should().BeEmpty();
     }
 
     [Test]

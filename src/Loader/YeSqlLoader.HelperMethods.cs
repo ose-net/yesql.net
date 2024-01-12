@@ -89,12 +89,6 @@ public partial class YeSqlLoader
         }
 
         var sqlFiles = GetSqlFiles(path);
-        if (sqlFiles.IsEmpty())
-        {
-            _validationResult.Add(string.Format(ExceptionMessages.NoneFileFoundInSpecifiedDirectory, directoryName));
-            return Result<IEnumerable<SqlFile>>.Failure();
-        }
-
         return Result<IEnumerable<SqlFile>>.Success(sqlFiles);
     }
 
