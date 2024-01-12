@@ -4,7 +4,7 @@ public class SqlTests
 {
     [TestCase("/api/EmployeeSql",     "SELECT * FROM [employee];")]
     [TestCase("/api/UserSql",         "SELECT * FROM [user];")]
-    [TestCase("/api/Sql/GetOrderSql", "SELECT * FROM [order];")]
+    [TestCase("/api/Sql/OrderSql",    "SELECT * FROM [order];")]
     [TestCase("/api/Hello",           "Hello World!")]
     public async Task Get_WhenSqlCodeIsRetrieved_ShouldReturnsHttpStatusCodeOk(
         string requestUri,
@@ -34,7 +34,7 @@ public class SqlTests
         Environment.SetEnvironmentVariable("PLUGINS", "  ");
         using var factory = new WebApplicationFactory<Program>();
         var client = factory.CreateClient();
-        var requestUri = "/api/Sql/GetOrderSql";
+        var requestUri = "/api/Sql/OrderSql";
 
         // Act
         var httpResponse = await client.GetAsync(requestUri);
