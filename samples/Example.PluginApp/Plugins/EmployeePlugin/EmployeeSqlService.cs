@@ -2,7 +2,7 @@
 
 namespace PluginApp.EmployeePlugin;
 
-public class EmployeeSqlService(IYeSqlCollection sqlCollection)
+public class EmployeeSqlService(ISqlCollection sqlCollection)
 {
     public string GetSqlCode()
         => sqlCollection["GetEmployees"];

@@ -2,7 +2,7 @@
 
 namespace PluginApp.UserPlugin;
 
-public class UserSqlService(IYeSqlCollection sqlCollection)
+public class UserSqlService(ISqlCollection sqlCollection)
 {
     public string GetSqlCode()
         => sqlCollection["GetUsers"];
