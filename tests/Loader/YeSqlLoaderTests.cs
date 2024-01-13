@@ -3,7 +3,7 @@
 public partial class YeSqlLoaderTests
 {
     [Test]
-    public void Load_WhenSqlFilesExistInDefaultDirectoryCalledYesql_ShouldReturnsYeSqlCollection()
+    public void LoadFromDefaultDirectory_WhenSqlFilesExistInDefaultDirectoryCalledYesql_ShouldReturnsYeSqlCollection()
     {
         // Arrange
         var loader = new YeSqlLoader();
@@ -13,7 +13,7 @@ public partial class YeSqlLoaderTests
         };
 
         // Act
-        var sqlStatements = loader.Load();
+        var sqlStatements = loader.LoadFromDefaultDirectory();
 
         // Assert
         sqlStatements.Should().BeEquivalentTo(expectedCollection);
