@@ -77,9 +77,9 @@ internal class YeSqlDictionary : ISqlCollection
         => this.GetEnumerator();
 
     /// <summary>
-    /// Converts the <see cref="ISqlCollection" /> instance to a <see cref="string" /> object.
+    /// Converts the <see cref="YeSqlDictionary" /> instance to a <see cref="string" /> object.
     /// </summary>
-    /// <returns>A string that represents the current object of type <see cref="ISqlCollection" />.</returns>
+    /// <returns>A string that represents the current object of type <see cref="YeSqlDictionary" />.</returns>
     public override string ToString()
     {
         var sb = new StringBuilder();
