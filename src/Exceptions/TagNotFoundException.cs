@@ -3,7 +3,7 @@
 namespace YeSql.Net;
 
 /// <summary>
-/// The exception that is thrown when the tag is not found in <see cref="IYeSqlCollection" />.
+/// The exception that is thrown when the tag is not found in <see cref="ISqlCollection" />.
 /// </summary>
 public class TagNotFoundException : Exception
 {
