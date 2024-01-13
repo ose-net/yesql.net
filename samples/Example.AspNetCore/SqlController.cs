@@ -7,8 +7,8 @@ namespace Example.AspNetCore;
 [Route("api/[controller]")]
 public class SqlController : ControllerBase
 {
-    private readonly IYeSqlCollection _sqlCollection;
-    public SqlController(IYeSqlCollection sqlCollection) => _sqlCollection = sqlCollection;
+    private readonly ISqlCollection _sqlCollection;
+    public SqlController(ISqlCollection sqlCollection) => _sqlCollection = sqlCollection;
 
     [HttpGet("GetUsersSql")]
     public string GetUsersSql() 

@@ -5,8 +5,8 @@ using System.Text;
 
 namespace YeSql.Net;
 
-/// <inheritdoc cref="IYeSqlCollection" />
-internal class YeSqlDictionary : IYeSqlCollection
+/// <inheritdoc cref="ISqlCollection" />
+internal class YeSqlDictionary : ISqlCollection
 {
     /// <summary>
     /// A dictionary containing the SQL statements that have been parsed from the data source (e.g., a SQL file).
@@ -77,9 +77,9 @@ internal class YeSqlDictionary : IYeSqlCollection
         => this.GetEnumerator();
 
     /// <summary>
-    /// Converts the <see cref="IYeSqlCollection" /> instance to a <see cref="string" /> object.
+    /// Converts the <see cref="YeSqlDictionary" /> instance to a <see cref="string" /> object.
     /// </summary>
-    /// <returns>A string that represents the current object of type <see cref="IYeSqlCollection" />.</returns>
+    /// <returns>A string that represents the current object of type <see cref="YeSqlDictionary" />.</returns>
     public override string ToString()
     {
         var sb = new StringBuilder();

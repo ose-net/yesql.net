@@ -6,7 +6,7 @@ namespace YeSql.Net;
 /// <summary>
 /// Represents a collection of tags and SQL statements.
 /// </summary>
-public interface IYeSqlCollection : IEnumerable<ModelTag>
+public interface ISqlCollection : IEnumerable<ModelTag>
 {
     /// <summary>
     /// Gets the SQL statement associated with the specified tag.
@@ -33,7 +33,7 @@ public interface IYeSqlCollection : IEnumerable<ModelTag>
     /// otherwise, the default value for the type of the <c>sqlStatement</c> parameter. This parameter is passed uninitialized.
     /// </param>
     /// <returns>
-    /// <c>true</c> if the <see cref="IYeSqlCollection" /> contains a SQL statement with the specified tag; otherwise, <c>false</c>.
+    /// <c>true</c> if the <see cref="ISqlCollection" /> contains a SQL statement with the specified tag; otherwise, <c>false</c>.
     /// </returns>
     /// <exception cref="ArgumentNullException">
     /// <c>tagName</c> is <c>null</c>.

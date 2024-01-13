@@ -93,7 +93,7 @@ public partial class YeSqlLoaderTests
     }
 
     [Test]
-    public void LoadFromDirectories_WhenSqlFilesExistsInDirectory_ShouldReturnsYeSqlCollection()
+    public void LoadFromDirectories_WhenSqlFilesExistsInDirectory_ShouldReturnsSqlCollection()
     {
         // Arrange
         var loader = new YeSqlLoader();

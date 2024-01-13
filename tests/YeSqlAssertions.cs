@@ -11,11 +11,11 @@
 /// This is because the current parser adds a new line at the end of each processed SQL statement, therefore, 
 /// to perform the comparison between the current and the expected value, both need to have the new line at the end of each SQL statement.
 /// </remarks>
-public class YeSqlAssertions : GenericCollectionAssertions<IYeSqlCollection, ModelTag, YeSqlAssertions>
+public class YeSqlAssertions : GenericCollectionAssertions<ISqlCollection, ModelTag, YeSqlAssertions>
 {
     private readonly Dictionary<string, string> _sqlStatements;
 
-    public YeSqlAssertions(IYeSqlCollection instance) : base(instance)
+    public YeSqlAssertions(ISqlCollection instance) : base(instance)
         => _sqlStatements = instance.ToDictionary(model => model.Name, model => model.SqlStatement);
 
     /// <summary>
@@ -51,6 +51,6 @@ public class YeSqlAssertions : GenericCollectionAssertions<IYeSqlCollection, Mod
 
 public static class YeSqlCollectionExtensions
 {
-    public static YeSqlAssertions Should(this IYeSqlCollection instance)
+    public static YeSqlAssertions Should(this ISqlCollection instance)
         => new(instance);
 }

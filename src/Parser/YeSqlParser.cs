@@ -42,7 +42,7 @@ public partial class YeSqlParser
     /// <param name="sqlFileName">The name of the SQL file that caused an error.</param>
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
     /// <exception cref="ArgumentNullException"><c>source</c> is <c>null</c>.</exception>
-    internal IYeSqlCollection Parse(string source, string sqlFileName)
+    internal ISqlCollection Parse(string source, string sqlFileName)
     {
         _sqlFileName = sqlFileName;
         return Parse(source, out _);
@@ -52,7 +52,7 @@ public partial class YeSqlParser
     /// <exception cref="YeSqlParserException">
     /// If the parser encounters one or more errors.
     /// </exception>
-    public IYeSqlCollection ParseAndThrow(string source)
+    public ISqlCollection ParseAndThrow(string source)
     {
         var sqlStatements = Parse(source, out var validationResult);
         if (validationResult.HasError())
@@ -64,7 +64,7 @@ public partial class YeSqlParser
     /// <inheritdoc cref="Parse(string, string)" />
     /// <param name="source">The data source to parsing.</param>
     /// <param name="validationResult">The validation result of the parsing process.</param>
-    public IYeSqlCollection Parse(string source, out YeSqlValidationResult validationResult)
+    public ISqlCollection Parse(string source, out YeSqlValidationResult validationResult)
     {
         if(source is null)
             throw new ArgumentNullException(nameof(source));

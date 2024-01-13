@@ -8,6 +8,6 @@ namespace PluginApp.Host;
 public class SqlController : ControllerBase
 {
     [HttpGet("OrderSql")]
-    public string GetOrderSql(IYeSqlCollection sqlCollection)
+    public string GetOrderSql(ISqlCollection sqlCollection)
         => sqlCollection["GetOrders"];
 }

@@ -61,7 +61,7 @@ public partial class YeSqlLoaderTests
     }
 
     [Test]
-    public void LoadFromFiles_WhenSqlFilesExists_ShouldReturnsYeSqlCollection()
+    public void LoadFromFiles_WhenSqlFilesExists_ShouldReturnsSqlCollection()
     {
         // Arrange
         var loader = new YeSqlLoader();

@@ -26,7 +26,7 @@ public partial class YeSqlLoader
     /// where the application is running (e.g., bin/Debug/net8.0).
     /// </remarks>
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
-    public IYeSqlCollection LoadFromDefaultDirectory() 
+    public ISqlCollection LoadFromDefaultDirectory() 
         => LoadFromDirectories("yesql");
 
     /// <summary>
@@ -43,7 +43,7 @@ public partial class YeSqlLoader
     /// <exception cref="AggregateException">
     /// If the parser and/or loader encounters one or more errors.
     /// </exception>
-    public IYeSqlCollection LoadFromFiles(params string[] sqlFiles)
+    public ISqlCollection LoadFromFiles(params string[] sqlFiles)
     {
         if (sqlFiles is null)
             throw new ArgumentNullException(nameof(sqlFiles));
@@ -79,7 +79,7 @@ public partial class YeSqlLoader
     /// <exception cref="AggregateException">
     /// If the parser and/or loader encounters one or more errors.
     /// </exception>
-    public IYeSqlCollection LoadFromDirectories(params string[] directories)
+    public ISqlCollection LoadFromDirectories(params string[] directories)
     {
         if (directories is null)
             throw new ArgumentNullException(nameof(directories));
