@@ -26,7 +26,8 @@ public partial class YeSqlLoader
     /// where the application is running (e.g., bin/Debug/net8.0).
     /// </remarks>
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
-    public IYeSqlCollection Load() => LoadFromDirectories("yesql");
+    public IYeSqlCollection LoadFromDefaultDirectory() 
+        => LoadFromDirectories("yesql");
 
     /// <summary>
     /// Loads the SQL statements from the specified files.

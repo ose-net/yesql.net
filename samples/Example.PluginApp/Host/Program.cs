@@ -26,7 +26,7 @@ foreach (Assembly assembly in PluginLoader.Assemblies)
 
 var sqlLoader = new YeSqlLoader();
 // Load SQL files from host application.
-var sqlStatements = sqlLoader.Load();
+var sqlStatements = sqlLoader.LoadFromDefaultDirectory();
 
 // Load SQL files from plugins.
 // Not all plugins need to have SQL files.
