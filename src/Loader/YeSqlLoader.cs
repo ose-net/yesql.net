@@ -54,7 +54,7 @@ public partial class YeSqlLoader
         if (sqlFiles.ContainsNullOrWhiteSpace())
             throw new ArgumentException(string.Format(ExceptionMessages.CollectionHasNullValueOrOnlyWhitespace, nameof(sqlFiles)));
 
-        foreach (string fileName in sqlFiles)
+        foreach (var fileName in sqlFiles)
         {
             Result<SqlFile> result = LoadFromFile(fileName);
             if (result.IsSuccess)
