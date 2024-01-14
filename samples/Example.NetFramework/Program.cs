@@ -7,7 +7,7 @@ namespace Example.NetFramework
     {
         static void Main(string[] args)
         {
-            var sqlStatements = new YeSqlLoader().LoadFromDefaultDirectory();
+            ISqlCollection sqlStatements = new YeSqlLoader().LoadFromDefaultDirectory();
             Console.Write(sqlStatements["GetUsers"]);
             Console.Write(sqlStatements["GetRoles"]);
             Console.Write(sqlStatements["GetProducts"]);

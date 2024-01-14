@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-var sqlStatements = new YeSqlLoader().LoadFromDefaultDirectory();
+ISqlCollection sqlStatements = new YeSqlLoader().LoadFromDefaultDirectory();
 builder.Services.AddSingleton(sqlStatements);
 builder.Services.AddControllers();
 

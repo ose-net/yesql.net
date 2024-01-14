@@ -13,7 +13,7 @@ public partial class YeSqlLoaderTests
         };
 
         // Act
-        var sqlStatements = loader.LoadFromDefaultDirectory();
+        ISqlCollection sqlStatements = loader.LoadFromDefaultDirectory();
 
         // Assert
         sqlStatements.Should().BeEquivalentTo(expectedCollection);

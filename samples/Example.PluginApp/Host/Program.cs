@@ -20,13 +20,13 @@ foreach (IPluginStartup startup in startups)
 
 // Adds the plugin assemblies as part of the application.
 // Allows to register controllers of each plugin.
-var mvcBuilder = builder.Services.AddControllers();
+IMvcBuilder mvcBuilder = builder.Services.AddControllers();
 foreach (Assembly assembly in PluginLoader.Assemblies)
     mvcBuilder.AddApplicationPart(assembly);
 
 var sqlLoader = new YeSqlLoader();
 // Load SQL files from host application.
-var sqlStatements = sqlLoader.LoadFromDefaultDirectory();
+ISqlCollection sqlStatements = sqlLoader.LoadFromDefaultDirectory();
 
 // Load SQL files from plugins.
 // Not all plugins need to have SQL files.

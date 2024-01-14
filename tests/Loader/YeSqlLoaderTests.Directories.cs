@@ -86,7 +86,7 @@ public partial class YeSqlLoaderTests
         var directory = "env";
 
         // Act
-        var sqlStatements = loader.LoadFromDirectories(directory);
+        ISqlCollection sqlStatements = loader.LoadFromDirectories(directory);
 
         // Assert
         sqlStatements.Should().BeEmpty();
@@ -104,7 +104,7 @@ public partial class YeSqlLoaderTests
         };
 
         // Act
-        var sqlStatements = loader.LoadFromDirectories(directory);
+        ISqlCollection sqlStatements = loader.LoadFromDirectories(directory);
 
         // Assert
         sqlStatements.Should().BeEquivalentTo(expectedCollection);
@@ -122,7 +122,7 @@ public partial class YeSqlLoaderTests
         };
 
         // Act
-        var sqlStatements = loader.LoadFromDirectories(directory);
+        ISqlCollection sqlStatements = loader.LoadFromDirectories(directory);
 
         // Assert
         sqlStatements.Should().BeEquivalentTo(expectedCollection);
@@ -153,7 +153,7 @@ public partial class YeSqlLoaderTests
         var loader = new YeSqlLoader();
 
         // Act
-        var sqlStatements = loader.LoadFromDirectories();
+        ISqlCollection sqlStatements = loader.LoadFromDirectories();
 
         // Assert
         sqlStatements.Should().BeEmpty();

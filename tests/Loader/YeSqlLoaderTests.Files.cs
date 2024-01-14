@@ -72,7 +72,7 @@ public partial class YeSqlLoaderTests
         };
 
         // Act
-        var sqlStatements = loader.LoadFromFiles(file);
+        ISqlCollection sqlStatements = loader.LoadFromFiles(file);
 
         // Assert
         sqlStatements.Should().BeEquivalentTo(expectedCollection);
@@ -90,7 +90,7 @@ public partial class YeSqlLoaderTests
         };
 
         // Act
-        var sqlStatements = loader.LoadFromFiles(file);
+        ISqlCollection sqlStatements = loader.LoadFromFiles(file);
 
         // Assert
         sqlStatements.Should().BeEquivalentTo(expectedCollection);
@@ -161,7 +161,7 @@ public partial class YeSqlLoaderTests
         var loader = new YeSqlLoader();
 
         // Act
-        var sqlStatements = loader.LoadFromFiles();
+        ISqlCollection sqlStatements = loader.LoadFromFiles();
 
         // Assert
         sqlStatements.Should().BeEmpty();

@@ -11,6 +11,6 @@ var source =
     SELECT* FROM role;
 """;
 
-var sqlStatements = new YeSqlParser().ParseAndThrow(source);
+ISqlCollection sqlStatements = new YeSqlParser().ParseAndThrow(source);
 Console.Write(sqlStatements["GetUsers"]);
 Console.Write(sqlStatements["GetRoles"]);

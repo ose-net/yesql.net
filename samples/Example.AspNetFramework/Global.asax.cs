@@ -22,7 +22,7 @@ namespace AspNetFramework
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            var sqlStatements = new YeSqlLoader().LoadFromDirectories("./sql");
+            ISqlCollection sqlStatements = new YeSqlLoader().LoadFromDirectories("./sql");
             SqlStatement = sqlStatements["GetProducts"];
         }
     }

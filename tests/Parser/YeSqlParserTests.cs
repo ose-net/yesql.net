@@ -24,7 +24,7 @@ public class YeSqlParserTests
         var expectedMessage = ExceptionMessages.DataSourceIsEmptyOrWhitespace;
 
         // Act
-        var sqlStatements = parser.Parse(source, out var validationResult);
+        ISqlCollection sqlStatements = parser.Parse(source, out var validationResult);
 
         // Asserts
         sqlStatements.Should().BeEmpty();
@@ -52,8 +52,8 @@ public class YeSqlParserTests
         };
 
         // Act
-        var sqlStatements = parser.Parse(source, out var validationResult);
-        var errors = validationResult.ToList();
+        ISqlCollection sqlStatements = parser.Parse(source, out var validationResult);
+        List<string> errors = validationResult.ToList();
 
         // Asserts
         sqlStatements.Should().BeEquivalentTo(expectedCollection);
@@ -89,8 +89,8 @@ public class YeSqlParserTests
         };
 
         // Act
-        var sqlStatements = parser.Parse(source, out var validationResult);
-        var errors = validationResult.ToList();
+        ISqlCollection sqlStatements = parser.Parse(source, out var validationResult);
+        List<string> errors = validationResult.ToList();
 
         // Asserts
         sqlStatements.Should().BeEquivalentTo(expectedCollection);
@@ -118,8 +118,8 @@ public class YeSqlParserTests
         };
 
         // Act
-        var sqlStatements = parser.Parse(source, out var validationResult);
-        var errors = validationResult.ToList();
+        ISqlCollection sqlStatements = parser.Parse(source, out var validationResult);
+        List<string> errors = validationResult.ToList();
 
         // Asserts
         sqlStatements.Should().BeEquivalentTo(expectedCollection);
@@ -135,7 +135,7 @@ public class YeSqlParserTests
         var parser = new YeSqlParser();
 
         // Act
-        var sqlStatements = parser.Parse(source, out _);
+        ISqlCollection sqlStatements = parser.Parse(source, out _);
 
         // Assert
         sqlStatements.Should().BeEquivalentTo(expectedCollection);
@@ -154,7 +154,7 @@ public class YeSqlParserTests
         };
 
         // Act
-        var sqlStatements = parser.Parse(source, out _);
+        ISqlCollection sqlStatements = parser.Parse(source, out _);
 
         // Assert
         sqlStatements.Should().BeEquivalentTo(expectedCollection);
@@ -199,7 +199,7 @@ public class YeSqlParserTests
         };
 
         // Act
-        var sqlStatements = parser.Parse(source, out _);
+        ISqlCollection sqlStatements = parser.Parse(source, out _);
 
         // Assert
         sqlStatements.Should().BeEquivalentTo(expectedCollection);
@@ -240,7 +240,7 @@ public class YeSqlParserTests
 
         // Act
         parser.Parse(source, out var validationResult);
-        var errors = validationResult.ToList();
+        List<string> errors = validationResult.ToList();
 
         // Asserts
         validationResult.HasError().Should().BeTrue();
