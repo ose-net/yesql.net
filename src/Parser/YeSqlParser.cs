@@ -36,6 +36,11 @@ public partial class YeSqlParser
     internal YeSqlValidationResult ValidationResult { get; } = new();
 
     /// <summary>
+    /// Initializes a new instance of the <see cref="YeSqlParser"/> class.
+    /// </summary>
+    public YeSqlParser() { }
+
+    /// <summary>
     /// Start the parsing to extract the SQL statements from a data source.
     /// </summary>
     /// <param name="source">The data source to parsing.</param>
