@@ -1,0 +1,471 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/mrdav/OneDrive/Documentos/Visual Studio 2022/Projects/yesql.net/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.ISqlCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.ISqlCollection.Item.html",
+          "hash": "+YupKWI58C+Ex8/PorZil89RPC35F4/BbaINwLHQ3SI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.ISqlCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.ISqlCollection.html",
+          "hash": "I8e3THTQTpINpp4hgrtzbew3DO8aIyEEVxvZYyuzIC4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.ISqlCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.ISqlCollection.TryGetStatement.html",
+          "hash": "irG1JyDSD78uqKHpCg6YxUbMvrb3DE1xTKByEHpAZjc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.ModelTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.ModelTag.html",
+          "hash": "Xa1P15SBlOVVG+1xkWPYfEkR4ApF0bwRRU1LbLGOdF0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.ModelTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.ModelTag.Deconstruct.html",
+          "hash": "6vSN7cr9VeKCK/0Rtmr3xpsP5QZBGBISgEYPhw7bKs0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.ModelTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.ModelTag.-ctor.html",
+          "hash": "rq1L24je87pAvEqGDB4tdLuMOAc4NYtpUYOFmDd2nQY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.ModelTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.ModelTag.ToString.html",
+          "hash": "o1vNI+LgqIr4BtT+cAAceQwVu+eY2t/Sj/uOUlrFxp0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.ModelTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.ModelTag.SqlStatement.html",
+          "hash": "emWo2kWc9Y5mgVDJJAxwcd0OMwrVe7cmesHjL1DF1uY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.ModelTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.ModelTag.Name.html",
+          "hash": "dFK/3kcETirqaycHdkRpgOfc7e51h0aS374Xwwjc1J0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.TagNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.TagNotFoundException.-ctor.html",
+          "hash": "qtRkTT0Rbqe5erOomXLSoiC4mo/c8GhX8pC4MUy4sGI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.TagNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.TagNotFoundException.html",
+          "hash": "q3Wm9LigEOmLGoepKXKE5IBO8wnc0uwluaSGpLjfV28="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlLoader.LoadFromDefaultDirectory.html",
+          "hash": "6WSL3L2PiLW2KdVFuSTk2s4iu3szwsXyi0rCtkjUJQY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlLoader.LoadFromDirectories.html",
+          "hash": "f8BuCrjbqXdCpurAsWDzJsboutIo399ZU7zr1g5+3s8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlLoader.-ctor.html",
+          "hash": "iyAlQxqMbGCrVkViMvvW2mx466tPNPGjlsWqTbwiBiw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlLoader.html",
+          "hash": "XIE2aHeAyZKSeO25cEXU18+bAeA2KBUN9ticUAFIjVo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlLoader.LoadFromFiles.html",
+          "hash": "CUJ6p91ASki+y5Y0Ehq3R5lIe/wvq275fHrfEpF80M4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlLoaderException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlLoaderException.html",
+          "hash": "28IatXKzEVH7JkFymFBjWHAHSXzT03e9Rikf7kcYbTA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlLoaderException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlLoaderException.-ctor.html",
+          "hash": "kx6WdVjz/2SpOC4Ym+qI1pr9eyYblgdK7MZv9IxkeUM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlParser.Parse.html",
+          "hash": "inbxf4tdxOreH6mQusbY3pAUWQV9XzFWunhHx2mLmhU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlParser.ParseAndThrow.html",
+          "hash": "VucvRa0dla17MRJ5pzf/cHq3W+F0foaO//6xi4koYFE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlParser.html",
+          "hash": "UI7QXo1s4/dg5/yEfzxHQCuF7L6BXFFqOgQIvxtTMNU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlParser.-ctor.html",
+          "hash": "UCOFTudemNUEeIaYgxVefXSFKbJENvk/x/tlakQCHAQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlParserException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlParserException.html",
+          "hash": "QXktWCGVkNXgiqIj1v8YaVTYWLVAf11JXiTLYyJiImM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlParserException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlParserException.-ctor.html",
+          "hash": "XILBDqAPol+HE50QClrOwi0Rsw/EtCDAYzgZzew4jTY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlValidationResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlValidationResult.ErrorMessages.html",
+          "hash": "YqihXQkODDi7xa29X2pcbFKXzf4yiEldXbE+kIf99Nc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlValidationResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlValidationResult.html",
+          "hash": "beJauy1qWScwMjQdMiMiftWG164rMHUF9O2TPdhuiq4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlValidationResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlValidationResult.HasError.html",
+          "hash": "AtDCKjVdpQHPTwrLyF8ShyHLt6e72xfUzw+UQb0TdWE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlValidationResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlValidationResult.System-Collections-IEnumerable-GetEnumerator.html",
+          "hash": "tEUJlP2KPqvrUEJLJhluoR3x9w5z69Q3uJgbsO1hrPs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlValidationResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlValidationResult.Count.html",
+          "hash": "1mzukm8eFs6ZahJe3WHsBWw/dURfDAJzMmIdht6FpwA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.YeSqlValidationResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.YeSqlValidationResult.GetEnumerator.html",
+          "hash": "Ve+49CeuN/ByTBh9WXo6wZ35VnG9cWVAkMqRFFTflTk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/YeSql.Net.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/YeSql.Net.html",
+          "hash": "HQKCE+17ugp0gYnsB6X3eyWybZbI4UBvdd3beuZE0Dc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "vnq+x37eP5qPNYsRWnLMbvpGfT0u5oqTkd0Nb6nDyZU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "DCUWLchA5QU1CRAypj/8jPA1obnwrs82RqoA1s7D/AM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "mXlbyOIcG3Y5CE7WMWClDjQ9pZrkmMaoHEIzCdUJ2MU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 1,
+          "skipped_file_count": 1
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 9,
+          "skipped_file_count": 8
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

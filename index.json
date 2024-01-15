@@ -1,0 +1,162 @@
+{
+  "api/YeSql.Net.html": {
+    "href": "api/YeSql.Net.html",
+    "title": "Namespace YeSql.Net | YeSQL.NET",
+    "keywords": "Namespace YeSql.Net Classes TagNotFoundException The exception that is thrown when the tag is not found in ISqlCollection . YeSqlLoader Represents the loader that provides the functionality to load SQL files. YeSqlLoaderException The exception is thrown when there are one or more errors during the process of loading SQL files using the YeSqlLoader class. YeSqlParser Represents the parser that extracts the SQL statements from the tags. YeSqlParserException The exception is thrown when there are one or more errors while parsing a data source (e.g., SQL file) using the YeSqlParser . YeSqlValidationResult Represents a container for the results of a validation. Structs ModelTag Represents the tag with its associated SQL statement. Interfaces ISqlCollection Represents a collection of tags and SQL statements."
+  },
+  "api/YeSql.Net.ISqlCollection.html": {
+    "href": "api/YeSql.Net.ISqlCollection.html",
+    "title": "Interface ISqlCollection | YeSQL.NET",
+    "keywords": "Interface ISqlCollection Represents a collection of tags and SQL statements. Inherited Members IEnumerable<ModelTag>.GetEnumerator() Namespace : YeSql.Net Assembly : YeSql.Net.dll Syntax public interface ISqlCollection : IEnumerable<ModelTag>, IEnumerable Properties Name Description Item[String] Gets the SQL statement associated with the specified tag. Methods Name Description TryGetStatement(String, out String) Gets the SQL statement associated with the specified tag."
+  },
+  "api/YeSql.Net.ISqlCollection.Item.html": {
+    "href": "api/YeSql.Net.ISqlCollection.Item.html",
+    "title": "Property Item | YeSQL.NET",
+    "keywords": "Property Item | Improve this Doc View Source Item[String] Gets the SQL statement associated with the specified tag. Declaration string this[string tagName] { get; } Parameters Type Name Description String tagName The tag of the SQL statement to get. Property Value Type Description String The SQL statement associated with the specified tag. If the specified tag is not found, throws a TagNotFoundException . Exceptions Type Condition ArgumentNullException tagName is null . TagNotFoundException tagName does not exist in the collection."
+  },
+  "api/YeSql.Net.ISqlCollection.TryGetStatement.html": {
+    "href": "api/YeSql.Net.ISqlCollection.TryGetStatement.html",
+    "title": "Method TryGetStatement | YeSQL.NET",
+    "keywords": "Method TryGetStatement | Improve this Doc View Source TryGetStatement(String, out String) Gets the SQL statement associated with the specified tag. Declaration bool TryGetStatement(string tagName, out string sqlStatement) Parameters Type Name Description String tagName The tag of the SQL statement to get. String sqlStatement When this method returns, contains the SQL statement associated with the specified tag, if the tag is found; otherwise, the default value for the type of the sqlStatement parameter. This parameter is passed uninitialized. Returns Type Description Boolean true if the ISqlCollection contains a SQL statement with the specified tag; otherwise, false . Exceptions Type Condition ArgumentNullException tagName is null ."
+  },
+  "api/YeSql.Net.ModelTag.-ctor.html": {
+    "href": "api/YeSql.Net.ModelTag.-ctor.html",
+    "title": "Constructor ModelTag | YeSQL.NET",
+    "keywords": "Constructor ModelTag | Improve this Doc View Source ModelTag() Initializes a new instance of the ModelTag class. Declaration public ModelTag()"
+  },
+  "api/YeSql.Net.ModelTag.Deconstruct.html": {
+    "href": "api/YeSql.Net.ModelTag.Deconstruct.html",
+    "title": "Method Deconstruct | YeSQL.NET",
+    "keywords": "Method Deconstruct | Improve this Doc View Source Deconstruct(out String, out String) Deconstructs the current ModelTag . Declaration public readonly void Deconstruct(out string name, out string sqlStatement) Parameters Type Name Description String name The name of the current ModelTag . String sqlStatement The SQL statement of the current ModelTag ."
+  },
+  "api/YeSql.Net.ModelTag.html": {
+    "href": "api/YeSql.Net.ModelTag.html",
+    "title": "Struct ModelTag | YeSQL.NET",
+    "keywords": "Struct ModelTag Represents the tag with its associated SQL statement. Inherited Members ValueType.Equals(Object) ValueType.GetHashCode() Object.Equals(Object, Object) Object.GetType() Object.ReferenceEquals(Object, Object) Namespace : YeSql.Net Assembly : YeSql.Net.dll Syntax public readonly struct ModelTag Constructors Name Description ModelTag() Initializes a new instance of the ModelTag class. Properties Name Description Name Gets the name of the tag. SqlStatement Gets the SQL statement of the tag. Methods Name Description Deconstruct(out String, out String) Deconstructs the current ModelTag . ToString() Returns a string that represents the current object of type ModelTag ."
+  },
+  "api/YeSql.Net.ModelTag.Name.html": {
+    "href": "api/YeSql.Net.ModelTag.Name.html",
+    "title": "Property Name | YeSQL.NET",
+    "keywords": "Property Name | Improve this Doc View Source Name Gets the name of the tag. Declaration public string Name { readonly get; set; } Property Value Type Description String"
+  },
+  "api/YeSql.Net.ModelTag.SqlStatement.html": {
+    "href": "api/YeSql.Net.ModelTag.SqlStatement.html",
+    "title": "Property SqlStatement | YeSQL.NET",
+    "keywords": "Property SqlStatement | Improve this Doc View Source SqlStatement Gets the SQL statement of the tag. Declaration public string SqlStatement { readonly get; set; } Property Value Type Description String"
+  },
+  "api/YeSql.Net.ModelTag.ToString.html": {
+    "href": "api/YeSql.Net.ModelTag.ToString.html",
+    "title": "Method ToString | YeSQL.NET",
+    "keywords": "Method ToString | Improve this Doc View Source ToString() Returns a string that represents the current object of type ModelTag . Declaration public override readonly string ToString() Returns Type Description String A string that represents the current object of type ModelTag . Overrides ValueType.ToString()"
+  },
+  "api/YeSql.Net.TagNotFoundException.-ctor.html": {
+    "href": "api/YeSql.Net.TagNotFoundException.-ctor.html",
+    "title": "Constructor TagNotFoundException | YeSQL.NET",
+    "keywords": "Constructor TagNotFoundException | Improve this Doc View Source TagNotFoundException() Initializes a new instance of the TagNotFoundException class with a default message. Declaration public TagNotFoundException() | Improve this Doc View Source TagNotFoundException(String) Initializes a new instance of the TagNotFoundException class with the a specified error message. Declaration public TagNotFoundException(string message) Parameters Type Name Description String message The message that describes the error."
+  },
+  "api/YeSql.Net.TagNotFoundException.html": {
+    "href": "api/YeSql.Net.TagNotFoundException.html",
+    "title": "Class TagNotFoundException | YeSQL.NET",
+    "keywords": "Class TagNotFoundException The exception that is thrown when the tag is not found in ISqlCollection . Inheritance Object Exception TagNotFoundException Implements ISerializable Inherited Members Exception.GetBaseException() Exception.GetObjectData(SerializationInfo, StreamingContext) Exception.GetType() Exception.ToString() Exception.Data Exception.HelpLink Exception.HResult Exception.InnerException Exception.Message Exception.Source Exception.StackTrace Exception.TargetSite Exception.SerializeObjectState Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.MemberwiseClone() Object.ReferenceEquals(Object, Object) Namespace : YeSql.Net Assembly : YeSql.Net.dll Syntax public class TagNotFoundException : Exception, ISerializable Constructors Name Description TagNotFoundException() Initializes a new instance of the TagNotFoundException class with a default message. TagNotFoundException(String) Initializes a new instance of the TagNotFoundException class with the a specified error message."
+  },
+  "api/YeSql.Net.YeSqlLoader.-ctor.html": {
+    "href": "api/YeSql.Net.YeSqlLoader.-ctor.html",
+    "title": "Constructor YeSqlLoader | YeSQL.NET",
+    "keywords": "Constructor YeSqlLoader | Improve this Doc View Source YeSqlLoader() Initializes a new instance of the YeSqlLoader class. Declaration public YeSqlLoader()"
+  },
+  "api/YeSql.Net.YeSqlLoader.html": {
+    "href": "api/YeSql.Net.YeSqlLoader.html",
+    "title": "Class YeSqlLoader | YeSQL.NET",
+    "keywords": "Class YeSqlLoader Represents the loader that provides the functionality to load SQL files. Inheritance Object YeSqlLoader Inherited Members Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Object.ReferenceEquals(Object, Object) Object.ToString() Namespace : YeSql.Net Assembly : YeSql.Net.dll Syntax public class YeSqlLoader Constructors Name Description YeSqlLoader() Initializes a new instance of the YeSqlLoader class. Methods Name Description LoadFromDefaultDirectory() Loads the SQL statements from a default directory called yesql . LoadFromDirectories(String[]) Loads the SQL statements from all the SQL files in the specified directories. LoadFromFiles(String[]) Loads the SQL statements from the specified files."
+  },
+  "api/YeSql.Net.YeSqlLoader.LoadFromDefaultDirectory.html": {
+    "href": "api/YeSql.Net.YeSqlLoader.LoadFromDefaultDirectory.html",
+    "title": "Method LoadFromDefaultDirectory | YeSQL.NET",
+    "keywords": "Method LoadFromDefaultDirectory | Improve this Doc View Source LoadFromDefaultDirectory() Loads the SQL statements from a default directory called yesql . Declaration public ISqlCollection LoadFromDefaultDirectory() Returns Type Description ISqlCollection A collection containing the tags with their associated SQL statements. Remarks This method starts searching from the current directory where the application is running (e.g., bin/Debug/net8.0). Exceptions Type Condition AggregateException If the parser and/or loader encounters one or more errors."
+  },
+  "api/YeSql.Net.YeSqlLoader.LoadFromDirectories.html": {
+    "href": "api/YeSql.Net.YeSqlLoader.LoadFromDirectories.html",
+    "title": "Method LoadFromDirectories | YeSQL.NET",
+    "keywords": "Method LoadFromDirectories | Improve this Doc View Source LoadFromDirectories(String[]) Loads the SQL statements from all the SQL files in the specified directories. Declaration public ISqlCollection LoadFromDirectories(params string[] directories) Parameters Type Name Description String [] directories A set of directories where the SQL files are located. Returns Type Description ISqlCollection A collection containing the tags with their associated SQL statements. Remarks The directories parameter can include the absolute or relative path along with the directory name. If the path is relative, the method will start searching from the current directory where the application is running (e.g., bin/Debug/net8.0). Exceptions Type Condition ArgumentNullException directories is null . ArgumentException One or more directories in directories is null, empty or consists only of white-space characters. AggregateException If the parser and/or loader encounters one or more errors."
+  },
+  "api/YeSql.Net.YeSqlLoader.LoadFromFiles.html": {
+    "href": "api/YeSql.Net.YeSqlLoader.LoadFromFiles.html",
+    "title": "Method LoadFromFiles | YeSQL.NET",
+    "keywords": "Method LoadFromFiles | Improve this Doc View Source LoadFromFiles(String[]) Loads the SQL statements from the specified files. Declaration public ISqlCollection LoadFromFiles(params string[] sqlFiles) Parameters Type Name Description String [] sqlFiles The SQL files to load. Returns Type Description ISqlCollection A collection containing the tags with their associated SQL statements. Remarks The sqlFiles parameter can include the absolute or relative path along with the file name. If the path is relative, the method will start searching from the current directory where the application is running (e.g., bin/Debug/net8.0). Exceptions Type Condition ArgumentNullException sqlFiles is null . ArgumentException One or more files in sqlFiles is null, empty or consists only of white-space characters. AggregateException If the parser and/or loader encounters one or more errors."
+  },
+  "api/YeSql.Net.YeSqlLoaderException.-ctor.html": {
+    "href": "api/YeSql.Net.YeSqlLoaderException.-ctor.html",
+    "title": "Constructor YeSqlLoaderException | YeSQL.NET",
+    "keywords": "Constructor YeSqlLoaderException | Improve this Doc View Source YeSqlLoaderException() Initializes a new instance of the YeSqlLoaderException class with a default error message. Declaration public YeSqlLoaderException() | Improve this Doc View Source YeSqlLoaderException(String) Initializes a new instance of the YeSqlLoaderException class with the a specified error message. Declaration public YeSqlLoaderException(string message) Parameters Type Name Description String message The message that describes the error."
+  },
+  "api/YeSql.Net.YeSqlLoaderException.html": {
+    "href": "api/YeSql.Net.YeSqlLoaderException.html",
+    "title": "Class YeSqlLoaderException | YeSQL.NET",
+    "keywords": "Class YeSqlLoaderException The exception is thrown when there are one or more errors during the process of loading SQL files using the YeSqlLoader class. Inheritance Object Exception YeSqlLoaderException Implements ISerializable Inherited Members Exception.GetBaseException() Exception.GetObjectData(SerializationInfo, StreamingContext) Exception.GetType() Exception.ToString() Exception.Data Exception.HelpLink Exception.HResult Exception.InnerException Exception.Message Exception.Source Exception.StackTrace Exception.TargetSite Exception.SerializeObjectState Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.MemberwiseClone() Object.ReferenceEquals(Object, Object) Namespace : YeSql.Net Assembly : YeSql.Net.dll Syntax public class YeSqlLoaderException : Exception, ISerializable Constructors Name Description YeSqlLoaderException() Initializes a new instance of the YeSqlLoaderException class with a default error message. YeSqlLoaderException(String) Initializes a new instance of the YeSqlLoaderException class with the a specified error message."
+  },
+  "api/YeSql.Net.YeSqlParser.-ctor.html": {
+    "href": "api/YeSql.Net.YeSqlParser.-ctor.html",
+    "title": "Constructor YeSqlParser | YeSQL.NET",
+    "keywords": "Constructor YeSqlParser | Improve this Doc View Source YeSqlParser() Initializes a new instance of the YeSqlParser class. Declaration public YeSqlParser()"
+  },
+  "api/YeSql.Net.YeSqlParser.html": {
+    "href": "api/YeSql.Net.YeSqlParser.html",
+    "title": "Class YeSqlParser | YeSQL.NET",
+    "keywords": "Class YeSqlParser Represents the parser that extracts the SQL statements from the tags. Inheritance Object YeSqlParser Inherited Members Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Object.ReferenceEquals(Object, Object) Object.ToString() Namespace : YeSql.Net Assembly : YeSql.Net.dll Syntax public class YeSqlParser Constructors Name Description YeSqlParser() Initializes a new instance of the YeSqlParser class. Methods Name Description Parse(String, out YeSqlValidationResult) Start the parsing to extract the SQL statements from a data source. ParseAndThrow(String) Start the parsing to extract the SQL statements from a data source."
+  },
+  "api/YeSql.Net.YeSqlParser.Parse.html": {
+    "href": "api/YeSql.Net.YeSqlParser.Parse.html",
+    "title": "Method Parse | YeSQL.NET",
+    "keywords": "Method Parse | Improve this Doc View Source Parse(String, out YeSqlValidationResult) Start the parsing to extract the SQL statements from a data source. Declaration public ISqlCollection Parse(string source, out YeSqlValidationResult validationResult) Parameters Type Name Description String source The data source to parsing. YeSqlValidationResult validationResult The validation result of the parsing process. Returns Type Description ISqlCollection A collection containing the tags with their associated SQL statements. Exceptions Type Condition ArgumentNullException source is null ."
+  },
+  "api/YeSql.Net.YeSqlParser.ParseAndThrow.html": {
+    "href": "api/YeSql.Net.YeSqlParser.ParseAndThrow.html",
+    "title": "Method ParseAndThrow | YeSQL.NET",
+    "keywords": "Method ParseAndThrow | Improve this Doc View Source ParseAndThrow(String) Start the parsing to extract the SQL statements from a data source. Declaration public ISqlCollection ParseAndThrow(string source) Parameters Type Name Description String source The data source to parsing. Returns Type Description ISqlCollection A collection containing the tags with their associated SQL statements. Remarks This method throws an exception when there is more than one parsing error. Exceptions Type Condition ArgumentNullException source is null . YeSqlParserException If the parser encounters one or more errors."
+  },
+  "api/YeSql.Net.YeSqlParserException.-ctor.html": {
+    "href": "api/YeSql.Net.YeSqlParserException.-ctor.html",
+    "title": "Constructor YeSqlParserException | YeSQL.NET",
+    "keywords": "Constructor YeSqlParserException | Improve this Doc View Source YeSqlParserException() Initializes a new instance of the YeSqlParserException class with a default error message. Declaration public YeSqlParserException() | Improve this Doc View Source YeSqlParserException(String) Initializes a new instance of the YeSqlParserException class with the a specified error message. Declaration public YeSqlParserException(string message) Parameters Type Name Description String message The message that describes the error."
+  },
+  "api/YeSql.Net.YeSqlParserException.html": {
+    "href": "api/YeSql.Net.YeSqlParserException.html",
+    "title": "Class YeSqlParserException | YeSQL.NET",
+    "keywords": "Class YeSqlParserException The exception is thrown when there are one or more errors while parsing a data source (e.g., SQL file) using the YeSqlParser . Inheritance Object Exception YeSqlParserException Implements ISerializable Inherited Members Exception.GetBaseException() Exception.GetObjectData(SerializationInfo, StreamingContext) Exception.GetType() Exception.ToString() Exception.Data Exception.HelpLink Exception.HResult Exception.InnerException Exception.Message Exception.Source Exception.StackTrace Exception.TargetSite Exception.SerializeObjectState Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.MemberwiseClone() Object.ReferenceEquals(Object, Object) Namespace : YeSql.Net Assembly : YeSql.Net.dll Syntax public class YeSqlParserException : Exception, ISerializable Constructors Name Description YeSqlParserException() Initializes a new instance of the YeSqlParserException class with a default error message. YeSqlParserException(String) Initializes a new instance of the YeSqlParserException class with the a specified error message."
+  },
+  "api/YeSql.Net.YeSqlValidationResult.Count.html": {
+    "href": "api/YeSql.Net.YeSqlValidationResult.Count.html",
+    "title": "Property Count | YeSQL.NET",
+    "keywords": "Property Count | Improve this Doc View Source Count Gets the number of errors contained in the container. Declaration public int Count { get; } Property Value Type Description Int32"
+  },
+  "api/YeSql.Net.YeSqlValidationResult.ErrorMessages.html": {
+    "href": "api/YeSql.Net.YeSqlValidationResult.ErrorMessages.html",
+    "title": "Property ErrorMessages | YeSQL.NET",
+    "keywords": "Property ErrorMessages | Improve this Doc View Source ErrorMessages Gets the error messages. Declaration public string ErrorMessages { get; } Property Value Type Description String"
+  },
+  "api/YeSql.Net.YeSqlValidationResult.GetEnumerator.html": {
+    "href": "api/YeSql.Net.YeSqlValidationResult.GetEnumerator.html",
+    "title": "Method GetEnumerator | YeSQL.NET",
+    "keywords": "Method GetEnumerator | Improve this Doc View Source GetEnumerator() Returns an enumerator that iterates through the errors contained in the container. Declaration public IEnumerator<string> GetEnumerator() Returns Type Description IEnumerator < String > An enumerator that can be used to iterate through the errors contained in the container. Implements IEnumerable<T>.GetEnumerator()"
+  },
+  "api/YeSql.Net.YeSqlValidationResult.HasError.html": {
+    "href": "api/YeSql.Net.YeSqlValidationResult.HasError.html",
+    "title": "Method HasError | YeSQL.NET",
+    "keywords": "Method HasError | Improve this Doc View Source HasError() Checks if there has been an error. Declaration public bool HasError() Returns Type Description Boolean true if an error occurred, otherwise false ."
+  },
+  "api/YeSql.Net.YeSqlValidationResult.html": {
+    "href": "api/YeSql.Net.YeSqlValidationResult.html",
+    "title": "Class YeSqlValidationResult | YeSQL.NET",
+    "keywords": "Class YeSqlValidationResult Represents a container for the results of a validation. Inheritance Object YeSqlValidationResult Implements IEnumerable < String > IEnumerable Inherited Members Object.Equals(Object) Object.Equals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Object.ReferenceEquals(Object, Object) Object.ToString() Namespace : YeSql.Net Assembly : YeSql.Net.dll Syntax public class YeSqlValidationResult : IEnumerable<string>, IEnumerable Properties Name Description Count Gets the number of errors contained in the container. ErrorMessages Gets the error messages. Methods Name Description GetEnumerator() Returns an enumerator that iterates through the errors contained in the container. HasError() Checks if there has been an error. Explicit Interface Implementations Name Description IEnumerable.GetEnumerator() Returns an enumerator that iterates through the errors contained in the container."
+  },
+  "api/YeSql.Net.YeSqlValidationResult.System-Collections-IEnumerable-GetEnumerator.html": {
+    "href": "api/YeSql.Net.YeSqlValidationResult.System-Collections-IEnumerable-GetEnumerator.html",
+    "title": "Method IEnumerable.GetEnumerator | YeSQL.NET",
+    "keywords": "Method IEnumerable.GetEnumerator | Improve this Doc View Source IEnumerable.GetEnumerator() Returns an enumerator that iterates through the errors contained in the container. Declaration IEnumerator IEnumerable.GetEnumerator() Returns Type Description IEnumerator An enumerator that can be used to iterate through the errors contained in the container. Implements IEnumerable.GetEnumerator()"
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "YeSQL.NET | YeSQL.NET",
+    "keywords": "YeSQL.NET YeSQL.NET is a class library for loading SQL statements from .sql files instead of writing SQL code in your C# source files. This library was inspired by krisajenkins/yesql . YepSQL library has been used as a reference for the creation of the parser."
+  }
+}
