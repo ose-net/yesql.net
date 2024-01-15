@@ -45,15 +45,23 @@ public partial class YeSqlParser
     /// </summary>
     /// <param name="source">The data source to parsing.</param>
     /// <param name="sqlFileName">The name of the SQL file that caused an error.</param>
-    /// <returns>A collection containing the tags with their associated SQL statements.</returns>
-    /// <exception cref="ArgumentNullException"><c>source</c> is <c>null</c>.</exception>
     internal ISqlCollection Parse(string source, string sqlFileName)
     {
         _sqlFileName = sqlFileName;
         return Parse(source, out _);
     }
 
-    /// <inheritdoc cref="Parse(string, string)" />
+    /// <summary>
+    /// Start the parsing to extract the SQL statements from a data source.
+    /// </summary>
+    /// <remarks>
+    /// This method throws an exception when there is more than one parsing error.
+    /// </remarks>
+    /// <param name="source">The data source to parsing.</param>
+    /// <returns>A collection containing the tags with their associated SQL statements.</returns>
+    /// <exception cref="ArgumentNullException">
+    /// <c>source</c> is <c>null</c>.
+    /// </exception>
     /// <exception cref="YeSqlParserException">
     /// If the parser encounters one or more errors.
     /// </exception>
@@ -66,9 +74,15 @@ public partial class YeSqlParser
         return sqlStatements;
     }
 
-    /// <inheritdoc cref="Parse(string, string)" />
+    /// <summary>
+    /// Start the parsing to extract the SQL statements from a data source.
+    /// </summary>
     /// <param name="source">The data source to parsing.</param>
     /// <param name="validationResult">The validation result of the parsing process.</param>
+    /// <returns>A collection containing the tags with their associated SQL statements.</returns>
+    /// <exception cref="ArgumentNullException">
+    /// <c>source</c> is <c>null</c>.
+    /// </exception>
     public ISqlCollection Parse(string source, out YeSqlValidationResult validationResult)
     {
         if(source is null)
