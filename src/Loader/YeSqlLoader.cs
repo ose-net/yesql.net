@@ -19,6 +19,11 @@ public partial class YeSqlLoader
     private readonly YeSqlValidationResult _validationResult = new();
 
     /// <summary>
+    /// Initializes a new instance of the <see cref="YeSqlLoader"/> class.
+    /// </summary>
+    public YeSqlLoader() { }
+
+    /// <summary>
     /// Loads the SQL statements from a default directory called <c>yesql</c>.
     /// </summary>
     /// <remarks>
@@ -26,12 +31,22 @@ public partial class YeSqlLoader
     /// where the application is running (e.g., bin/Debug/net8.0).
     /// </remarks>
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
+    /// <exception cref="AggregateException">
+    /// If the parser and/or loader encounters one or more errors.
+    /// </exception>
     public ISqlCollection LoadFromDefaultDirectory() 
         => LoadFromDirectories("yesql");
 
     /// <summary>
     /// Loads the SQL statements from the specified files.
     /// </summary>
+    /// <remarks>
+    /// The <paramref name="sqlFiles"/> parameter can include the absolute or relative path along with the file name. 
+    /// <para>
+    /// If the path is relative, the method will start searching 
+    /// from the current directory where the application is running (e.g., bin/Debug/net8.0).
+    /// </para>
+    /// </remarks>
     /// <param name="sqlFiles">The SQL files to load.</param>
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
     /// <exception cref="ArgumentNullException">
@@ -68,6 +83,13 @@ public partial class YeSqlLoader
     /// <summary>
     /// Loads the SQL statements from all the SQL files in the specified directories.
     /// </summary>
+    /// <remarks>
+    /// The <paramref name="directories"/> parameter can include the absolute or relative path along with the directory name. 
+    /// <para>
+    /// If the path is relative, the method will start searching 
+    /// from the current directory where the application is running (e.g., bin/Debug/net8.0).
+    /// </para>
+    /// </remarks>
     /// <param name="directories">A set of directories where the SQL files are located.</param>
     /// <returns>A collection containing the tags with their associated SQL statements.</returns>
     /// <exception cref="ArgumentNullException">
