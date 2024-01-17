@@ -248,6 +248,26 @@ public class YeSqlParserTests
     }
 
     [TestCase]
+    public void Parse_WhenThereAreNoErrors_ValidationResultShouldNotBeNull()
+    {
+        // Arrange
+        var parser = new YeSqlParser();
+        var source =
+        """
+        -- name: GetProducts
+        SELECT id, name, price FROM products;
+        """;
+        YeSqlValidationResult validationResult;
+
+        // Act
+        parser.Parse(source, out validationResult);
+
+        // Asserts
+        validationResult.Should().NotBeNull();
+        validationResult.HasError().Should().BeFalse();
+    }
+
+    [TestCase]
     public void ParseAndThrow_WhenErrorsAreFound_ShouldThrowYeSqlParserException()
     {
         // Arrange
