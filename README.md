@@ -163,7 +163,7 @@ if(validationResult.HasError())
   // Some code to handle the error.
 }
 ```
-If you want to handle the error in another way, you can use the `ParseAndThrow` method.
+If you do not want to handle the error, you can use the `ParseAndThrow` method.
 ```cs
 ISqlCollection sqlStatements = new YeSqlParser().ParseAndThrow(source);
 ```
