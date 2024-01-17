@@ -83,14 +83,32 @@ public partial class YeSqlLoaderTests
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var file = Path.Combine(AppContext.BaseDirectory, "sql/users.sql");
+        var absolutePath = Path.Combine(AppContext.BaseDirectory, "sql/users.sql");
         var expectedCollection = new Dictionary<string, string>
         {
             { "GetUsers", "SELECT* FROM [user];" }
         };
 
         // Act
-        ISqlCollection sqlStatements = loader.LoadFromFiles(file);
+        ISqlCollection sqlStatements = loader.LoadFromFiles(absolutePath);
+
+        // Assert
+        sqlStatements.Should().BeEquivalentTo(expectedCollection);
+    }
+
+    [Test]
+    public void LoadFromFiles_WhenPathsAreRelative_ShouldBeAbleToLoadSqlFiles()
+    {
+        // Arrange
+        var loader = new YeSqlLoader();
+        var relativePath = "../../../Loader/Resources/sql/users.sql";
+        var expectedCollection = new Dictionary<string, string>
+        {
+            { "GetUsers", "SELECT* FROM [user];" }
+        };
+
+        // Act
+        ISqlCollection sqlStatements = loader.LoadFromFiles(relativePath);
 
         // Assert
         sqlStatements.Should().BeEquivalentTo(expectedCollection);
