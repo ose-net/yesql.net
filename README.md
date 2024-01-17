@@ -130,7 +130,7 @@ Add the package reference in the project file of your application.
 You can access SQL statements using the `ISqlCollection` interface.
 ```cs
 string tagName = "GetUsers";
-string sqlCode = sqlStatements[tag];
+string sqlCode = sqlStatements[tagName];
 ```
 But you must specify the tag name to access the SQL statement. Remember that each SQL code is identified with its respective tag.
 
