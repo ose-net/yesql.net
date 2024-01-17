@@ -105,7 +105,25 @@ ISqlCollection sqlStatements = new YeSqlLoader().LoadFromDefaultDirectory();
 This method starts searching from the current directory where the application is running (e.g. bin/Debug/net8.0).
 
 It is recommended to install the nuget package called [CopySqlFilesToOutputDirectory](https://www.nuget.org/packages/CopySqlFilesToOutputDirectory) to copy the .sql files from the project folder to the output directory (e.g. bin/Debug/net8.0). 
-This will create a folder called `yesql` in the output directory where all the .sql files will be. From there the `LoadFromDefaultDirectory` method will start loading the SQL files.
+This will create a folder called `yesql` in the output directory where all the .sql files will be. 
+From there, the `LoadFromDefaultDirectory` method will start loading the SQL files.
+
+Add the package reference in the project file of your application.
+
+**Example:**
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CopySqlFilesToOutputDirectory" Version="1.0.0" />
+  </ItemGroup>
+  
+</Project>
+```
 
 ### Accessing SQL statements
 
