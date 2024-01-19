@@ -6,9 +6,6 @@
 [![CopySqlFilesToOutputDirectory](https://img.shields.io/nuget/vpre/CopySqlFilesToOutputDirectory?label=CopySqlFilesToOutputDirectory%20-%20nuget&color=red)](https://www.nuget.org/packages/CopySqlFilesToOutputDirectory)
 [![downloads](https://img.shields.io/nuget/dt/CopySqlFilesToOutputDirectory?color=yellow)](https://www.nuget.org/packages/CopySqlFilesToOutputDirectory)
 
-[![CopySqlFilesToPublishDirectory](https://img.shields.io/nuget/vpre/CopySqlFilesToPublishDirectory?label=CopySqlFilesToPublishDirectory%20-%20nuget&color=red)](https://www.nuget.org/packages/CopySqlFilesToPublishDirectory)
-[![downloads](https://img.shields.io/nuget/dt/CopySqlFilesToPublishDirectory?color=yellow)](https://www.nuget.org/packages/CopySqlFilesToPublishDirectory)
-
 [![yesql.net](https://raw.githubusercontent.com/ose-net/yesql.net/master/yesql-logo.png)](https://github.com/ose-net/yesql.net)
 
 YeSQL.NET is a class library for loading SQL statements from .sql files instead of writing SQL code in your C# source files.
@@ -47,11 +44,11 @@ By keeping the SQL and C# separate you get:
 ## Installation
 
 If you're want to install the package from Visual Studio, you must open the project/solution in Visual Studio, and open the console using the **Tools** > **NuGet Package Manager** > **Package Manager Console** command and run the install command:
-```
+```sh
 Install-Package YeSql.Net
 ```
 If you are making use of the dotnet CLI, then run the following in your terminal:
-```
+```sh
 dotnet add package YeSql.Net
 ```
 
@@ -108,21 +105,9 @@ It is recommended to install the nuget package called [CopySqlFilesToOutputDirec
 This will create a folder called `yesql` in the output directory where all the .sql files will be. 
 From there, the `LoadFromDefaultDirectory` method will start loading the SQL files.
 
-Add the package reference in the project file of your application.
-
-**Example:**
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="CopySqlFilesToOutputDirectory" Version="1.0.0" />
-  </ItemGroup>
-  
-</Project>
+You can install the package from the terminal:
+```sh
+dotnet add package CopySqlFilesToOutputDirectory
 ```
 
 ### Accessing SQL statements
@@ -189,7 +174,16 @@ This method throws an exception of type `YeSqlParserException` when the parser e
 
 ### Copy .sql files to the publish directory
 
-You can install the nuget package called [CopySqlFilesToPublishDirectory](https://www.nuget.org/packages/CopySqlFilesToPublishDirectory) to copy the .sql files from the output directory (e.g. bin/Debug/net8.0) to the publish directory. This will create a folder called `yesql` in the publish directory where all the SQL files will be.
+[CopySqlFilesToOutputDirectory](https://www.nuget.org/packages/CopySqlFilesToOutputDirectory) package is also used to copy the .sql files from the project folder to the publish directory when using the **dotnet publish** command. 
+This will create a folder called `yesql` in the publish directory where all the .sql files will be.
+
+It is recommended to publish the application in a directory other than the project folder (where the project file is located).
+
+**Example:**
+```sh
+dotnet publish -o /home/admin/out/PublishedApp -c Release
+```
+For more information, see this issue: [Recommendations for publishing the application](https://github.com/ose-net/yesql.net/issues/106).
 
 ## Samples
 
