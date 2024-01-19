@@ -23,11 +23,11 @@ jobs:
         dotnet-version: ${{ matrix.dotnet-version }}
     - name: Test 
       run: |
-       dotnet test ./tests/YeSql.Net.Tests.csproj
-       dotnet test ./samples/Example.AspNetCore.Tests/Example.AspNetCore.Tests.csproj
-       dotnet publish ./samples/Example.AspNetCore.Tests/Example.AspNetCore.Tests.csproj -c Debug -o out
+       dotnet test ./tests/YeSql.Net.Tests.csproj -c Release
+       dotnet test ./samples/Example.AspNetCore.Tests/Example.AspNetCore.Tests.csproj -c Release
+       dotnet publish ./samples/Example.AspNetCore.Tests/Example.AspNetCore.Tests.csproj -c Release -o out
        dotnet vstest ./out/Example.AspNetCore.Tests.dll
-       dotnet build ./samples/Example.PluginApp/Plugins/EmployeePlugin/PluginApp.EmployeePlugin.csproj
-       dotnet build ./samples/Example.PluginApp/Plugins/UserPlugin/PluginApp.UserPlugin.csproj
-       dotnet build ./samples/Example.PluginApp/Plugins/HelloPlugin/PluginApp.HelloPlugin.csproj
-       dotnet test ./samples/Example.PluginApp/Test/PluginApp.Host.Tests.csproj
+       dotnet build ./samples/Example.PluginApp/Plugins/EmployeePlugin/PluginApp.EmployeePlugin.csproj -c Release
+       dotnet build ./samples/Example.PluginApp/Plugins/UserPlugin/PluginApp.UserPlugin.csproj -c Release
+       dotnet build ./samples/Example.PluginApp/Plugins/HelloPlugin/PluginApp.HelloPlugin.csproj -c Release
+       dotnet test ./samples/Example.PluginApp/Test/PluginApp.Host.Tests.csproj -c Release
