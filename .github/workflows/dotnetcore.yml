@@ -26,7 +26,7 @@ jobs:
        dotnet test ./tests/YeSql.Net.Tests.csproj
        dotnet test ./samples/Example.AspNetCore.Tests/Example.AspNetCore.Tests.csproj
        dotnet publish ./samples/Example.AspNetCore.Tests/Example.AspNetCore.Tests.csproj -c Debug -o out
-       dotnet vstest ./samples/Example.AspNetCore.Tests/out/Example.AspNetCore.Tests.dll
+       dotnet vstest ./out/Example.AspNetCore.Tests.dll
        dotnet build ./samples/Example.PluginApp/Plugins/EmployeePlugin/PluginApp.EmployeePlugin.csproj
        dotnet build ./samples/Example.PluginApp/Plugins/UserPlugin/PluginApp.UserPlugin.csproj
        dotnet build ./samples/Example.PluginApp/Plugins/HelloPlugin/PluginApp.HelloPlugin.csproj
