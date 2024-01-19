@@ -7,7 +7,6 @@
   <ItemGroup>
     <PackageReference Include="DotEnv.Core" />
     <PackageReference Include="CopySqlFilesToOutputDirectory" />
-    <PackageReference Include="CopySqlFilesToPublishDirectory" />
     <PackageReference Include="CopyPluginsToPublishDirectory" />
     <PackageReference Include="CPlugin.Net" />
     <PackageReference Include="CPlugin.Net.Attributes" />

@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <PackageReference Include="CopySqlFilesToOutputDirectory" />
-    <PackageReference Include="CopySqlFilesToPublishDirectory" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
     <PackageReference Include="Swashbuckle.AspNetCore" />
   </ItemGroup>
