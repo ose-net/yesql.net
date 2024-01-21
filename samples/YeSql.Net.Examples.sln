@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.ConsoleApp", "Examp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.Parsing", "Example.Parsing\Example.Parsing.csproj", "{88E35AC6-B163-4512-BCC4-7A43F63DC4F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.QueryReuse", "Example.QueryReuse\Example.QueryReuse.csproj", "{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.Reports", "Example.Reports\Example.Reports.csproj", "{17C13E48-008D-4992-94D2-D137FAB869C8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.SqlFiles", "Example.SqlFiles\Example.SqlFiles.csproj", "{CE2252EE-6758-4BA2-8969-9252D8D60BC4}"
@@ -113,6 +115,10 @@ Global
 		{8A3E96F3-B6FE-4F0B-9421-49328822E36B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A3E96F3-B6FE-4F0B-9421-49328822E36B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A3E96F3-B6FE-4F0B-9421-49328822E36B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

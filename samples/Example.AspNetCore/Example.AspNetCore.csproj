@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="CopySqlFilesToOutputDirectory" />
+    <PackageReference Include="YeSql.Net.Example.QueryReuse" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
     <PackageReference Include="Swashbuckle.AspNetCore" />
   </ItemGroup>

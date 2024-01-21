@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="CopySqlFilesToOutputDirectory" />
+    <PackageReference Include="YeSql.Net.Example.QueryReuse" />
   </ItemGroup>
   
 </Project>

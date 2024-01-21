@@ -37,4 +37,12 @@ public class SqlController : ControllerBase
     [HttpGet("GetThirdPartiesSql")]
     public string GetThirdPartiesSql() 
         => _sqlCollection["GetThirdParties"];
+
+    [HttpGet("GetReceiptsSql")]
+    public string GetReceiptsSql()
+        => _sqlCollection["GetReceipts"];
+
+    [HttpGet("GetReceiptDetailsSql")]
+    public string GetReceiptDetailsSql()
+        => _sqlCollection["GetReceiptDetails"];
 }
