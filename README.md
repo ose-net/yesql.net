@@ -35,7 +35,8 @@ See the [API documentation](https://ose-net.github.io/yesql.net/api/YeSql.Net.ht
 By keeping the SQL and C# separate you get:
 
 - Better editor support. Your editor probably already has great SQL support. By keeping the SQL as SQL, you get to use it.
-- Query reuse. Drop the same SQL files into other projects, because they're just plain ol' SQL. Share them as a submodule.
+- Query reuse. Drop the same SQL files into other projects, because they're simply SQL. Share them as a module.
+  - See this [sample](https://github.com/ose-net/yesql.net/tree/master/samples/Example.QueryReuse) on how to distribute SQL files in a nuget package.
 - Team interoperability. Your DBAs can read and write the SQL you use in your .NET project.
 - Separation of concerns. Since your SQL statements are not embedded (hard-coded) directly in the application code, you can make minor changes to the SQL file without having to open the C# source file.
   - Any changes you make to the SQL file should not affect the C# source file unless it is a major change (e.g., renaming a column).
@@ -192,6 +193,7 @@ You can find a complete and functional example in these projects:
 - [Example.ConsoleApp](https://github.com/ose-net/yesql.net/tree/master/samples/Example.ConsoleApp)
 - [Example.AspNetCore](https://github.com/ose-net/yesql.net/tree/master/samples/Example.AspNetCore)
 - [Example.Parsing](https://github.com/ose-net/yesql.net/tree/master/samples/Example.Parsing)
+- [Example.QueryReuse](https://github.com/ose-net/yesql.net/tree/master/samples/Example.QueryReuse)
 - [Example.PluginApp](https://github.com/ose-net/yesql.net/tree/master/samples/Example.PluginApp)
 - [Example.NetFramework](https://github.com/ose-net/yesql.net/tree/master/samples/Example.NetFramework)
 - [Example.AspNetFramework](https://github.com/ose-net/yesql.net/tree/master/samples/Example.AspNetFramework)
