@@ -2,7 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>CopySqlFilesToOutputDirectory</id>
-        <version>0.2.0-alpha</version>
+        <version>1.0.0</version>
+        <releaseNotes></releaseNotes>
         <authors>OSE.NET</authors>
         <owners>OSE.NET</owners>
         <projectUrl>https://github.com/ose-net/yesql.net</projectUrl>
@@ -13,7 +14,6 @@
         <description>
           A simple package that allows to copy the .sql files from the project folder to the output directory
         </description>
-		<releaseNotes></releaseNotes>
         <copyright>Copyright (c) OSE.NET</copyright>
         <tags>properties props sql sql-files yesql</tags>
     </metadata>

@@ -8,7 +8,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>OSE.NET</Authors>
     <Copyright>Copyright (c) OSE.NET</Copyright>
-    <PackageProjectUrl>https://github.com/ose-net/yesql.net</PackageProjectUrl>
+    <PackageProjectUrl>https://ose-net.github.io/yesql.net</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>yesql-icon-nuget.png</PackageIcon>
     <RepositoryUrl>https://github.com/ose-net/yesql.net</RepositoryUrl>
@@ -18,7 +18,7 @@
     <Description>
       YeSQL.NET is a class library for loading SQL statements from .sql files instead of writing SQL code in your C# source files
     </Description>
-    <Version>0.8.0-alpha</Version>
+    <Version>1.0.0</Version>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
