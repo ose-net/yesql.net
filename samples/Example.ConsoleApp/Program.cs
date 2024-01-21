@@ -8,3 +8,5 @@ Console.Write(sqlStatements["GetCustomers"]);
 Console.Write(sqlStatements["GetOrders"]);
 Console.Write(sqlStatements["GetPermissions"]);
 Console.Write(sqlStatements["GetThirdParties"]);
+Console.Write(sqlStatements["GetReceipts"]);
+Console.Write(sqlStatements["GetReceiptDetails"]);
