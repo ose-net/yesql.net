@@ -3,9 +3,9 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="YeSql.Net" Version="0.7.0-alpha" />
+    <PackageVersion Include="YeSql.Net" Version="1.0.0" />
     <PackageVersion Include="YeSql.Net.Example.QueryReuse" Version="1.0.1" />
-    <PackageVersion Include="CopySqlFilesToOutputDirectory" Version="0.2.0-alpha" />
+    <PackageVersion Include="CopySqlFilesToOutputDirectory" Version="1.0.0" />
     <PackageVersion Include="CopyPluginsToPublishDirectory" Version="1.0.0" />
     <PackageVersion Include="CPlugin.Net" Version="1.0.0" />
     <PackageVersion Include="CPlugin.Net.Attributes" Version="1.0.0" />
