@@ -25,7 +25,7 @@ jobs:
       run: |
        dotnet test ./tests/YeSql.Net.Tests.csproj -c Release
        dotnet test ./samples/Example.AspNetCore.Tests/Example.AspNetCore.Tests.csproj -c Release
-       dotnet publish ./samples/Example.AspNetCore.Tests/Example.AspNetCore.Tests.csproj -c Release -o out
+       dotnet publish ./samples/Example.AspNetCore.Tests/Example.AspNetCore.Tests.csproj -c Release --no-build -o out
        dotnet vstest ./out/Example.AspNetCore.Tests.dll
        dotnet build ./samples/Example.PluginApp/Plugins/EmployeePlugin/PluginApp.EmployeePlugin.csproj -c Release
        dotnet build ./samples/Example.PluginApp/Plugins/UserPlugin/PluginApp.UserPlugin.csproj -c Release
