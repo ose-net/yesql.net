@@ -26,6 +26,7 @@ See the [API documentation](https://ose-net.github.io/yesql.net/api/YeSql.Net.ht
   - [Load from a set of directories](#load-from-a-set-of-directories)
   - [Load from a set of files](#load-from-a-set-of-files)
   - [Parsing .sql files](#parsing-sql-files)
+  - [Integration with ASP.NET Core](#integration-with-aspnet-core)
   - [Copy .sql files to the publish directory](#copy-sql-files-to-the-publish-directory)
 - [Samples](#samples)
 - [Contribution](#contribution)
@@ -182,6 +183,48 @@ If you do not want to handle the error, you can use the `ParseAndThrow` method.
 ISqlCollection sqlStatements = new YeSqlParser().ParseAndThrow(source);
 ```
 This method throws an exception of type `YeSqlParserException` when the parser encounters an error.
+
+### Integration with ASP.NET Core
+
+In your Program.cs file, load the SQL files and add the `ISqlCollection` type as a singleton service.
+```cs
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+
+// Loads the SQL files from a default directory called yesql.
+ISqlCollection sqlStatements = new YeSqlLoader().LoadFromDefaultDirectory();
+// Adds the returned instance as a singleton service.
+builder.Services.AddSingleton<ISqlCollection>(sqlStatements);
+builder.Services.AddControllers();
+
+var app = builder.Build();
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+app.Run();
+```
+You can then use the added service in your own classes using the DI pattern.
+
+**Example:**
+```cs
+public class GetUsersQuery
+{
+    private readonly ISqlCollection _sqlCollection;
+    public GetUsersQuery(ISqlCollection sqlCollection)
+    {
+        _sqlCollection = sqlCollection;
+    }
+
+    public IEnumerable<User> Execute()
+    {
+        string tagName = "GetUsers";
+        string sql = _sqlCollection[tagName];
+        // Here you can add the code to execute the query.
+        // You can use the MySQL client API or any other.
+    }
+}
+```
 
 ### Copy .sql files to the publish directory
 
