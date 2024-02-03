@@ -71,26 +71,34 @@ See the [API documentation](https://ose-net.github.io/yesql.net/api/YeSql.Net.ht
 
 Create a file with **.sql** extension containing the SQL statements.
 
-**Example:**
+> It is recommended that the **extension be lowercase** so that there are no problems when loading the SQL file on a Linux distro.
+
+**Example:** `users.sql`
 ```sql
 -- name: GetUsers
--- Gets user information.
+-- Gets all users
+SELECT 
+id, 
+email 
+FROM users;
+
+-- name: GetUserById
+-- Gets user information
 SELECT 
 id, 
 username, 
 email 
-FROM users;
+FROM users
+WHERE id = @id;
 
--- name: GetRoles
--- Gets role information.
-SELECT 
-id,
-name
-FROM roles;
+-- name: InsertUser
+-- Create user record
+INSERT INTO users (id, username, email)
+VALUES (@id, @username, @email);
 ```
 Each SQL statement must be associated with a tag using the `name:` prefix and must begin with a comment. This is necessary so that the parser can uniquely identify each SQL statement by its tag.
 
-For example, in this case the tag is `GetRoles` and the SQL statement would be `SELECT id, name FROM roles;`.
+For example, in this case the tag is `GetUsers` and the SQL statement would be `SELECT id, email FROM users;`.
 
 You should also note that comments that do not use the `name:` prefix will be ignored by the parser.
 
@@ -119,6 +127,8 @@ string tagName = "GetUsers";
 string sqlCode = sqlStatements[tagName];
 ```
 But you must specify the tag name to access the SQL statement. Remember that each SQL code is identified with its respective tag.
+
+> The tag name is case-sensitive. `GetUsers` is not the same as `getUsers`.
 
 ### Load from a set of directories
 
