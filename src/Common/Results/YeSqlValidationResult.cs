@@ -13,7 +13,7 @@ public class YeSqlValidationResult : IEnumerable<string>
     /// <summary>
     /// Allows access to the errors collection.
     /// </summary>
-    private readonly List<string> _errors = new();
+    private readonly List<string> _errors = [];
 
     internal YeSqlValidationResult() { }
 

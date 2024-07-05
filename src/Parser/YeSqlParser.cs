@@ -33,7 +33,7 @@ public partial class YeSqlParser
     /// <summary>
     /// Gets the result of the validation performed on the SQL statements.
     /// </summary>
-    internal YeSqlValidationResult ValidationResult { get; } = new();
+    internal YeSqlValidationResult ValidationResult { get; } = [];
 
     /// <summary>
     /// Initializes a new instance of the <see cref="YeSqlParser"/> class.
