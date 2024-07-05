@@ -1,4 +1,4 @@
-﻿namespace YeSql.Net.Tests;
+﻿namespace YeSql.Net.Tests.Common;
 
 public class YeSqlValidationResultTests
 {
