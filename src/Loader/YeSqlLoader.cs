@@ -16,7 +16,7 @@ public partial class YeSqlLoader
     /// <summary>
     /// An instance of the <see cref="YeSqlValidationResult"/> class used to store errors associated with the loader.
     /// </summary>
-    private readonly YeSqlValidationResult _validationResult = new();
+    private readonly YeSqlValidationResult _validationResult = [];
 
     /// <summary>
     /// Initializes a new instance of the <see cref="YeSqlLoader"/> class.
