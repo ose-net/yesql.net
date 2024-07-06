@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <RootNamespace>YeSql.Net</RootNamespace>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
-    <RootNamespace>YeSql.Net</RootNamespace>
     <PackageId>YeSql.Net</PackageId>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>OSE.NET</Authors>
@@ -18,7 +18,8 @@
     <Description>
       YeSQL.NET is a class library for loading SQL statements from .sql files instead of writing SQL code in your C# source files
     </Description>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>See https://github.com/ose-net/yesql.net/releases</PackageReleaseNotes>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
