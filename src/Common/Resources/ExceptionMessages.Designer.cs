@@ -133,7 +133,7 @@ namespace YeSql.Net {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The given tag &apos;{0}&apos; was not present in the collection..
+        ///   Looks up a localized string similar to The given tag &apos;{0}&apos; is not present in the collection..
         /// </summary>
         internal static string TagNotFound {
             get {

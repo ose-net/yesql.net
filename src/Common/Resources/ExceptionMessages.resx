@@ -142,7 +142,7 @@
     <value>The tag name is empty.</value>
   </data>
   <data name="TagNotFound" xml:space="preserve">
-    <value>The given tag '{0}' was not present in the collection.</value>
+    <value>The given tag '{0}' is not present in the collection.</value>
   </data>
   <data name="TagNotFoundDefault" xml:space="preserve">
     <value>error: No tag found in the collection.</value>
