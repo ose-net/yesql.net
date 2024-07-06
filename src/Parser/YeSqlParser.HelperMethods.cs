@@ -40,7 +40,7 @@ public partial class YeSqlParser
     /// </returns>
     private string ExtractTagName(ref Line line)
     {
-        var extractedTag = line.Text.Split(new[] { ':' }, MaxCount)[1];
+        var extractedTag = line.Text.Split([':'], MaxCount)[1];
         if (string.IsNullOrWhiteSpace(extractedTag))
         {
             ValidationResult.Add(errorMessage: FormatParserExceptionMessage(

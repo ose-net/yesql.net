@@ -8,7 +8,7 @@ namespace YeSql.Net;
 /// </summary>
 public partial class YeSqlParser
 {
-    private static readonly string[] s_newLines = new[] { "\r\n", "\n", "\r" };
+    private static readonly string[] s_newLines = ["\r\n", "\n", "\r"];
 
     /// <summary>
     /// The maximum number of substrings to be returned by the Split method.
