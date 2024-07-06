@@ -85,9 +85,7 @@ public partial class YeSqlParser
     /// </exception>
     public ISqlCollection Parse(string source, out YeSqlValidationResult validationResult)
     {
-        if(source is null)
-            throw new ArgumentNullException(nameof(source));
-
+        ThrowHelper.ThrowIfNull(source, nameof(source));
         validationResult = ValidationResult;
         if(string.IsNullOrWhiteSpace(source))
         {
