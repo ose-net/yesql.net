@@ -129,7 +129,7 @@ string sqlCode = sqlStatements[tagName];
 ```
 But you must specify the tag name to access the SQL statement. Remember that each SQL code is identified with its respective tag.
 
-> The tag name is case-sensitive. `GetUsers` is not the same as `getUsers`.
+> The tag name is case-insensitive. `GetUsers` is the same as `getUsers`.
 
 ### Load from a set of directories
 
