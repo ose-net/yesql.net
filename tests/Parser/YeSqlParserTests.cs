@@ -31,6 +31,28 @@ public class YeSqlParserTests
         validationResult.ErrorMessages.Should().Contain(expectedMessage);
     }
 
+    [Test]
+    public void Parse_WhenTagNameIsCaseInsensitive_ShouldReturnsSqlStatements()
+    {
+        // Arrange
+        var parser = new YeSqlParser();
+        var expectedSqlStatement = "SELECT * FROM users;" + Environment.NewLine;
+        var source =
+        """
+        -- name: GetUsers
+        SELECT * FROM users;
+        """;
+
+        // Act
+        ISqlCollection sqlStatements = parser.Parse(source, out _);
+
+        // Asserts
+        sqlStatements["GetUsers"].Should().Be(expectedSqlStatement);
+        sqlStatements["getUsers"].Should().Be(expectedSqlStatement);
+        sqlStatements["getusers"].Should().Be(expectedSqlStatement);
+        sqlStatements["GETUSERS"].Should().Be(expectedSqlStatement);
+    }
+
     [TestCaseSource(typeof(TagIsEmptyOrWhitespaceTestCases))]
     public void Parse_WhenTagIsEmptyOrConsistsOnlyOfWhitespaces_ShouldGenerateAnError(
         string source,
