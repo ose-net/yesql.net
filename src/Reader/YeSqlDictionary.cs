@@ -11,7 +11,7 @@ internal class YeSqlDictionary : ISqlCollection
     /// <summary>
     /// A dictionary containing the SQL statements that have been parsed from the data source (e.g., a SQL file).
     /// </summary>
-    private readonly Dictionary<string, string> _sqlStatements = [];
+    private readonly Dictionary<string, string> _sqlStatements = new(StringComparer.OrdinalIgnoreCase);
 
     /// <inheritdoc />
     public string this[string tagName]
