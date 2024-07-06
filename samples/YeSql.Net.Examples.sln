@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.ConsoleApp", "Examp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.Parsing", "Example.Parsing\Example.Parsing.csproj", "{88E35AC6-B163-4512-BCC4-7A43F63DC4F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.QueryReuse", "Example.QueryReuse\Example.QueryReuse.csproj", "{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.QueryReuse", "Example.QueryReuse\Example.QueryReuse.csproj", "{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example.Reports", "Example.Reports\Example.Reports.csproj", "{17C13E48-008D-4992-94D2-D137FAB869C8}"
 EndProject
@@ -25,11 +25,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.NetFramework", "Exa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.AspNetFramework", "Example.AspNetFramework\Example.AspNetFramework.csproj", "{968FCF41-955C-48F4-AB63-D39BAE47930F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example.PluginApp", "Example.PluginApp", "{8FF901F0-261C-491C-BDDE-67960A4E8402}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginApp.Contracts", "Example.PluginApp\Contracts\PluginApp.Contracts.csproj", "{711AEA1E-2C14-4E26-90F4-9CC21FC436E8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginApp.Host", "Example.PluginApp\Host\PluginApp.Host.csproj", "{C4833FCA-491A-46E1-A9E5-EF34ABC469DF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginApp.Host.Tests", "Example.PluginApp\Test\PluginApp.Host.Tests.csproj", "{BBD2189A-46B1-4CD6-BACA-904BCBA036BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{EFFFCB9B-C9B6-4F22-B2B7-D27B9EB5AD3B}"
+	ProjectSection(SolutionItems) = preProject
+		Example.PluginApp\Plugins\Directory.Build.props = Example.PluginApp\Plugins\Directory.Build.props
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginApp.UserPlugin", "Example.PluginApp\Plugins\UserPlugin\PluginApp.UserPlugin.csproj", "{42398B01-238E-442E-B677-8563EF7957E2}"
 EndProject
@@ -41,7 +48,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		..\props\build\CopySqlFilesToOutputDirectory.props = ..\props\build\CopySqlFilesToOutputDirectory.props
 		..\Directory.Build.props = ..\Directory.Build.props
-		Example.PluginApp\Plugins\Directory.Build.props = Example.PluginApp\Plugins\Directory.Build.props
 		..\Directory.Packages.props = ..\Directory.Packages.props
 	EndProjectSection
 EndProject
@@ -67,6 +73,10 @@ Global
 		{88E35AC6-B163-4512-BCC4-7A43F63DC4F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88E35AC6-B163-4512-BCC4-7A43F63DC4F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88E35AC6-B163-4512-BCC4-7A43F63DC4F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{17C13E48-008D-4992-94D2-D137FAB869C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{17C13E48-008D-4992-94D2-D137FAB869C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17C13E48-008D-4992-94D2-D137FAB869C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -115,13 +125,18 @@ Global
 		{8A3E96F3-B6FE-4F0B-9421-49328822E36B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A3E96F3-B6FE-4F0B-9421-49328822E36B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A3E96F3-B6FE-4F0B-9421-49328822E36B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC5ABE73-2C6F-4C5E-8051-2962B77C659F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{711AEA1E-2C14-4E26-90F4-9CC21FC436E8} = {8FF901F0-261C-491C-BDDE-67960A4E8402}
+		{C4833FCA-491A-46E1-A9E5-EF34ABC469DF} = {8FF901F0-261C-491C-BDDE-67960A4E8402}
+		{BBD2189A-46B1-4CD6-BACA-904BCBA036BE} = {8FF901F0-261C-491C-BDDE-67960A4E8402}
+		{EFFFCB9B-C9B6-4F22-B2B7-D27B9EB5AD3B} = {8FF901F0-261C-491C-BDDE-67960A4E8402}
+		{42398B01-238E-442E-B677-8563EF7957E2} = {EFFFCB9B-C9B6-4F22-B2B7-D27B9EB5AD3B}
+		{EDCC4759-3DBE-42C1-B520-68DC1C18DDCB} = {EFFFCB9B-C9B6-4F22-B2B7-D27B9EB5AD3B}
+		{8A3E96F3-B6FE-4F0B-9421-49328822E36B} = {EFFFCB9B-C9B6-4F22-B2B7-D27B9EB5AD3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E9693C2C-C952-43B4-A692-F054737767CB}
