@@ -69,6 +69,6 @@
     "keepFileLink": false,
     "cleanupCacheHistory": false,
     "disableGitFeatures": false,
-    "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ]
+    "xref": [ "xrefmap.json" ]
   }
 }
