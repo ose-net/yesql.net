@@ -60,15 +60,11 @@ public partial class YeSqlLoader
     /// </exception>
     public ISqlCollection LoadFromFiles(params string[] sqlFiles)
     {
-        if (sqlFiles is null)
-            throw new ArgumentNullException(nameof(sqlFiles));
-
+        ThrowHelper.ThrowIfNull(sqlFiles, nameof(sqlFiles));
         if (sqlFiles.IsEmpty())
             return _parser.SqlStatements;
-      
-        if (sqlFiles.ContainsNullOrWhiteSpace())
-            throw new ArgumentException(string.Format(ExceptionMessages.CollectionHasNullValueOrOnlyWhitespace, nameof(sqlFiles)));
 
+        ThrowHelper.ThrowIfContainsNullOrWhiteSpace(sqlFiles, nameof(sqlFiles));
         foreach (var fileName in sqlFiles)
         {
             Result<SqlFile> result = LoadFromFile(fileName);
@@ -103,15 +99,11 @@ public partial class YeSqlLoader
     /// </exception>
     public ISqlCollection LoadFromDirectories(params string[] directories)
     {
-        if (directories is null)
-            throw new ArgumentNullException(nameof(directories));
-
+        ThrowHelper.ThrowIfNull(directories, nameof(directories));
         if (directories.IsEmpty())
             return _parser.SqlStatements;
 
-        if(directories.ContainsNullOrWhiteSpace())
-            throw new ArgumentException(string.Format(ExceptionMessages.CollectionHasNullValueOrOnlyWhitespace, nameof(directories)));
-
+        ThrowHelper.ThrowIfContainsNullOrWhiteSpace(directories, nameof(directories));
         foreach (var directory in directories)
         {
             Result<IEnumerable<SqlFile>> result = LoadFromDirectory(directory);

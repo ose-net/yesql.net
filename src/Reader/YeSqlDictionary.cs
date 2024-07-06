@@ -18,9 +18,7 @@ internal class YeSqlDictionary : ISqlCollection
     {
         get
         {
-            if(tagName is null)
-                throw new ArgumentNullException(nameof(tagName));
-
+            ThrowHelper.ThrowIfNull(tagName, nameof(tagName));
             if(_sqlStatements.TryGetValue(tagName, out var sqlStatement))
                 return sqlStatement;
 
@@ -35,9 +33,7 @@ internal class YeSqlDictionary : ISqlCollection
     /// <inheritdoc />
     public bool TryGetStatement(string tagName, out string sqlStatement)
     {
-        if (tagName is null)
-            throw new ArgumentNullException(nameof(tagName));
-
+        ThrowHelper.ThrowIfNull(tagName, nameof (tagName));
         return _sqlStatements.TryGetValue(tagName, out sqlStatement);
     }
 
