@@ -36,7 +36,7 @@ public partial class YeSqlLoader
     {
         var path = Path.IsPathRooted(file) ? 
             file : 
-            Path.Combine(AppContext.BaseDirectory, file);
+            Path.Combine(PathResolver.BaseDirectory, file);
 
         if (HasNotSqlExtension(path))
         {
@@ -80,7 +80,7 @@ public partial class YeSqlLoader
     {
         var path = Path.IsPathRooted(directoryName) ?
             directoryName :
-            Path.Combine(AppContext.BaseDirectory, directoryName);
+            Path.Combine(PathResolver.BaseDirectory, directoryName);
 
         if (!Directory.Exists(path))
         {
