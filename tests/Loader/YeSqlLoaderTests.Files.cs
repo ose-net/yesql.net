@@ -83,7 +83,7 @@ public partial class YeSqlLoaderTests
     {
         // Arrange
         var loader = new YeSqlLoader();
-        var absolutePath = Path.Combine(AppContext.BaseDirectory, "sql/users.sql");
+        var absolutePath = Path.Combine(PathResolver.BaseDirectory, "sql/users.sql");
         var expectedCollection = new Dictionary<string, string>
         {
             { "GetUsers", "SELECT* FROM [user];" }
