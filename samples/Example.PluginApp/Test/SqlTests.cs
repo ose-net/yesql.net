@@ -11,7 +11,7 @@ public class SqlTests
         string expectedResult)
     {
         // Arrange
-        Environment.SetEnvironmentVariable("PLUGINS", "");
+        Environment.SetEnvironmentVariable("PLUGINS", null);
         using var factory = new WebApplicationFactory<Program>();
         var client = factory.CreateClient();
 
