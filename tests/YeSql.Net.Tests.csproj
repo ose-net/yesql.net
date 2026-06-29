@@ -51,6 +51,12 @@
       CopyToOutputDirectory="PreserveNewest" 
       TargetPath="yesql\%(Filename)%(Extension)" 
     />
+    
+    <Content 
+      Include="Loader\Resources\exclude\*.sql" 
+      CopyToOutputDirectory="PreserveNewest" 
+      TargetPath="exclude\%(Filename)%(Extension)" 
+    />
   </ItemGroup>
 
 </Project>
