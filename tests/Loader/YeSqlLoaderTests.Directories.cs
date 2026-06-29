@@ -93,7 +93,7 @@ public partial class YeSqlLoaderTests
     }
 
     [Test]
-    public void LoadFromDirectories_WhenSqlFilesExistsInDirectory_ShouldReturnsSqlCollection()
+    public void LoadFromDirectories_WhenSqlFilesExistsInDirectory_ShouldReturnSqlCollection()
     {
         // Arrange
         var loader = new YeSqlLoader();
@@ -172,6 +172,89 @@ public partial class YeSqlLoaderTests
 
         // Act
         ISqlCollection sqlStatements = loader.LoadFromDirectories();
+
+        // Assert
+        sqlStatements.Should().BeEmpty();
+    }
+
+    [Test]
+    public void LoadFromDirectories_WhenExcludedPathIsProvided_ShouldNotLoadStatements()
+    {
+        // Arrange
+        var directory = "./exclude";
+        var loader = new YeSqlLoader()
+            .Exclude("exclude/players.sql");
+
+        // Act
+        ISqlCollection sqlStatements = loader.LoadFromDirectories(directory);
+
+        // Assert
+        sqlStatements.TryGetStatement("GetPlayers", out _)
+                     .Should()
+                     .BeFalse();
+    }
+
+    [Test]
+    public void LoadFromDirectories_WhenNoFilesAreExcluded_ShouldLoadStatements()
+    {
+        // Arrange
+        var loader = new YeSqlLoader();
+        var directory = "./exclude";
+        var expectedCollection = new Dictionary<string, string>
+        {
+            { "GetPlayers", "SELECT * FROM players;" },
+            { "CreatePlayer", "INSERT INTO players (name) VALUES ('Admin_Player');" }
+        };
+
+        // Act
+        ISqlCollection sqlStatements = loader.LoadFromDirectories(directory);
+
+        // Assert
+        sqlStatements.Should().BeEquivalentTo(expectedCollection);
+    }
+
+    [Test]
+    public void LoadFromDirectories_WhenSqlFileIsExcluded_ShouldNotLoadStatements()
+    {
+        // Arrange
+        var directory = "./exclude";
+        var loader = new YeSqlLoader()
+            .Exclude("players.sql");
+
+        // Act
+        ISqlCollection sqlStatements = loader.LoadFromDirectories(directory);
+
+        // Assert
+        sqlStatements.TryGetStatement("GetPlayers", out _)
+                     .Should()
+                     .BeFalse();
+    }
+
+    [Test]
+    public void LoadFromDirectories_WhenExcludedSqlFileDoesNotExist_ShouldNotThrowException()
+    {
+        // Arrange
+        var directory = "./exclude";
+        var loader = new YeSqlLoader()
+            .Exclude("file_not_exists.sql");
+
+        // Act
+        ISqlCollection sqlStatements = loader.LoadFromDirectories(directory);
+
+        // Assert
+        sqlStatements.Should().NotBeEmpty();
+    }
+
+    [Test]
+    public void LoadFromDirectories_WhenAllSqlFilesAreExcluded_ShouldReturnEmptyCollection()
+    {
+        // Arrange
+        var directory = "./exclude";
+        var loader = new YeSqlLoader()
+            .Exclude("players.sql", "seed_data.sql");
+
+        // Act
+        ISqlCollection sqlStatements = loader.LoadFromDirectories(directory);
 
         // Assert
         sqlStatements.Should().BeEmpty();

@@ -111,7 +111,12 @@ public partial class YeSqlLoader
                 continue;
 
             foreach (SqlFile sqlFile in result.Value)
+            {
+                if (_options.ExcludedFileNames.Contains(sqlFile.FileName))
+                    continue;
+
                 _parser.Parse(sqlFile.Content, sqlFile.FileName);
+            }
         }
 
         ThrowExceptionIfErrorsExist();
