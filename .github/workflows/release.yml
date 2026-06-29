@@ -1,0 +1,53 @@
+name: Publish NuGet
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.x
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build -c Release --no-restore
+
+      - name: Test
+        run: dotnet test -c Release --no-build
+
+      - name: Pack
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+
+          dotnet pack \
+            src/YeSql.Net.csproj \
+            -c Release \
+            --no-build \
+            -p:Version=$VERSION
+
+      - name: NuGet login
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: pochi
+
+      - name: Publish
+        run: |
+          dotnet nuget push \
+            src/bin/Release/*.nupkg \
+            --api-key ${{ steps.login.outputs.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json
