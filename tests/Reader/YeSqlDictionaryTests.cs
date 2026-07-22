@@ -42,7 +42,7 @@ public class YeSqlDictionaryTests
     }
 
     [Test]
-    public void Indexer_WhenTagNameIsFound_ShouldReturnsSqlStatement()
+    public void Indexer_WhenTagNameIsFound_ShouldReturnSqlStatement()
     {
         // Arrange
         var sqlCollection = new YeSqlDictionary();
@@ -77,7 +77,7 @@ public class YeSqlDictionaryTests
     }
 
     [Test]
-    public void TryGetStatement_WhenTagNameIsNotFound_ShouldReturnsFalse()
+    public void TryGetStatement_WhenTagNameIsNotFound_ShouldReturnFalse()
     {
         // Arrange
         var sqlCollection = new YeSqlDictionary();
@@ -91,7 +91,7 @@ public class YeSqlDictionaryTests
     }
 
     [Test]
-    public void TryGetStatement_WhenTagNameIsFound_ShouldReturnsTrue()
+    public void TryGetStatement_WhenTagNameIsFound_ShouldReturnTrue()
     {
         // Arrange
         var sqlCollection = new YeSqlDictionary();
@@ -108,7 +108,7 @@ public class YeSqlDictionaryTests
     }
 
     [Test]
-    public void ToString_WhenConvertingYeSqlDictionaryToString_ShouldReturnsString()
+    public void ToString_WhenConvertingYeSqlDictionaryToString_ShouldReturnString()
     {
         // Arrange
         var expected =
@@ -134,7 +134,7 @@ public class YeSqlDictionaryTests
     }
 
     [Test]
-    public void ToString_WhenThereAreNoSqlStatements_ShouldReturnsEmptyString()
+    public void ToString_WhenThereAreNoSqlStatements_ShouldReturnEmptyString()
     {
         // Arrange
         var sqlCollection = new YeSqlDictionary();

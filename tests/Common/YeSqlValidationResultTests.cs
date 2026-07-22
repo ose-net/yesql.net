@@ -3,7 +3,7 @@
 public class YeSqlValidationResultTests
 {
     [Test]
-    public void HasError_WhenThereAreErrors_ShouldReturnsTrue()
+    public void HasError_WhenThereAreErrors_ShouldReturnTrue()
     {
         // Arrange
         var validationResult = new YeSqlValidationResult
@@ -19,7 +19,7 @@ public class YeSqlValidationResultTests
     }
 
     [Test]
-    public void HasError_WhenThereAreNoErrors_ShouldReturnsFalse()
+    public void HasError_WhenThereAreNoErrors_ShouldReturnFalse()
     {
         // Arrange
         var validationResult = new YeSqlValidationResult();
@@ -32,7 +32,7 @@ public class YeSqlValidationResultTests
     }
 
     [Test]
-    public void ErrorMessages_WhenThereAreNoErrors_ShouldReturnsEmptyString()
+    public void ErrorMessages_WhenThereAreNoErrors_ShouldReturnEmptyString()
     {
         // Arrange
         var validationResult = new YeSqlValidationResult();
@@ -45,7 +45,7 @@ public class YeSqlValidationResultTests
     }
 
     [Test]
-    public void ErrorMessages_WhenThereAreErrors_ShouldReturnsSetOfErrors()
+    public void ErrorMessages_WhenThereAreErrors_ShouldReturnSetOfErrors()
     {
         // Arrange
         var validationResult = new YeSqlValidationResult

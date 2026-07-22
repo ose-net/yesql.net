@@ -17,7 +17,7 @@ public class YeSqlParserTests
 
     [TestCase("")]
     [TestCase("  ")]
-    public void Parse_WhenDataSourceIsEmptyOrWithWhitespace_ShouldReturnsEmptyCollection(string source)
+    public void Parse_WhenDataSourceIsEmptyOrWithWhitespace_ShouldReturnEmptyCollection(string source)
     {
         // Arrange
         var parser = new YeSqlParser();
@@ -32,7 +32,7 @@ public class YeSqlParserTests
     }
 
     [Test]
-    public void Parse_WhenTagNameIsCaseInsensitive_ShouldReturnsSqlStatements()
+    public void Parse_WhenTagNameIsCaseInsensitive_ShouldReturnSqlStatements()
     {
         // Arrange
         var parser = new YeSqlParser();
@@ -164,7 +164,7 @@ public class YeSqlParserTests
     }
 
     [TestCaseSource(typeof(TagHasNoSqlStatementTestCases))]
-    public void Parse_WhenTagDoesNotHaveAnySqlStatement_ShouldReturnsTagWithEmptyString(string source)
+    public void Parse_WhenTagDoesNotHaveAnySqlStatement_ShouldReturnTagWithEmptyString(string source)
     {
         // Arrange
         var parser = new YeSqlParser();
