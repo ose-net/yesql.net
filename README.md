@@ -30,6 +30,7 @@ See the [API documentation](https://ose-net.github.io/yesql.net/api/YeSql.Net.ht
   - [Copy .sql files to the publish directory](#copy-sql-files-to-the-publish-directory)
 - [Samples](#samples)
 - [Contribution](#contribution)
+- [License](#license)
 
 ## Advantages
 
@@ -253,12 +254,16 @@ You can find a complete and functional example in these projects:
 
 ## Contribution
 
-Any contribution is welcome! Remember that you can contribute not only in the code, but also in the documentation or even improve the tests.
+Contributions of all kinds are welcome! You can help by improving the code, documentation, or tests.
 
-Follow the steps below:
+To contribute:
 
-- Fork it
-- Create your feature branch (git checkout -b my-new-change)
-- Commit your changes (git commit -am 'Add some change')
-- Push to the branch (git push origin my-new-change)
-- Create new Pull Request
+- Fork the repository.
+- Create a feature branch (`git checkout -b my-new-change`).
+- Commit your changes (`git commit -am "Add some change"`).
+- Push to your branch (`git push origin my-new-change`).
+- Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/ose-net/yesql.net/blob/master/LICENSE) file for details.
