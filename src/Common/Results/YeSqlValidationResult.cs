@@ -38,7 +38,9 @@ public class YeSqlValidationResult : IEnumerable<string>
         {
             if (_errors.Count == 0)
                 return string.Empty;
+
             var stringBuilder = new StringBuilder();
+
             foreach (var error in _errors)
                 stringBuilder.Append(error + Environment.NewLine);
 

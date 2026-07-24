@@ -19,7 +19,7 @@ internal class YeSqlDictionary : ISqlCollection
         get
         {
             ThrowHelper.ThrowIfNull(tagName, nameof(tagName));
-            if(_sqlStatements.TryGetValue(tagName, out var sqlStatement))
+            if (_sqlStatements.TryGetValue(tagName, out var sqlStatement))
                 return sqlStatement;
 
             throw new TagNotFoundException(string.Format(ExceptionMessages.TagNotFound, tagName));
@@ -33,7 +33,7 @@ internal class YeSqlDictionary : ISqlCollection
     /// <inheritdoc />
     public bool TryGetStatement(string tagName, out string sqlStatement)
     {
-        ThrowHelper.ThrowIfNull(tagName, nameof (tagName));
+        ThrowHelper.ThrowIfNull(tagName, nameof(tagName));
         return _sqlStatements.TryGetValue(tagName, out sqlStatement);
     }
 
@@ -52,7 +52,7 @@ internal class YeSqlDictionary : ISqlCollection
             _sqlStatements.Add(tagName, sqlStatement);
             return true;
         }
-        catch(ArgumentException)
+        catch (ArgumentException)
         {
             return false;
         }
@@ -64,7 +64,7 @@ internal class YeSqlDictionary : ISqlCollection
     /// <returns>An enumerator that can be used to iterate through the SQL statements contained in the collection.</returns>
     public IEnumerator<ModelTag> GetEnumerator()
     {
-        foreach(var keyValuePair in _sqlStatements)
+        foreach (var keyValuePair in _sqlStatements)
             yield return new ModelTag { Name = keyValuePair.Key, SqlStatement = keyValuePair.Value };
     }
 
@@ -79,8 +79,10 @@ internal class YeSqlDictionary : ISqlCollection
     public override string ToString()
     {
         var sb = new StringBuilder();
+
         foreach (var tagModel in this)
             sb.Append(tagModel.ToString());
+
         return sb.ToString();
     }
 }

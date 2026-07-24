@@ -87,7 +87,7 @@ public partial class YeSqlParser
     {
         ThrowHelper.ThrowIfNull(source, nameof(source));
         validationResult = ValidationResult;
-        if(string.IsNullOrWhiteSpace(source))
+        if (string.IsNullOrWhiteSpace(source))
         {
             ValidationResult.Add(errorMessage: FormatParserExceptionMessage(
                 ExceptionMessages.DataSourceIsEmptyOrWhitespace,
@@ -105,7 +105,7 @@ public partial class YeSqlParser
             if (string.IsNullOrWhiteSpace(line.Text))
                 continue;
 
-            if(IsCommentWithTag(ref line))
+            if (IsCommentWithTag(ref line))
             {
                 var extractedTag = ExtractTagName(ref line);
                 AddExtractedTagToDictionary(extractedTag, ref line);
@@ -116,7 +116,7 @@ public partial class YeSqlParser
             if (IsCommentWithoutTag(ref line))
                 continue;
 
-            if(string.IsNullOrEmpty(currentTag))
+            if (string.IsNullOrEmpty(currentTag))
             {
                 validationResult.Add(errorMessage: FormatParserExceptionMessage(
                     ExceptionMessages.LineIsNotAssociatedWithAnyTag,

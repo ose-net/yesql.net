@@ -55,6 +55,7 @@ public partial class YeSqlLoader
             FileName = Path.GetFileName(file),
             Content  = File.ReadAllText(path)
         };
+
         return Result<SqlFile>.Success(sqlFile);
     }
 
